@@ -895,8 +895,6 @@
       100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
     }
 
-    /* RESPONSIVE */
-
     /* Touch optimizations */
     button, a, [data-curso] {
       -webkit-tap-highlight-color: transparent;
@@ -904,11 +902,226 @@
     }
 
     /* ═══════════════════════════════════════════
+       GRADUACIONES & COMUNIDAD
+    ═══════════════════════════════════════════ */
+    .graduaciones { padding: 80px 0; }
+
+    .rating-hero {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 36px 40px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.06);
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+    }
+
+    .rating-big { text-align: center; flex-shrink: 0; }
+    .rating-big .score { font-size: 72px; font-weight: 700; color: var(--primary); line-height: 1; }
+    .rating-big .score-label { font-size: 13px; opacity: .65; margin-top: 4px; }
+    .rating-stars-display { display: flex; gap: 4px; justify-content: center; margin: 8px 0 4px; }
+    .star-icon { font-size: 20px; }
+
+    .rating-bars { flex: 1; min-width: 200px; }
+    .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 13px; }
+    .bar-row .bar-label { width: 60px; opacity: .7; flex-shrink: 0; }
+    .bar-track { flex: 1; height: 8px; background: var(--bg); border-radius: 999px; overflow: hidden; }
+    .bar-fill { height: 100%; background: var(--primary); border-radius: 999px; transition: width .6s ease; }
+    .bar-count { width: 24px; text-align: right; opacity: .55; font-size: 12px; flex-shrink: 0; }
+
+    .rating-cta { flex-shrink: 0; text-align: center; }
+    .rating-cta p { font-size: 14px; opacity: .75; margin-bottom: 14px; max-width: 180px; }
+
+    .upload-zone {
+      background: var(--card);
+      border-radius: 22px;
+      padding: 30px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.06);
+      margin-bottom: 40px;
+    }
+    .upload-zone h3 { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
+    .upload-zone > p { font-size: 13px; opacity: .7; margin-bottom: 22px; }
+
+    .upload-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+
+    .up-form-group { margin-bottom: 0; }
+    .up-form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+    .up-form-group input,
+    .up-form-group textarea,
+    .up-form-group select {
+      width: 100%; border: 1.5px solid #e8d5c9; border-radius: 10px; padding: 11px 14px;
+      font-size: 13.5px; font-family: 'Poppins',sans-serif; color: var(--text);
+      background: #fff; outline: none; transition: border-color .2s;
+    }
+    .up-form-group input:focus,
+    .up-form-group textarea:focus,
+    .up-form-group select:focus { border-color: var(--primary); }
+    .up-form-group textarea { height: 86px; resize: none; }
+
+    .dropzone {
+      border: 2px dashed #e8d5c9; border-radius: 14px; background: var(--bg);
+      padding: 28px; text-align: center; cursor: pointer; transition: .25s;
+      position: relative; margin-bottom: 18px;
+    }
+    .dropzone:hover { border-color: var(--primary); background: #fdf5f2; }
+    .dropzone input[type=file] { position:absolute; inset:0; opacity:0; cursor:pointer; width:100%; height:100%; }
+    .dropzone .dz-icon { font-size: 32px; margin-bottom: 8px; }
+    .dropzone p { font-size: 13px; opacity: .7; }
+    .dropzone p strong { color: var(--primary); }
+
+    .preview-strip { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+    .preview-thumb { width: 70px; height: 70px; border-radius: 10px; object-fit: cover; border: 2px solid var(--soft); }
+    .preview-wrap { position: relative; display: inline-block; }
+    .preview-remove {
+      position: absolute; top: -6px; right: -6px;
+      width: 20px; height: 20px; background: var(--primary); color: white;
+      border: none; border-radius: 50%; font-size: 11px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; line-height: 1;
+    }
+
+    .star-picker { display: flex; gap: 6px; margin-bottom: 6px; }
+    .star-picker button {
+      background: none; border: none; font-size: 26px; cursor: pointer; padding: 0;
+      line-height: 1; transition: transform .15s; color: #ddd;
+    }
+    .star-picker button.active { color: #f0a500; }
+    .star-picker button:hover { transform: scale(1.2); }
+    .star-hint { font-size: 12px; opacity: .6; margin-bottom: 14px; }
+
+    .btn-upload {
+      width: 100%; background: var(--primary); color: #fff; border: none;
+      padding: 13px; border-radius: 999px; font-size: 14px; font-weight: 600;
+      cursor: pointer; transition: .25s; box-shadow: 0 8px 20px rgba(199,147,138,.35);
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-upload:hover { background: var(--primary-dark); transform: translateY(-2px); }
+    .btn-upload:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+    .gallery-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px; flex-wrap: wrap; gap: 12px;
+    }
+    .gallery-header h3 { font-size: 20px; font-weight: 600; }
+
+    .filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-tab {
+      background: var(--card); border: 1.5px solid #e8d5c9;
+      padding: 7px 16px; border-radius: 999px; font-size: 12px;
+      font-weight: 600; cursor: pointer; transition: .2s; color: var(--text);
+    }
+    .filter-tab.active,
+    .filter-tab:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+
+    .gallery-card {
+      background: var(--card); border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.06); overflow: hidden;
+      transition: .3s; animation: fadeUp .5s ease;
+    }
+    .gallery-card:hover { transform: translateY(-6px); box-shadow: 0 16px 36px rgba(0,0,0,.1); }
+
+    .gallery-img-wrap {
+      height: 200px; overflow: hidden; background: var(--soft); position: relative;
+    }
+    .gallery-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease;
+    }
+    .gallery-card:hover .gallery-img-wrap img { transform: scale(1.06); }
+
+    .gallery-badge {
+      position: absolute; top: 10px; left: 10px;
+      background: var(--primary); color: white;
+      font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 999px;
+    }
+
+    .gallery-body { padding: 16px 18px 18px; }
+    .gallery-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+    .gallery-name { font-size: 14px; font-weight: 600; }
+    .gallery-stars { display: flex; gap: 2px; flex-shrink: 0; font-size: 13px; color: #f0a500; }
+    .gallery-course { font-size: 12px; color: var(--primary); font-weight: 600; margin-bottom: 8px; }
+    .gallery-comment { font-size: 13px; opacity: .8; line-height: 1.65; margin-bottom: 10px; }
+    .gallery-date { font-size: 11px; opacity: .5; }
+
+    .gallery-empty {
+      grid-column: 1 / -1; text-align: center; padding: 60px 20px;
+      background: var(--card); border-radius: 20px;
+    }
+    .gallery-empty .empty-icon { font-size: 48px; margin-bottom: 14px; }
+    .gallery-empty h4 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+    .gallery-empty p { font-size: 14px; opacity: .65; }
+
+    /* Lightbox */
+    .lightbox {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,.88); z-index: 3000;
+      align-items: center; justify-content: center; padding: 20px;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox img {
+      max-width: min(90vw,800px); max-height: 80vh;
+      border-radius: 16px; object-fit: contain;
+      box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    }
+    .lightbox-close {
+      position: absolute; top: 20px; right: 24px;
+      background: none; border: none; color: white;
+      font-size: 32px; cursor: pointer; line-height: 1;
+    }
+
+    /* Rating modal */
+    .rating-modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,.5); z-index: 2500;
+      align-items: center; justify-content: center; padding: 20px;
+    }
+    .rating-modal-overlay.active { display: flex; }
+    .rating-modal {
+      background: #fff; border-radius: 22px; width: 100%; max-width: 440px;
+      padding: 32px; position: relative;
+      box-shadow: 0 30px 60px rgba(0,0,0,.15); animation: fadeUp .3s ease;
+    }
+    .rating-modal h3 { font-size: 20px; font-weight: 600; margin-bottom: 6px; }
+    .rating-modal > p { font-size: 13px; opacity: .7; margin-bottom: 22px; }
+    .rm-close {
+      position: absolute; top: 16px; right: 18px;
+      background: none; border: none; font-size: 20px; cursor: pointer; opacity: .6;
+    }
+    .rm-close:hover { opacity: 1; }
+    .big-star-picker { display: flex; gap: 10px; justify-content: center; margin-bottom: 10px; }
+    .big-star-picker button {
+      background: none; border: none; font-size: 40px; cursor: pointer;
+      padding: 0; transition: transform .15s; color: #ddd;
+    }
+    .big-star-picker button.active { color: #f0a500; }
+    .big-star-picker button:hover { transform: scale(1.15); }
+    .rm-hint { text-align: center; font-size: 13px; opacity: .6; margin-bottom: 20px; }
+    .rm-btn {
+      width: 100%; background: var(--primary); color: white;
+      border: none; padding: 13px; border-radius: 999px;
+      font-size: 14px; font-weight: 600; cursor: pointer;
+      transition: .25s; box-shadow: 0 8px 20px rgba(199,147,138,.35);
+    }
+    .rm-btn:hover { background: var(--primary-dark); }
+    .rm-btn:disabled { opacity: .5; cursor: not-allowed; }
+
+    /* Toast */
+    .toast {
+      position: fixed; bottom: 100px; left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #2e7d32; color: white; padding: 12px 24px;
+      border-radius: 999px; font-size: 13px; font-weight: 600;
+      opacity: 0; transition: opacity .3s, transform .3s;
+      z-index: 5000; pointer-events: none; white-space: nowrap;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* ═══════════════════════════════════════════
        RESPONSIVE — Tablet (max 900px)
     ═══════════════════════════════════════════ */
     @media (max-width: 900px) {
-
-      /* Navbar */
       nav {
         position: fixed;
         top: 70px; right: -100%;
@@ -924,54 +1137,34 @@
       }
       nav.active { right: 0; }
       .menu-toggle { display: block; }
-
-      /* Hero */
       .hero { padding: 60px 0 50px; }
-      .hero-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 30px;
-      }
+      .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 30px; }
       .hero p { margin: 0 auto; }
       .hero-buttons { justify-content: center; }
       .hero-logo { order: -1; }
       .hero-logo img { width: min(280px, 70%); }
-
-      /* Sobre */
       .sobre-grid { grid-template-columns: 1fr; gap: 30px; }
       .stats { grid-template-columns: repeat(2, 1fr); }
-
-      /* Cursos */
       .cursos-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-
-      /* Servicios */
       .servicios-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-
-      /* Contacto */
       .contacto-grid { grid-template-columns: 1fr; }
-
-      /* Footer */
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
       .footer-brand { grid-column: 1 / -1; }
-
-      /* Modal */
       .modal-box { width: 95%; margin: 10px; }
       .incluye-grid { grid-template-columns: 1fr; }
+      /* Graduaciones tablet */
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .upload-grid { grid-template-columns: 1fr; }
+      .rating-hero { gap: 24px; }
     }
 
     /* ═══════════════════════════════════════════
        RESPONSIVE — Mobile (max 600px)
     ═══════════════════════════════════════════ */
     @media (max-width: 600px) {
-
-      /* Base */
       .container { width: 94%; }
-
-      /* Navbar */
       .logo { width: 85px; }
       .nav-content { padding: 12px 0; }
-
-      /* Hero */
       .hero { padding: 40px 0 36px; }
       .hero h1 { font-size: clamp(30px, 8vw, 42px); }
       .hero p { font-size: 14px; }
@@ -979,35 +1172,22 @@
       .btn-primary, .btn-outline { padding: 12px 22px; font-size: 14px; width: 100%; text-align: center; }
       .hero-buttons { flex-direction: column; gap: 10px; }
       .badge { font-size: 12px; padding: 6px 14px; }
-
-      /* Section titles */
       .section-title { font-size: clamp(24px, 7vw, 32px); margin-bottom: 40px; }
       .section-subtitle { font-size: 13px; }
-
-      /* Sobre */
       .sobre { padding: 50px 0; }
       .sobre-text h3 { font-size: 19px; }
       .stats { grid-template-columns: repeat(2, 1fr); gap: 12px; }
       .card-stat { padding: 18px 14px; }
       .card-stat h4 { font-size: 26px; }
       .nit-num { font-size: 15px; }
-
-      /* Cursos */
       .cursos { padding: 50px 0; }
       .cursos-grid { grid-template-columns: 1fr; gap: 16px; }
       .curso-img-placeholder { height: 160px; }
       .curso-body { padding: 14px 16px 16px; }
       .curso-body h3 { font-size: 14px; }
       .nivel { font-size: 11px; padding: 4px 10px; }
-
-      /* Modal */
       .modal-overlay { padding: 10px; align-items: flex-end; }
-      .modal-box {
-        width: 100%;
-        max-height: 92vh;
-        border-radius: 22px 22px 0 0;
-        overflow-y: auto;
-      }
+      .modal-box { width: 100%; max-height: 92vh; border-radius: 22px 22px 0 0; overflow-y: auto; }
       .modal-header { padding: 20px 18px 16px; min-height: 90px; }
       .modal-header.has-img { min-height: 140px; }
       .modal-header h2 { font-size: 20px; }
@@ -1018,32 +1198,26 @@
       .modal-content { padding: 14px 16px; }
       .modal-footer { padding: 0 16px 16px; gap: 10px; flex-direction: column; }
       .btn-inscribir, .btn-solicitar { padding: 13px; font-size: 13px; }
-
-      /* Servicios */
       .servicios { padding: 50px 0; }
       .servicios-grid { grid-template-columns: 1fr; gap: 14px; }
       .servicio-card { padding: 22px 20px; }
       .tecnicas-section { padding: 24px 20px; }
       .tecnica-tag { font-size: 12px; padding: 6px 14px; }
-
-      /* Contacto */
       .contacto { padding: 50px 0; }
       .form-card, .info-card { padding: 22px 18px; }
-
-      /* Footer */
       .footer { padding: 40px 0 18px; }
       .footer-grid { grid-template-columns: 1fr; gap: 24px; }
       .footer-brand { grid-column: auto; }
       .footer-bottom { font-size: 11.5px; }
-
-      /* WhatsApp button smaller on mobile */
       .whatsapp { width: 54px; height: 54px; right: 16px; bottom: 16px; }
       .whatsapp svg { width: 24px; height: 24px; }
+      /* Graduaciones mobile */
+      .gallery-grid { grid-template-columns: 1fr; gap: 14px; }
+      .rating-hero { flex-direction: column; text-align: center; padding: 24px 20px; }
+      .rating-bars { width: 100%; }
+      .gallery-img-wrap { height: 180px; }
     }
 
-    /* ═══════════════════════════════════════════
-       RESPONSIVE — Small mobile (max 380px)
-    ═══════════════════════════════════════════ */
     @media (max-width: 380px) {
       .hero h1 { font-size: 28px; }
       .stats { grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -1051,7 +1225,6 @@
       .card-stat h4 { font-size: 22px; }
       .modal-stat { min-width: unset; }
     }
-
   </style>
 </head>
 
@@ -1068,6 +1241,7 @@
         <a href="#sobre">Sobre Mí</a>
         <a href="#cursos">Cursos</a>
         <a href="#servicios">Servicios</a>
+        <a href="#graduaciones">Graduaciones</a>
         <a href="#contacto" class="btn-contacto">Contacto</a>
       </nav>
 
@@ -1087,10 +1261,8 @@
           <button class="btn-outline" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Contáctame</button>
         </div>
       </div>
-
       <div class="hero-logo">
-        <img src="img/logo.png" alt="Estetic Val"
-             onerror="this.style.opacity='0'"/>
+        <img src="img/logo.png" alt="Estetic Val" onerror="this.style.opacity='0'"/>
       </div>
     </div>
   </section>
@@ -1099,7 +1271,6 @@
   <section id="sobre" class="sobre">
     <div class="container">
       <h2 class="section-title">Sobre Mí</h2>
-
       <div class="sobre-grid">
         <div class="sobre-text">
           <h3>Bienvenida a Estetic Val</h3>
@@ -1108,39 +1279,22 @@
           <p>Mi misión es compartir mis conocimientos y técnicas especializadas para ayudarte a destacar en esta industria en constante evolución. Cada curso está diseñado con dedicación, combinando teoría de vanguardia con práctica intensiva.</p>
           <p>Juntas, crearemos tu <em>camino hacia el éxito profesional</em> en el fascinante mundo de la belleza y el cuidado estético.</p>
         </div>
-
         <div class="stats">
           <div class="card-stat">
-            <div class="stat-icon">
-              <!-- users -->
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg>
-            </div>
-            <h4>500+</h4>
-            <span>Estudiantes</span>
+            <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg></div>
+            <h4>500+</h4><span>Estudiantes</span>
           </div>
           <div class="card-stat">
-            <div class="stat-icon">
-              <!-- academic-cap -->
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg>
-            </div>
-            <h4>7+</h4>
-            <span>Años de Experiencia</span>
+            <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg></div>
+            <h4>7+</h4><span>Años de Experiencia</span>
           </div>
           <div class="card-stat">
-            <div class="stat-icon">
-              <!-- star -->
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"/></svg>
-            </div>
-            <h4>10+</h4>
-            <span>Cursos Impartidos</span>
+            <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"/></svg></div>
+            <h4>10+</h4><span>Cursos Impartidos</span>
           </div>
           <div class="card-stat">
-            <div class="stat-icon">
-              <!-- heart -->
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg>
-            </div>
-            <h4>98%</h4>
-            <span>Satisfacción</span>
+            <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg></div>
+            <h4>98%</h4><span>Satisfacción</span>
           </div>
         </div>
       </div>
@@ -1152,7 +1306,6 @@
     <div class="container">
       <h2 class="section-title">Cursos Especializados</h2>
       <p class="section-subtitle">Descubre nuestra selección de cursos diseñados para llevarte al siguiente nivel profesional</p>
-
       <div class="cursos-grid">
 
         <div class="curso-card">
@@ -1193,7 +1346,6 @@
           </div>
         </div>
 
-        <!-- Maderoterapia -->
         <div class="curso-card">
           <div class="curso-img-placeholder destacado">
             <span class="badge-destacado"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="13" height="13"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/></svg> Curso Destacado</span>
@@ -1213,7 +1365,6 @@
           </div>
         </div>
 
-        <!-- Drenaje Linfático -->
         <div class="curso-card">
           <div class="curso-img-placeholder">
             <img src="img/imagen_drenaje_linfatico.jpeg" alt="Curso de Drenaje Linfático" loading="lazy"/>
@@ -1305,7 +1456,6 @@
           </div>
         </div>
 
-        <!-- Keratina -->
         <div class="curso-card">
           <div class="curso-img-placeholder">
             <img src="img/imagen_keratina.jpeg" alt="Curso de Keratina" loading="lazy"/>
@@ -1324,7 +1474,6 @@
           </div>
         </div>
 
-        <!-- Depilación -->
         <div class="curso-card">
           <div class="curso-img-placeholder">
             <img src="img/imagen_depilacion.jpeg" alt="Curso de Depilación" loading="lazy"/>
@@ -1346,123 +1495,114 @@
       </div>
     </div>
   </section>
+
+  <!-- SERVICIOS -->
   <section id="servicios" class="servicios">
     <div class="container">
       <h2 class="section-title">Mis Servicios</h2>
       <p class="section-subtitle">Ofrezco servicios profesionales de belleza con las mejores técnicas del mercado</p>
-
       <div class="servicios-grid">
-        <!-- Uñas Profesionales -->
-        <div class="servicio-card">
-          <div class="servicio-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M10.05 4.575a1.575 1.575 0 1 0-3.15 0v3m3.15-3v-1.5a1.575 1.575 0 0 1 3.15 0v1.5m-3.15 0 .075 5.925m3.075.75V4.575m0 0a1.575 1.575 0 0 1 3.15 0V15M6.9 7.575a1.575 1.575 0 1 0-3.15 0v8.175a6.75 6.75 0 0 0 6.75 6.75h2.018a5.25 5.25 0 0 0 3.712-1.538l1.732-1.732a5.25 5.25 0 0 0 1.538-3.712l.003-2.024a.668.668 0 0 1 .198-.471 1.575 1.575 0 1 0-2.228-2.228 3.818 3.818 0 0 0-1.12 2.687M6.9 7.575V12m6.27 4.318A4.49 4.49 0 0 1 16.35 15m.002 0h-.002"/></svg>
-          </div>
-          <h4>Uñas Profesionales</h4>
-          <p>Servicio completo de manicura con técnicas en soft gel, acrílicas, semipermanente, gel y efecto diping para uñas perfectas.</p>
-        </div>
-
-        <!-- Pestañas -->
-        <div class="servicio-card">
-          <div class="servicio-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>
-          </div>
-          <h4>Pestañas Punto a Punto y Pelo a Pelo</h4>
-          <p>Aplicación profesional de extensiones de pestañas con técnicas punto a punto y pelo a pelo para una mirada impactante.</p>
-        </div>
-
-        <!-- Cejas en Henna -->
-        <div class="servicio-card">
-          <div class="servicio-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z"/></svg>
-          </div>
-          <h4>Cejas en Henna</h4>
-          <p>Diseño y coloración de cejas con henna natural para un resultado duradero y de aspecto profesional.</p>
-        </div>
-
-        <!-- Maderoterapia -->
-        <div class="servicio-card">
-          <div class="servicio-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z"/></svg>
-          </div>
-          <h4>Maderoterapia</h4>
-          <p>Masajes reductores con técnicas especializadas de maderoterapia para moldear y tonificar el cuerpo.</p>
-        </div>
-
-        <!-- Drenaje Linfático -->
-        <div class="servicio-card">
-          <div class="servicio-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"/></svg>
-          </div>
-          <h4>Drenaje Linfático</h4>
-          <p>Tratamientos de drenaje linfático manual para eliminar toxinas, reducir inflamación y mejorar la circulación.</p>
-        </div>
-
-
-        <!-- Peinados -->
-        <div class="servicio-card">
-          <div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="m7.848 8.25 1.536.887M7.848 8.25a3 3 0 1 1-5.196-3 3 3 0 0 1 5.196 3Zm1.536.887a2.165 2.165 0 0 1 1.083 1.839c.005.351.054.695.14 1.024M9.384 9.137l2.077 1.199M7.848 15.75l1.536-.887m-1.536.887a3 3 0 1 1-5.196 3 3 3 0 0 1 5.196-3Zm1.536-.887a2.165 2.165 0 0 0 1.083-1.838c.005-.352.054-.695.14-1.025m-1.223 2.863 2.077-1.199m0-3.328a4.323 4.323 0 0 1 2.068-1.379l5.325-1.628a4.5 4.5 0 0 1 2.48-.044l.803.215-7.794 4.5m-2.882-1.664L10.979 8.937m-2.595 12.548 7.795-4.5m0 0 .81.833a4.5 4.5 0 0 0 2.079 1.058l1.481.247-8.17-2.138Z"/></svg></div>
-          <h4>Peinados Profesionales</h4>
-          <p>Peinados para todo tipo de eventos, desde looks casuales hasta alta peluquería. Resultados perfectos y duraderos.</p>
-        </div>
-
-        <!-- Colorimetría -->
-        <div class="servicio-card">
-          <div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z"/></svg></div>
-          <h4>Colorimetría</h4>
-          <p>Coloración capilar profesional con dominio de la teoría del color para lograr resultados exactos y personalizados.</p>
-        </div>
-
-        <!-- Maquillaje -->
-        <div class="servicio-card">
-          <div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z"/></svg></div>
-          <h4>Maquillaje Profesional</h4>
-          <p>Maquillaje para eventos, día a día y ocasiones especiales con técnicas profesionales que realzan tu belleza natural.</p>
-        </div>
-
-        <!-- Maquillaje Artístico -->
-        <div class="servicio-card">
-          <div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"/></svg></div>
-          <h4>Maquillaje Artístico</h4>
-          <p>Maquillaje creativo para editoriales, pasarelas y efectos especiales. Arte aplicado directamente en tu rostro.</p>
-        </div>
-
-        <!-- Keratina -->
-        <div class="servicio-card">
-          <div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42"/></svg></div>
-          <h4>Keratina</h4>
-          <p>Tratamiento de alisado con keratina para transformar el cabello dañado en cabello liso, brillante y saludable.</p>
-        </div>
-
-        <!-- Depilación -->
-        <div class="servicio-card">
-          <div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg></div>
-          <h4>Depilación Láser y con Cera</h4>
-          <p>Eliminación del vello corporal con técnicas láser y cera de forma segura, profesional y con resultados duraderos.</p>
-        </div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M10.05 4.575a1.575 1.575 0 1 0-3.15 0v3m3.15-3v-1.5a1.575 1.575 0 0 1 3.15 0v1.5m-3.15 0 .075 5.925m3.075.75V4.575m0 0a1.575 1.575 0 0 1 3.15 0V15M6.9 7.575a1.575 1.575 0 1 0-3.15 0v8.175a6.75 6.75 0 0 0 6.75 6.75h2.018a5.25 5.25 0 0 0 3.712-1.538l1.732-1.732a5.25 5.25 0 0 0 1.538-3.712l.003-2.024a.668.668 0 0 1 .198-.471 1.575 1.575 0 1 0-2.228-2.228 3.818 3.818 0 0 0-1.12 2.687M6.9 7.575V12m6.27 4.318A4.49 4.49 0 0 1 16.35 15m.002 0h-.002"/></svg></div><h4>Uñas Profesionales</h4><p>Servicio completo de manicura con técnicas en soft gel, acrílicas, semipermanente, gel y efecto diping para uñas perfectas.</p></div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg></div><h4>Pestañas Punto a Punto y Pelo a Pelo</h4><p>Aplicación profesional de extensiones de pestañas con técnicas punto a punto y pelo a pelo para una mirada impactante.</p></div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z"/></svg></div><h4>Cejas en Henna</h4><p>Diseño y coloración de cejas con henna natural para un resultado duradero y de aspecto profesional.</p></div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z"/></svg></div><h4>Maderoterapia</h4><p>Masajes reductores con técnicas especializadas de maderoterapia para moldear y tonificar el cuerpo.</p></div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"/></svg></div><h4>Drenaje Linfático</h4><p>Tratamientos de drenaje linfático manual para eliminar toxinas, reducir inflamación y mejorar la circulación.</p></div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="m7.848 8.25 1.536.887M7.848 8.25a3 3 0 1 1-5.196-3 3 3 0 0 1 5.196 3Zm1.536.887a2.165 2.165 0 0 1 1.083 1.839c.005.351.054.695.14 1.024M9.384 9.137l2.077 1.199M7.848 15.75l1.536-.887m-1.536.887a3 3 0 1 1-5.196 3 3 3 0 0 1 5.196-3Zm1.536-.887a2.165 2.165 0 0 0 1.083-1.838c.005-.352.054-.695.14-1.025m-1.223 2.863 2.077-1.199m0-3.328a4.323 4.323 0 0 1 2.068-1.379l5.325-1.628a4.5 4.5 0 0 1 2.48-.044l.803.215-7.794 4.5m-2.882-1.664L10.979 8.937m-2.595 12.548 7.795-4.5m0 0 .81.833a4.5 4.5 0 0 0 2.079 1.058l1.481.247-8.17-2.138Z"/></svg></div><h4>Peinados Profesionales</h4><p>Peinados para todo tipo de eventos, desde looks casuales hasta alta peluquería. Resultados perfectos y duraderos.</p></div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z"/></svg></div><h4>Colorimetría</h4><p>Coloración capilar profesional con dominio de la teoría del color para lograr resultados exactos y personalizados.</p></div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z"/></svg></div><h4>Maquillaje Profesional</h4><p>Maquillaje para eventos, día a día y ocasiones especiales con técnicas profesionales que realzan tu belleza natural.</p></div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"/></svg></div><h4>Maquillaje Artístico</h4><p>Maquillaje creativo para editoriales, pasarelas y efectos especiales. Arte aplicado directamente en tu rostro.</p></div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42"/></svg></div><h4>Keratina</h4><p>Tratamiento de alisado con keratina para transformar el cabello dañado en cabello liso, brillante y saludable.</p></div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg></div><h4>Depilación Láser y con Cera</h4><p>Eliminación del vello corporal con técnicas láser y cera de forma segura, profesional y con resultados duraderos.</p></div>
       </div>
 
       <div class="tecnicas-section">
         <h3>Técnicas Especializadas</h3>
         <div class="tecnicas-tags">
-          <span class="tecnica-tag">Soft Gel</span>
-          <span class="tecnica-tag">Uñas Acrílicas</span>
-          <span class="tecnica-tag">Semipermanente</span>
-          <span class="tecnica-tag">Gel</span>
-          <span class="tecnica-tag">Efecto Diping</span>
-          <span class="tecnica-tag">Pestañas Punto a Punto</span>
-          <span class="tecnica-tag">Pestañas Pelo a Pelo</span>
-          <span class="tecnica-tag">Cejas en Henna</span>
-          <span class="tecnica-tag">Maderoterapia</span>
-          <span class="tecnica-tag">Drenaje Linfático</span>
-          <span class="tecnica-tag">Peinados Profesionales</span>
-          <span class="tecnica-tag">Colorimetría Capilar</span>
-          <span class="tecnica-tag">Maquillaje Social</span>
-          <span class="tecnica-tag">Maquillaje Artístico</span>
-          <span class="tecnica-tag">Keratina</span>
-          <span class="tecnica-tag">Depilación Láser</span>
-          <span class="tecnica-tag">Depilación con Cera</span>
+          <span class="tecnica-tag">Soft Gel</span><span class="tecnica-tag">Uñas Acrílicas</span><span class="tecnica-tag">Semipermanente</span><span class="tecnica-tag">Gel</span><span class="tecnica-tag">Efecto Diping</span><span class="tecnica-tag">Pestañas Punto a Punto</span><span class="tecnica-tag">Pestañas Pelo a Pelo</span><span class="tecnica-tag">Cejas en Henna</span><span class="tecnica-tag">Maderoterapia</span><span class="tecnica-tag">Drenaje Linfático</span><span class="tecnica-tag">Peinados Profesionales</span><span class="tecnica-tag">Colorimetría Capilar</span><span class="tecnica-tag">Maquillaje Social</span><span class="tecnica-tag">Maquillaje Artístico</span><span class="tecnica-tag">Keratina</span><span class="tecnica-tag">Depilación Láser</span><span class="tecnica-tag">Depilación con Cera</span>
         </div>
         <button class="btn-primary" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Solicitar Información →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       GRADUACIONES & COMUNIDAD  (NUEVA SECCIÓN)
+  ══════════════════════════════════════════ -->
+  <section id="graduaciones" class="graduaciones">
+    <div class="container">
+      <h2 class="section-title">Graduaciones & Comunidad</h2>
+      <p class="section-subtitle">Celebramos cada logro. Comparte tu foto de graduación, deja tu experiencia y valora nuestros cursos.</p>
+
+      <!-- PUNTUACIÓN GENERAL -->
+      <div class="rating-hero">
+        <div class="rating-big">
+          <div class="score" id="score-num">–</div>
+          <div class="rating-stars-display" id="score-stars"></div>
+          <div class="score-label" id="score-label">sin valoraciones aún</div>
+        </div>
+        <div class="rating-bars">
+          <div class="bar-row"><span class="bar-label">5 ⭐</span><div class="bar-track"><div class="bar-fill" id="bar5" style="width:0%"></div></div><span class="bar-count" id="cnt5">0</span></div>
+          <div class="bar-row"><span class="bar-label">4 ⭐</span><div class="bar-track"><div class="bar-fill" id="bar4" style="width:0%"></div></div><span class="bar-count" id="cnt4">0</span></div>
+          <div class="bar-row"><span class="bar-label">3 ⭐</span><div class="bar-track"><div class="bar-fill" id="bar3" style="width:0%"></div></div><span class="bar-count" id="cnt3">0</span></div>
+          <div class="bar-row"><span class="bar-label">2 ⭐</span><div class="bar-track"><div class="bar-fill" id="bar2" style="width:0%"></div></div><span class="bar-count" id="cnt2">0</span></div>
+          <div class="bar-row"><span class="bar-label">1 ⭐</span><div class="bar-track"><div class="bar-fill" id="bar1" style="width:0%"></div></div><span class="bar-count" id="cnt1">0</span></div>
+        </div>
+        <div class="rating-cta">
+          <p>¿Ya tomaste un curso? ¡Cuéntanos tu experiencia!</p>
+          <button class="btn-primary" onclick="openRatingModal()">Dar mi puntuación ★</button>
+        </div>
+      </div>
+
+      <!-- SUBIR FOTO & COMENTARIO -->
+      <div class="upload-zone">
+        <h3>📸 Comparte tu graduación</h3>
+        <p>Sube tu foto, cuéntanos de qué curso te graduaste y deja tu comentario para inspirar a otras estudiantes.</p>
+
+        <div class="dropzone" id="dropzone">
+          <input type="file" id="foto-input" accept="image/*" multiple onchange="handleFiles(this.files)"/>
+          <div class="dz-icon">🖼️</div>
+          <p>Arrastra tu foto aquí o <strong>haz clic para seleccionar</strong></p>
+          <p style="font-size:11px;margin-top:4px;">JPG, PNG, WEBP · Máx 5 MB por imagen</p>
+        </div>
+        <div class="preview-strip" id="preview-strip"></div>
+
+        <div class="up-form-group" style="margin-bottom:16px;">
+            <label>Tu nombre</label>
+            <input type="text" id="up-nombre" placeholder="Ej: Valentina García"/>
+        </div>
+
+        <div class="up-form-group" style="margin-bottom:16px;">
+          <label>Tu comentario</label>
+          <textarea id="up-comentario" placeholder="Cuéntanos cómo fue tu experiencia, qué aprendiste y cómo ha cambiado tu carrera…"></textarea>
+        </div>
+
+        <label style="font-size:13px;font-weight:600;display:block;margin-bottom:8px;">Tu valoración del curso</label>
+        <div class="star-picker" id="up-stars">
+          <button type="button" data-v="1" onclick="setUpStar(1)">★</button>
+          <button type="button" data-v="2" onclick="setUpStar(2)">★</button>
+          <button type="button" data-v="3" onclick="setUpStar(3)">★</button>
+          <button type="button" data-v="4" onclick="setUpStar(4)">★</button>
+          <button type="button" data-v="5" onclick="setUpStar(5)">★</button>
+        </div>
+        <div class="star-hint" id="up-star-hint">Selecciona una puntuación</div>
+
+        <button class="btn-upload" id="btn-subir" onclick="publicarEntrada()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5"/></svg>
+          Publicar en la galería
+        </button>
+        <div id="up-msg" style="display:none;margin-top:12px;padding:10px 14px;border-radius:10px;font-size:13px;"></div>
+      </div>
+
+      <!-- GALERÍA -->
+      <div class="gallery-header">
+        <h3>🎓 Galería de Graduadas</h3>
+      </div>
+      <div class="gallery-grid" id="gallery-grid">
+        <div class="gallery-empty">
+          <div class="empty-icon">🌸</div>
+          <h4>¡Sé la primera en compartir!</h4>
+          <p>Sube tu foto de graduación y forma parte de nuestra comunidad de profesionales.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1472,70 +1612,28 @@
     <div class="container">
       <h2 class="section-title">Contáctame</h2>
       <p class="section-subtitle">¿Lista para dar el siguiente paso? Estoy aquí para ayudarte</p>
-
       <div class="contacto-grid">
         <div class="form-card">
           <h3>Envíame un Mensaje</h3>
-          <div class="form-group">
-            <label>Nombre Completo</label>
-            <input type="text" placeholder="Tu nombre" id="f-nombre"/>
-          </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" placeholder="tu@email.com" id="f-email"/>
-          </div>
-          <div class="form-group">
-            <label>Teléfono</label>
-            <input type="tel" placeholder="+34 600 000 000" id="f-telefono"/>
-          </div>
-          <div class="form-group">
-            <label>Mensaje</label>
-            <textarea placeholder="¿En qué puedo ayudarte?" id="f-mensaje"></textarea>
-          </div>
+          <div class="form-group"><label>Nombre Completo</label><input type="text" placeholder="Tu nombre" id="f-nombre"/></div>
+          <div class="form-group"><label>Email</label><input type="email" placeholder="tu@email.com" id="f-email"/></div>
+          <div class="form-group"><label>Teléfono</label><input type="tel" placeholder="+57 600 000 000" id="f-telefono"/></div>
+          <div class="form-group"><label>Mensaje</label><textarea placeholder="¿En qué puedo ayudarte?" id="f-mensaje"></textarea></div>
           <div id="form-msg" style="display:none;padding:10px 14px;border-radius:10px;font-size:13px;margin-bottom:12px;"></div>
           <button class="btn-enviar" onclick="enviarMensaje()">Enviar Mensaje <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"/></svg></button>
         </div>
-
         <div>
           <div class="info-card">
             <h3>Información de Contacto</h3>
-            <div class="info-item">
-              <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg></div>
-              <div>
-                <h4>Teléfono</h4>
-                <p>+57 311 542 4649</p>
-              </div>
-            </div>
-            <div class="info-item">
-              <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg></div>
-              <div>
-                <h4>Email</h4>
-                <p>lauravalentinarey16@gmail.com</p>
-              </div>
-            </div>
-            <div class="info-item">
-              <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg></div>
-              <div>
-                <h4>Ubicación</h4>
-                <p>Bogotá, Colombia</p>
-              </div>
-            </div>
+            <div class="info-item"><div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg></div><div><h4>Teléfono</h4><p>+57 311 542 4649</p></div></div>
+            <div class="info-item"><div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg></div><div><h4>Email</h4><p>lauravalentinarey16@gmail.com</p></div></div>
+            <div class="info-item"><div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg></div><div><h4>Ubicación</h4><p>Bogotá, Colombia</p></div></div>
           </div>
-
           <div class="info-card" style="margin-top:22px;">
             <h3>Sígueme en Redes</h3>
-            <a href="https://www.instagram.com/estetic.val?igsh=MXJmNWtjeDNzbGNp" target="_blank" class="red-item" style="text-decoration:none;color:inherit;">
-              <div class="red-icon" style="color:#E1306C;background:#fce4ec;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
-              <div><h4>Instagram</h4><p>@esteticval</p></div>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61588660902499" target="_blank" class="red-item" style="text-decoration:none;color:inherit;">
-              <div class="red-icon" style="color:#1877F2;background:#e3f2fd;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
-              <div><h4>Facebook</h4><p>Estetic Val</p></div>
-            </a>
-            <a href="https://www.tiktok.com/@estetic.val?is_from_webapp=1&sender_device=pc" target="_blank" class="red-item" style="text-decoration:none;color:inherit;">
-              <div class="red-icon" style="color:#000;background:#f5f5f5;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></div>
-              <div><h4>TikTok</h4><p>@esteticval</p></div>
-            </a>
+            <a href="https://www.instagram.com/estetic.val?igsh=MXJmNWtjeDNzbGNp" target="_blank" class="red-item" style="text-decoration:none;color:inherit;"><div class="red-icon" style="color:#E1306C;background:#fce4ec;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div><div><h4>Instagram</h4><p>@esteticval</p></div></a>
+            <a href="https://www.facebook.com/profile.php?id=61588660902499" target="_blank" class="red-item" style="text-decoration:none;color:inherit;"><div class="red-icon" style="color:#1877F2;background:#e3f2fd;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div><div><h4>Facebook</h4><p>Estetic Val</p></div></a>
+            <a href="https://www.tiktok.com/@estetic.val?is_from_webapp=1&sender_device=pc" target="_blank" class="red-item" style="text-decoration:none;color:inherit;"><div class="red-icon" style="color:#000;background:#f5f5f5;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></div><div><h4>TikTok</h4><p>@esteticval</p></div></a>
             <div class="horario-box">
               <h4>Horario de Atención</h4>
               <p>Lunes - Viernes: 9:00 - 20:00</p>
@@ -1553,8 +1651,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="img/logo.png" alt="Estetic Val"
-               onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<span style=\'font-family:serif;font-size:18px;color:#c7938a;font-weight:700;display:block;margin-bottom:12px;\'>Estetic Val</span>')"/>
+          <img src="img/logo.png" alt="Estetic Val" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<span style=\'font-family:serif;font-size:18px;color:#c7938a;font-weight:700;display:block;margin-bottom:12px;\'>Estetic Val</span>')"/>
           <p>Transformando vidas a través de la educación en estética y belleza profesional.</p>
         </div>
         <div class="footer-col">
@@ -1564,6 +1661,7 @@
             <li><a href="#sobre">Sobre Mí</a></li>
             <li><a href="#cursos">Cursos</a></li>
             <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#graduaciones">Graduaciones</a></li>
             <li><a href="#contacto">Contacto</a></li>
           </ul>
         </div>
@@ -1576,16 +1674,14 @@
           </ul>
         </div>
       </div>
-      <div class="footer-bottom">
-        © 2026 Estetic Val. Todos los derechos reservados. Hecho con 🤍
-      </div>
+      <div class="footer-bottom">© 2026 Estetic Val. Todos los derechos reservados. Hecho con 🤍</div>
     </div>
   </footer>
 
   <!-- WHATSAPP -->
   <a href="https://wa.me/573115424649" class="whatsapp" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
 
-  <!-- MODAL -->
+  <!-- MODAL CURSOS (original) -->
   <div class="modal-overlay" id="modal-overlay">
     <div class="modal">
       <div class="modal-header" id="modal-header">
@@ -1596,23 +1692,10 @@
       </div>
       <div class="modal-body">
         <div class="modal-stats">
-          <div class="modal-stat">
-            <div class="ms-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></div>
-            <div class="ms-label">Duración</div>
-            <div class="ms-val" id="modal-duracion"></div>
-          </div>
-          <div class="modal-stat">
-            <div class="ms-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg></div>
-            <div class="ms-label">Estudiantes</div>
-            <div class="ms-val" id="modal-estudiantes"></div>
-          </div>
-          <div class="modal-stat">
-            <div class="ms-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg></div>
-            <div class="ms-label">Nivel</div>
-            <div class="ms-val" id="modal-nivel"></div>
-          </div>
+          <div class="modal-stat"><div class="ms-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></div><div class="ms-label">Duración</div><div class="ms-val" id="modal-duracion"></div></div>
+          <div class="modal-stat"><div class="ms-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg></div><div class="ms-label">Estudiantes</div><div class="ms-val" id="modal-estudiantes"></div></div>
+          <div class="modal-stat"><div class="ms-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg></div><div class="ms-label">Nivel</div><div class="ms-val" id="modal-nivel"></div></div>
         </div>
-
         <div class="modal-section">
           <h4>Qué Incluye el Curso</h4>
           <div class="incluye-grid">
@@ -1623,7 +1706,6 @@
             <div class="incluye-item"><span class="check"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span> Acceso a grupo de soporte</div>
           </div>
         </div>
-
         <div class="modal-section">
           <div class="desc-box">
             <h4>Descripción del Curso</h4>
@@ -1639,60 +1721,70 @@
     </div>
   </div>
 
-  <script>
-    // Mobile menu
-    const toggle = document.getElementById('toggle');
-    const menu   = document.getElementById('menu');
+  <!-- MODAL PUNTUACIÓN (nuevo) -->
+  <div class="rating-modal-overlay" id="rating-modal">
+    <div class="rating-modal">
+      <button class="rm-close" onclick="closeRatingModal()">✕</button>
+      <h3>¿Cómo valorarías tu experiencia?</h3>
+      <p>Tu opinión ayuda a otras personas a conocer la calidad de los cursos de Estetic Val.</p>
+      <div class="big-star-picker" id="rm-stars">
+        <button type="button" onclick="setRmStar(1)">★</button>
+        <button type="button" onclick="setRmStar(2)">★</button>
+        <button type="button" onclick="setRmStar(3)">★</button>
+        <button type="button" onclick="setRmStar(4)">★</button>
+        <button type="button" onclick="setRmStar(5)">★</button>
+      </div>
+      <div class="rm-hint" id="rm-hint">Toca las estrellas para calificar</div>
+      <button class="rm-btn" id="rm-submit" disabled onclick="submitRating()">Enviar puntuación</button>
+    </div>
+  </div>
 
+  <!-- LIGHTBOX (nuevo) -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img id="lb-img" src="" alt=""/>
+  </div>
+
+  <!-- TOAST (nuevo) -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    /* ══════ NAVBAR ══════ */
+    const toggle   = document.getElementById('toggle');
+    const menu     = document.getElementById('menu');
     const backdrop = document.createElement('div');
     backdrop.style.cssText = 'display:none;position:fixed;inset:0;z-index:997;background:rgba(0,0,0,0.3);';
     document.body.appendChild(backdrop);
-
     toggle.addEventListener('click', () => {
       const open = menu.classList.toggle('active');
       backdrop.style.display = open ? 'block' : 'none';
     });
-    backdrop.addEventListener('click', () => {
-      menu.classList.remove('active');
-      backdrop.style.display = 'none';
-    });
-    document.querySelectorAll('#menu a').forEach(a =>
-      a.addEventListener('click', () => {
-        menu.classList.remove('active');
-        backdrop.style.display = 'none';
-      })
-    );
+    backdrop.addEventListener('click', () => { menu.classList.remove('active'); backdrop.style.display = 'none'; });
+    document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('active'); backdrop.style.display = 'none'; }));
 
-    // Navbar active on scroll
+    /* ══════ NAVBAR ACTIVE ══════ */
     const sections   = document.querySelectorAll('section[id]');
     const navAnchors = document.querySelectorAll('#menu a:not(.btn-contacto)');
-
     window.addEventListener('scroll', () => {
       let current = '';
-      sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 90) current = s.id;
-      });
-      navAnchors.forEach(a => {
-        a.style.color = '';
-        if (a.getAttribute('href') === '#' + current) a.style.color = 'var(--primary)';
-      });
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 90) current = s.id; });
+      navAnchors.forEach(a => { a.style.color = ''; if (a.getAttribute('href') === '#' + current) a.style.color = 'var(--primary)'; });
     });
 
-    // Modal data
+    /* ══════ CURSOS MODAL ══════ */
     const cursosData = {
-      manicurista:           { titulo: 'Curso de Manicurista',          img: 'img/imagen_unas1.jpeg',               desc: 'Aprende técnicas profesionales de manicura incluyendo soft gel, acrílicas, semipermanente, gel y efecto diping.',                                   duracion: '1 mes',      estudiantes: '50+', nivel: 'Todos los niveles' },
-      lashista:              { titulo: 'Curso de Lashista',              img: 'img/imagen_pestanas.jpeg',            desc: 'Domina las técnicas de extensiones de pestañas punto a punto y pelo a pelo para resultados perfectos y duraderos.',                               duracion: '2 semanas',  estudiantes: '50+', nivel: 'Todos los niveles' },
-      maderoterapia:         { titulo: 'Curso de Maderoterapia',         img: 'img/imagen_maderoterapia.jpeg',       desc: 'Especialízate en masajes reductores con técnicas de maderoterapia para moldear y tonificar el cuerpo de forma profesional.',                    duracion: '1 mes',      estudiantes: '50+', nivel: 'Todos los niveles' },
-      drenaje:               { titulo: 'Curso de Drenaje Linfático',     img: 'img/imagen_drenaje_linfatico.jpeg',  desc: 'Aprende técnicas de drenaje linfático manual para eliminar toxinas, reducir inflamación y mejorar la circulación corporal.',                     duracion: '2 semanas',  estudiantes: '50+', nivel: 'Todos los niveles' },
-      peinados:              { titulo: 'Curso de Peinados',              img: 'img/imagen_peinados.jpeg',            desc: 'Aprende a crear peinados profesionales para todo tipo de eventos, desde looks casuales hasta alta peluquería.',                                  duracion: '2 semanas',  estudiantes: '50+', nivel: 'Todos los niveles' },
-      colorimetria:          { titulo: 'Curso de Colorimetría',          img: 'img/imagen_colorimetria.jpeg',        desc: 'Domina la teoría del color y técnicas de aplicación para lograr resultados perfectos en coloración capilar.',                                    duracion: '1 mes y medio', estudiantes: '50+', nivel: 'Todos los niveles' },
-      maquillaje:            { titulo: 'Curso de Maquillaje',            img: 'img/imagen_maquillaje.jpeg',          desc: 'Técnicas profesionales de maquillaje para eventos, día a día y ocasiones especiales.',                                                          duracion: '2 semanas',  estudiantes: '50+', nivel: 'Todos los niveles' },
-      'maquillaje-artistico':{ titulo: 'Curso de Maquillaje Artístico',  img: 'img/imagen_maquillaje_artistico.jpeg',desc: 'Explora el mundo del maquillaje creativo y artístico para editoriales, pasarelas y efectos especiales.',                                       duracion: '1 mes',      estudiantes: '50+',  nivel: 'Todos los niveles' },
-      keratina:              { titulo: 'Curso de Keratina',              img: 'img/imagen_keratina.jpeg',                                    desc: 'Aprende las técnicas de alisado y tratamiento con keratina para transformar el cabello dañado en cabello liso, brillante y saludable.',           duracion: '2 semanas',  estudiantes: '50+',  nivel: 'Todos los niveles' },
-      depilacion:            { titulo: 'Curso de Depilación',            img: 'img/imagen_depilacion.jpeg',                                    desc: 'Domina las técnicas de depilación láser y con cera para ofrecer servicios de eliminación del vello de forma segura y profesional.',             duracion: '2 semanas',  estudiantes: '50+',  nivel: 'Todos los niveles' }
+      manicurista:            { titulo:'Curso de Manicurista',           img:'img/imagen_unas1.jpeg',                desc:'Aprende técnicas profesionales de manicura incluyendo soft gel, acrílicas, semipermanente, gel y efecto diping.',                                   duracion:'1 mes',         estudiantes:'50+', nivel:'Todos los niveles' },
+      lashista:               { titulo:'Curso de Lashista',              img:'img/imagen_pestanas.jpeg',             desc:'Domina las técnicas de extensiones de pestañas punto a punto y pelo a pelo para resultados perfectos y duraderos.',                               duracion:'2 semanas',     estudiantes:'50+', nivel:'Todos los niveles' },
+      maderoterapia:          { titulo:'Curso de Maderoterapia',         img:'img/imagen_maderoterapia.jpeg',        desc:'Especialízate en masajes reductores con técnicas de maderoterapia para moldear y tonificar el cuerpo de forma profesional.',                    duracion:'1 mes',         estudiantes:'50+', nivel:'Todos los niveles' },
+      drenaje:                { titulo:'Curso de Drenaje Linfático',     img:'img/imagen_drenaje_linfatico.jpeg',   desc:'Aprende técnicas de drenaje linfático manual para eliminar toxinas, reducir inflamación y mejorar la circulación corporal.',                     duracion:'2 semanas',     estudiantes:'50+', nivel:'Todos los niveles' },
+      peinados:               { titulo:'Curso de Peinados',              img:'img/imagen_peinados.jpeg',             desc:'Aprende a crear peinados profesionales para todo tipo de eventos, desde looks casuales hasta alta peluquería.',                                  duracion:'2 semanas',     estudiantes:'50+', nivel:'Todos los niveles' },
+      colorimetria:           { titulo:'Curso de Colorimetría',          img:'img/imagen_colorimetria.jpeg',         desc:'Domina la teoría del color y técnicas de aplicación para lograr resultados perfectos en coloración capilar.',                                    duracion:'1 mes y medio', estudiantes:'50+', nivel:'Todos los niveles' },
+      maquillaje:             { titulo:'Curso de Maquillaje',            img:'img/imagen_maquillaje.jpeg',           desc:'Técnicas profesionales de maquillaje para eventos, día a día y ocasiones especiales.',                                                          duracion:'2 semanas',     estudiantes:'50+', nivel:'Todos los niveles' },
+      'maquillaje-artistico': { titulo:'Curso de Maquillaje Artístico',  img:'img/imagen_maquillaje_artistico.jpeg',desc:'Explora el mundo del maquillaje creativo y artístico para editoriales, pasarelas y efectos especiales.',                                       duracion:'1 mes',         estudiantes:'50+', nivel:'Todos los niveles' },
+      keratina:               { titulo:'Curso de Keratina',              img:'img/imagen_keratina.jpeg',             desc:'Aprende las técnicas de alisado y tratamiento con keratina para transformar el cabello dañado en cabello liso, brillante y saludable.',           duracion:'2 semanas',     estudiantes:'50+', nivel:'Todos los niveles' },
+      depilacion:             { titulo:'Curso de Depilación',            img:'img/imagen_depilacion.jpeg',           desc:'Domina las técnicas de depilación láser y con cera para ofrecer servicios de eliminación del vello de forma segura y profesional.',             duracion:'2 semanas',     estudiantes:'50+', nivel:'Todos los niveles' }
     };
 
-    // Cache DOM refs once at load
     const overlay  = document.getElementById('modal-overlay');
     const modalHdr = document.getElementById('modal-header');
     const elTitulo = document.getElementById('modal-titulo');
@@ -1702,39 +1794,24 @@
     const elNivel  = document.getElementById('modal-nivel');
 
     function abrirModal(id) {
-      const d = cursosData[id];
-      if (!d) return;
-      elTitulo.textContent = d.titulo;
-      elDesc.textContent   = d.desc;
-      elDur.textContent    = d.duracion;
-      elEst.textContent    = d.estudiantes;
-      elNivel.textContent  = d.nivel;
+      const d = cursosData[id]; if (!d) return;
+      elTitulo.textContent = d.titulo; elDesc.textContent = d.desc;
+      elDur.textContent = d.duracion; elEst.textContent = d.estudiantes; elNivel.textContent = d.nivel;
       const modalImg = document.getElementById('modal-img');
       if (d.img) {
-        modalImg.src = d.img;
-        modalImg.alt = d.titulo;
-        modalImg.style.display = 'block';
+        modalImg.src = d.img; modalImg.alt = d.titulo; modalImg.style.display = 'block';
         modalHdr.classList.add('has-img');
-        // Also set background as fallback
         modalHdr.style.backgroundImage = `url('${d.img}')`;
-        modalHdr.style.backgroundSize = 'cover';
-        modalHdr.style.backgroundPosition = 'center';
+        modalHdr.style.backgroundSize = 'cover'; modalHdr.style.backgroundPosition = 'center';
       } else {
-        modalImg.style.display = 'none';
-        modalImg.src = '';
-        modalHdr.style.backgroundImage = '';
-        modalHdr.classList.remove('has-img');
+        modalImg.style.display = 'none'; modalImg.src = '';
+        modalHdr.style.backgroundImage = ''; modalHdr.classList.remove('has-img');
       }
-      overlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      overlay.classList.add('active'); document.body.style.overflow = 'hidden';
     }
 
-    function cerrarModal() {
-      overlay.classList.remove('active');
-      document.body.style.overflow = '';
-    }
+    function cerrarModal() { overlay.classList.remove('active'); document.body.style.overflow = ''; }
 
-    // Single delegated listener on document — catches all buttons regardless of nesting
     document.addEventListener('click', function(e) {
       const btn = e.target.closest('[data-curso]');
       if (btn) { e.preventDefault(); abrirModal(btn.dataset.curso); return; }
@@ -1742,55 +1819,184 @@
       if (e.target.closest('.modal-close')) { cerrarModal(); return; }
     });
 
-    // Escape key closes modal
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') cerrarModal();
-    });
-
-    function inscribirse() {
-      window.open('https://wa.me/573115424649?text=Hola!%20Me%20interesa%20inscribirme%20en%20el%20curso.', '_blank');
-    }
-
-    function solicitarInfo() {
-      window.open('https://wa.me/573115424649?text=Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20curso.', '_blank');
-    }
+    function inscribirse() { window.open('https://wa.me/573115424649?text=Hola!%20Me%20interesa%20inscribirme%20en%20el%20curso.','_blank'); }
+    function solicitarInfo() { window.open('https://wa.me/573115424649?text=Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20curso.','_blank'); }
 
     async function enviarMensaje() {
-      const nombre   = document.getElementById('f-nombre').value.trim();
-      const email    = document.getElementById('f-email').value.trim();
-      const telefono = document.getElementById('f-telefono').value.trim();
-      const mensaje  = document.getElementById('f-mensaje').value.trim();
-      const msgBox   = document.getElementById('form-msg');
-      if (!nombre || !email) {
-        msgBox.style.cssText = 'display:block;padding:10px 14px;border-radius:10px;font-size:13px;margin-bottom:12px;background:#fde8e8;color:#c0392b;';
-        msgBox.textContent = 'Por favor completa tu nombre y email.';
+      const nombre=document.getElementById('f-nombre').value.trim(), email=document.getElementById('f-email').value.trim(),
+            telefono=document.getElementById('f-telefono').value.trim(), mensaje=document.getElementById('f-mensaje').value.trim();
+      const msgBox=document.getElementById('form-msg');
+      if (!nombre||!email){ msgBox.style.cssText='display:block;padding:10px 14px;border-radius:10px;font-size:13px;margin-bottom:12px;background:#fde8e8;color:#c0392b;'; msgBox.textContent='Por favor completa tu nombre y email.'; return; }
+      const btn=document.querySelector('.btn-enviar'); const orig=btn.innerHTML; btn.textContent='Enviando...'; btn.disabled=true;
+      try {
+        const res=await fetch('https://formspree.io/f/REEMPLAZA_CON_TU_ID',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:nombre,email,phone:telefono,message:mensaje})});
+        if(res.ok){ msgBox.style.cssText='display:block;padding:10px 14px;border-radius:10px;font-size:13px;margin-bottom:12px;background:#e8f5e9;color:#2e7d32;'; msgBox.textContent='¡Mensaje enviado! Te contactaré muy pronto 💌'; ['f-nombre','f-email','f-telefono','f-mensaje'].forEach(id=>document.getElementById(id).value=''); }
+        else { throw new Error(); }
+      } catch(e) {
+        const texto=`Hola! Soy ${nombre}. Email: ${email}. Tel: ${telefono}. Mensaje: ${mensaje}`;
+        window.open(`https://wa.me/573115424649?text=${encodeURIComponent(texto)}`,'_blank');
+        msgBox.style.cssText='display:block;padding:10px 14px;border-radius:10px;font-size:13px;margin-bottom:12px;background:#fff3e0;color:#e65100;'; msgBox.textContent='Te redirigimos a WhatsApp para completar el envío.';
+      } finally { btn.innerHTML=orig; btn.disabled=false; }
+    }
+
+    /* ══════════════════════════════════════════
+       GRADUACIONES — STORAGE
+    ══════════════════════════════════════════ */
+    const GKEYS = { entries:'grad_entries_v1', ratings:'grad_ratings_v1' };
+
+    async function loadData(key) {
+      try { const r=await window.storage.get(key,true); return r ? JSON.parse(r.value) : []; } catch { return []; }
+    }
+    async function saveData(key,data) {
+      try { await window.storage.set(key,JSON.stringify(data),true); } catch {}
+    }
+
+    let entries=[], ratings=[], upStars=0, rmStars=0, uploadedImages=[], currentFilter='all';
+
+    async function initGrad() {
+      entries=await loadData(GKEYS.entries);
+      ratings=await loadData(GKEYS.ratings);
+      renderGallery(); renderScoreBoard();
+    }
+    initGrad();
+
+    /* ══ Dropzone ══ */
+    const dropzone = document.getElementById('dropzone');
+    dropzone.addEventListener('dragover',e=>{e.preventDefault();dropzone.style.borderColor='var(--primary)';});
+    dropzone.addEventListener('dragleave',()=>{dropzone.style.borderColor='#e8d5c9';});
+    dropzone.addEventListener('drop',e=>{e.preventDefault();dropzone.style.borderColor='#e8d5c9';handleFiles(e.dataTransfer.files);});
+
+    function handleFiles(files) {
+      Array.from(files).forEach(file=>{
+        if(!file.type.startsWith('image/')) return;
+        if(file.size>5*1024*1024){showToast('Imagen muy grande (máx 5 MB)','#c0392b');return;}
+        const reader=new FileReader();
+        reader.onload=e=>{uploadedImages.push(e.target.result);renderPreviews();};
+        reader.readAsDataURL(file);
+      });
+    }
+    function renderPreviews() {
+      const strip=document.getElementById('preview-strip'); strip.innerHTML='';
+      uploadedImages.forEach((src,i)=>{
+        const wrap=document.createElement('div'); wrap.className='preview-wrap';
+        wrap.innerHTML=`<img src="${src}" class="preview-thumb" alt="preview"/><button class="preview-remove" onclick="removeImg(${i})">✕</button>`;
+        strip.appendChild(wrap);
+      });
+    }
+    function removeImg(i){uploadedImages.splice(i,1);renderPreviews();}
+
+    /* ══ Estrellas subida ══ */
+    const starLabels=['','Muy malo','Malo','Regular','Bueno','Excelente'];
+    function setUpStar(n){
+      upStars=n;
+      document.querySelectorAll('#up-stars button').forEach((b,i)=>b.classList.toggle('active',i<n));
+      document.getElementById('up-star-hint').textContent=starLabels[n];
+    }
+
+    /* ══ Publicar ══ */
+    async function publicarEntrada(){
+      const nombre=document.getElementById('up-nombre').value.trim();
+      const comentario=document.getElementById('up-comentario').value.trim();
+      const msg=document.getElementById('up-msg');
+      if(!nombre){showMsg(msg,'Por favor escribe tu nombre.','#fde8e8','#c0392b');return;}
+      if(!comentario){showMsg(msg,'Escribe un comentario sobre tu experiencia.','#fde8e8','#c0392b');return;}
+      if(uploadedImages.length===0){showMsg(msg,'Sube al menos una foto de tu graduación.','#fde8e8','#c0392b');return;}
+      if(upStars===0){showMsg(msg,'Selecciona una puntuación para el curso.','#fde8e8','#c0392b');return;}
+      const btn=document.getElementById('btn-subir'); btn.disabled=true; btn.textContent='Publicando…';
+      const entry={id:Date.now(),nombre,comentario,stars:upStars,images:[...uploadedImages],fecha:new Date().toLocaleDateString('es-CO',{day:'2-digit',month:'long',year:'numeric'})};
+      entries.unshift(entry); ratings.push(upStars);
+      await saveData(GKEYS.entries,entries); await saveData(GKEYS.ratings,ratings);
+      document.getElementById('up-nombre').value='';
+      document.getElementById('up-comentario').value=''; document.getElementById('preview-strip').innerHTML='';
+      uploadedImages=[]; setUpStar(0);
+      document.querySelectorAll('#up-stars button').forEach(b=>b.classList.remove('active'));
+      document.getElementById('up-star-hint').textContent='Selecciona una puntuación';
+      renderGallery(); renderScoreBoard();
+      showMsg(msg,'¡Tu graduación fue publicada! 🎉 Gracias por compartir tu éxito.','#e8f5e9','#2e7d32');
+      showToast('¡Publicado con éxito! 🌸');
+      btn.disabled=false;
+      btn.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5"/></svg> Publicar en la galería';
+      setTimeout(()=>document.getElementById('gallery-grid').scrollIntoView({behavior:'smooth',block:'start'}),300);
+    }
+
+    /* ══ Rating modal ══ */
+    function openRatingModal(){document.getElementById('rating-modal').classList.add('active');document.body.style.overflow='hidden';}
+    function closeRatingModal(){document.getElementById('rating-modal').classList.remove('active');document.body.style.overflow='';}
+    function setRmStar(n){
+      rmStars=n;
+      document.querySelectorAll('#rm-stars button').forEach((b,i)=>b.classList.toggle('active',i<n));
+      document.getElementById('rm-hint').textContent=starLabels[n];
+      document.getElementById('rm-submit').disabled=false;
+    }
+    async function submitRating(){
+      if(!rmStars) return;
+      ratings.push(rmStars); await saveData(GKEYS.ratings,ratings);
+      renderScoreBoard(); closeRatingModal(); rmStars=0;
+      document.querySelectorAll('#rm-stars button').forEach(b=>b.classList.remove('active'));
+      document.getElementById('rm-hint').textContent='Toca las estrellas para calificar';
+      document.getElementById('rm-submit').disabled=true;
+      showToast('¡Gracias por tu valoración! ⭐');
+    }
+
+    /* ══ Scoreboard ══ */
+    function renderScoreBoard(){
+      const total=ratings.length;
+      const numEl=document.getElementById('score-num'), lblEl=document.getElementById('score-label'), starsEl=document.getElementById('score-stars');
+      if(total===0){numEl.textContent='–';lblEl.textContent='sin valoraciones aún';starsEl.innerHTML='';[1,2,3,4,5].forEach(n=>{document.getElementById('bar'+n).style.width='0%';document.getElementById('cnt'+n).textContent='0';});return;}
+      const avg=ratings.reduce((a,b)=>a+b,0)/total;
+      numEl.textContent=avg.toFixed(1); lblEl.textContent=`${total} valoraci${total===1?'ón':'ones'}`;
+      starsEl.innerHTML='';
+      for(let i=1;i<=5;i++){const s=document.createElement('span');s.className='star-icon';s.textContent=i<=Math.round(avg)?'⭐':'☆';starsEl.appendChild(s);}
+      const max=Math.max(...[1,2,3,4,5].map(n=>ratings.filter(r=>r===n).length),1);
+      [1,2,3,4,5].forEach(n=>{const cnt=ratings.filter(r=>r===n).length;document.getElementById('bar'+n).style.width=(cnt/max*100)+'%';document.getElementById('cnt'+n).textContent=cnt;});
+    }
+
+    /* ══ Galería ══ */
+    function filtrar(f,btn){
+      currentFilter=f;
+      document.querySelectorAll('.filter-tab').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active'); renderGallery();
+    }
+    function renderGallery(){
+      const grid=document.getElementById('gallery-grid');
+      if(entries.length===0){
+        grid.innerHTML=`<div class="gallery-empty"><div class="empty-icon">🌸</div><h4>¡Sé la primera en compartir!</h4><p>Sube tu foto de graduación y forma parte de nuestra comunidad de profesionales.</p></div>`;
         return;
       }
-      const btn = document.querySelector('.btn-enviar');
-      const orig = btn.innerHTML;
-      btn.textContent = 'Enviando...';
-      btn.disabled = true;
-      try {
-        const res = await fetch('https://formspree.io/f/REEMPLAZA_CON_TU_ID', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ name: nombre, email, phone: telefono, message: mensaje })
-        });
-        if (res.ok) {
-          msgBox.style.cssText = 'display:block;padding:10px 14px;border-radius:10px;font-size:13px;margin-bottom:12px;background:#e8f5e9;color:#2e7d32;';
-          msgBox.textContent = '¡Mensaje enviado! Te contactaré muy pronto 💌';
-          ['f-nombre','f-email','f-telefono','f-mensaje'].forEach(id => document.getElementById(id).value = '');
-        } else { throw new Error(); }
-      } catch(e) {
-        const texto = `Hola! Soy ${nombre}. Email: ${email}. Tel: ${telefono}. Mensaje: ${mensaje}`;
-        window.open(`https://wa.me/573115424649?text=${encodeURIComponent(texto)}`, '_blank');
-        msgBox.style.cssText = 'display:block;padding:10px 14px;border-radius:10px;font-size:13px;margin-bottom:12px;background:#fff3e0;color:#e65100;';
-        msgBox.textContent = 'Te redirigimos a WhatsApp para completar el envío.';
-      } finally {
-        btn.innerHTML = orig;
-        btn.disabled = false;
-      }
+      grid.innerHTML=entries.map(e=>`
+        <div class="gallery-card">
+          <div class="gallery-img-wrap" style="cursor:pointer" onclick="openLightbox('${e.images[0]}')">
+            <img src="${e.images[0]}" alt="Graduación de ${escHtml(e.nombre)}" loading="lazy"/>
+            <span class="gallery-badge">${e.images.length>1?`+${e.images.length} fotos`:'Graduada ✓'}</span>
+          </div>
+          <div class="gallery-body">
+            <div class="gallery-top">
+              <span class="gallery-name">${escHtml(e.nombre)}</span>
+              <div class="gallery-stars">${'⭐'.repeat(e.stars)}${'☆'.repeat(5-e.stars)}</div>
+            </div>
+            <p class="gallery-comment">"${escHtml(e.comentario)}"</p>
+            <span class="gallery-date">📅 ${e.fecha}</span>
+            ${e.images.length>1?`<div class="preview-strip" style="margin-top:10px;">${e.images.slice(1,4).map(src=>`<img src="${src}" class="preview-thumb" style="cursor:pointer" onclick="openLightbox('${src}')" loading="lazy"/>`).join('')}</div>`:''}
+          </div>
+        </div>`).join('');
     }
+
+    /* ══ Lightbox ══ */
+    function openLightbox(src){document.getElementById('lb-img').src=src;document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden';}
+    function closeLightbox(){document.getElementById('lightbox').classList.remove('active');document.body.style.overflow='';}
+    document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLightbox();});
+
+    /* ══ Escape key ══ */
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape'){
+        cerrarModal(); closeLightbox(); closeRatingModal();
+      }
+    });
+
+    /* ══ Helpers ══ */
+    function escHtml(str){return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+    function showMsg(el,text,bg,color){el.style.cssText=`display:block;padding:10px 14px;border-radius:10px;font-size:13px;background:${bg};color:${color};`;el.textContent=text;setTimeout(()=>{el.style.display='none';},5000);}
+    function showToast(msg,bg='#2e7d32'){const t=document.getElementById('toast');t.textContent=msg;t.style.background=bg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3200);}
   </script>
 </body>
-</html>
+</html> 
