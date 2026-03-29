@@ -218,6 +218,12 @@
     .btn-upload:hover { background: var(--primary-dark); transform: translateY(-2px); }
     .btn-upload:disabled { opacity: .6; cursor: not-allowed; transform: none; }
 
+    /* Barra de progreso */
+    .upload-progress { display: none; margin-bottom: 14px; }
+    .upload-progress-bar { height: 6px; background: var(--bg); border-radius: 999px; overflow: hidden; }
+    .upload-progress-fill { height: 100%; background: var(--primary); border-radius: 999px; transition: width 0.3s; width: 0%; }
+    .upload-progress-text { font-size: 12px; opacity: 0.6; margin-top: 4px; text-align: center; }
+
     .gallery-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
     .gallery-header h3 { font-size: 20px; font-weight: 600; }
     .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
@@ -265,17 +271,10 @@
     .toast { position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(20px); background: #2e7d32; color: white; padding: 12px 24px; border-radius: 999px; font-size: 13px; font-weight: 600; opacity: 0; transition: opacity .3s, transform .3s; z-index: 5000; pointer-events: none; white-space: nowrap; }
     .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-    /* Progress bar upload */
-    .upload-progress { display: none; margin-bottom: 14px; }
-    .upload-progress-bar { height: 6px; background: var(--bg); border-radius: 999px; overflow: hidden; }
-    .upload-progress-fill { height: 100%; background: var(--primary); border-radius: 999px; transition: width 0.3s; width: 0%; }
-    .upload-progress-text { font-size: 12px; opacity: 0.6; margin-top: 4px; text-align: center; }
-
     /* ANIMATIONS */
     @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
     @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); } 70% { box-shadow: 0 0 0 18px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
-
     button, a, [data-curso] { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 
     @media (max-width: 900px) {
@@ -374,22 +373,10 @@
           <p>Juntas, crearemos tu <em>camino hacia el éxito profesional</em> en el fascinante mundo de la belleza y el cuidado estético.</p>
         </div>
         <div class="stats">
-          <div class="card-stat">
-            <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg></div>
-            <h4>500+</h4><span>Estudiantes</span>
-          </div>
-          <div class="card-stat">
-            <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg></div>
-            <h4>7+</h4><span>Años de Experiencia</span>
-          </div>
-          <div class="card-stat">
-            <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"/></svg></div>
-            <h4>10+</h4><span>Cursos Impartidos</span>
-          </div>
-          <div class="card-stat">
-            <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg></div>
-            <h4>98%</h4><span>Satisfacción</span>
-          </div>
+          <div class="card-stat"><div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg></div><h4>500+</h4><span>Estudiantes</span></div>
+          <div class="card-stat"><div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg></div><h4>7+</h4><span>Años de Experiencia</span></div>
+          <div class="card-stat"><div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"/></svg></div><h4>10+</h4><span>Cursos Impartidos</span></div>
+          <div class="card-stat"><div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg></div><h4>98%</h4><span>Satisfacción</span></div>
         </div>
       </div>
     </div>
@@ -401,108 +388,16 @@
       <h2 class="section-title">Cursos Especializados</h2>
       <p class="section-subtitle">Descubre nuestra selección de cursos diseñados para llevarte al siguiente nivel profesional</p>
       <div class="cursos-grid">
-        <div class="curso-card">
-          <div class="curso-img-placeholder destacado">
-            <span class="badge-destacado"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="13" height="13"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/></svg> Curso Destacado</span>
-            <img src="img/imagen_unas1.jpeg" alt="Curso de Manicurista" loading="lazy"/>
-          </div>
-          <div class="curso-body">
-            <h3>Curso de Manicurista</h3>
-            <p>Aprende técnicas profesionales de manicura incluyendo soft gel, acrílicas, semipermanente, gel y efecto diping.</p>
-            <div class="curso-meta"><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> 1 mes</span><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg> 50+</span></div>
-            <div class="curso-footer"><span class="nivel"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="13" height="13"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg> Todos los niveles</span><button class="mas-info" data-curso="manicurista">Más Info →</button></div>
-          </div>
-        </div>
-        <div class="curso-card">
-          <div class="curso-img-placeholder destacado">
-            <span class="badge-destacado"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="13" height="13"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/></svg> Curso Destacado</span>
-            <img src="img/imagen_pestanas.jpeg" alt="Curso de Lashista" loading="lazy"/>
-          </div>
-          <div class="curso-body">
-            <h3>Curso de Lashista</h3>
-            <p>Domina las técnicas de extensiones de pestañas punto a punto y pelo a pelo para resultados perfectos y duraderos.</p>
-            <div class="curso-meta"><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> 2 semanas</span><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg> 50+</span></div>
-            <div class="curso-footer"><span class="nivel"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="13" height="13"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg> Todos los niveles</span><button class="mas-info" data-curso="lashista">Más Info →</button></div>
-          </div>
-        </div>
-        <div class="curso-card">
-          <div class="curso-img-placeholder destacado">
-            <span class="badge-destacado"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="13" height="13"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/></svg> Curso Destacado</span>
-            <img src="img/imagen_maderoterapia.jpeg" alt="Curso de Maderoterapia" loading="lazy"/>
-          </div>
-          <div class="curso-body">
-            <h3>Curso de Maderoterapia</h3>
-            <p>Especialízate en masajes reductores con técnicas de maderoterapia para moldear y tonificar el cuerpo de forma profesional.</p>
-            <div class="curso-meta"><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> 1 mes</span><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg> 50+</span></div>
-            <div class="curso-footer"><span class="nivel"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="13" height="13"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg> Todos los niveles</span><button class="mas-info" data-curso="maderoterapia">Más Info →</button></div>
-          </div>
-        </div>
-        <div class="curso-card">
-          <div class="curso-img-placeholder"><img src="img/imagen_drenaje_linfatico.jpeg" alt="Curso de Drenaje Linfático" loading="lazy"/></div>
-          <div class="curso-body">
-            <h3>Curso de Drenaje Linfático</h3>
-            <p>Aprende técnicas de drenaje linfático manual para eliminar toxinas, reducir inflamación y mejorar la circulación corporal.</p>
-            <div class="curso-meta"><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> 2 semanas</span><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg> 50+</span></div>
-            <div class="curso-footer"><span class="nivel"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="13" height="13"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg> Todos los niveles</span><button class="mas-info" data-curso="drenaje">Más Info →</button></div>
-          </div>
-        </div>
-        <div class="curso-card">
-          <div class="curso-img-placeholder"><img src="img/imagen_peinados.jpeg" alt="Curso de Peinados" loading="lazy"/></div>
-          <div class="curso-body">
-            <h3>Curso de Peinados</h3>
-            <p>Aprende a crear peinados profesionales para todo tipo de eventos, desde looks casuales hasta alta peluquería.</p>
-            <div class="curso-meta"><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> 2 semanas</span><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg> 50+</span></div>
-            <div class="curso-footer"><span class="nivel"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="13" height="13"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg> Todos los niveles</span><button class="mas-info" data-curso="peinados">Más Info →</button></div>
-          </div>
-        </div>
-        <div class="curso-card">
-          <div class="curso-img-placeholder"><img src="img/imagen_colorimetria.jpeg" alt="Curso de Colorimetría" loading="lazy"/></div>
-          <div class="curso-body">
-            <h3>Curso de Colorimetría</h3>
-            <p>Domina la teoría del color y técnicas de aplicación para lograr resultados perfectos en coloración capilar.</p>
-            <div class="curso-meta"><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> 1 mes y medio</span><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg> 50+</span></div>
-            <div class="curso-footer"><span class="nivel"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="13" height="13"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg> Todos los niveles</span><button class="mas-info" data-curso="colorimetria">Más Info →</button></div>
-          </div>
-        </div>
-        <div class="curso-card">
-          <div class="curso-img-placeholder destacado">
-            <span class="badge-destacado"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="13" height="13"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/></svg> Curso Destacado</span>
-            <img src="img/imagen_maquillaje.jpeg" alt="Curso de Maquillaje" loading="lazy"/>
-          </div>
-          <div class="curso-body">
-            <h3>Curso de Maquillaje</h3>
-            <p>Técnicas profesionales de maquillaje para eventos, día a día y ocasiones especiales.</p>
-            <div class="curso-meta"><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> 2 semanas</span><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg> 50+</span></div>
-            <div class="curso-footer"><span class="nivel"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="13" height="13"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg> Todos los niveles</span><button class="mas-info" data-curso="maquillaje">Más Info →</button></div>
-          </div>
-        </div>
-        <div class="curso-card">
-          <div class="curso-img-placeholder"><img src="img/imagen_maquillaje_artistico.jpeg" alt="Curso de Maquillaje Artístico" loading="lazy"/></div>
-          <div class="curso-body">
-            <h3>Curso de Maquillaje Artístico</h3>
-            <p>Explora el mundo del maquillaje creativo y artístico para editoriales, pasarelas y efectos especiales.</p>
-            <div class="curso-meta"><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> 1 mes</span><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg> 50+</span></div>
-            <div class="curso-footer"><span class="nivel"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="13" height="13"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg> Todos los niveles</span><button class="mas-info" data-curso="maquillaje-artistico">Más Info →</button></div>
-          </div>
-        </div>
-        <div class="curso-card">
-          <div class="curso-img-placeholder"><img src="img/imagen_keratina.jpeg" alt="Curso de Keratina" loading="lazy"/></div>
-          <div class="curso-body">
-            <h3>Curso de Keratina</h3>
-            <p>Aprende las técnicas de alisado y tratamiento con keratina para transformar el cabello dañado en cabello liso, brillante y saludable.</p>
-            <div class="curso-meta"><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> 2 semanas</span><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg> 50+</span></div>
-            <div class="curso-footer"><span class="nivel"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="13" height="13"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg> Todos los niveles</span><button class="mas-info" data-curso="keratina">Más Info →</button></div>
-          </div>
-        </div>
-        <div class="curso-card">
-          <div class="curso-img-placeholder"><img src="img/imagen_depilacion.jpeg" alt="Curso de Depilación" loading="lazy"/></div>
-          <div class="curso-body">
-            <h3>Curso de Depilación</h3>
-            <p>Domina las técnicas de depilación láser y con cera para ofrecer servicios de eliminación del vello de forma segura y profesional.</p>
-            <div class="curso-meta"><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> 2 semanas</span><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg> 50+</span></div>
-            <div class="curso-footer"><span class="nivel"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="13" height="13"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg> Todos los niveles</span><button class="mas-info" data-curso="depilacion">Más Info →</button></div>
-          </div>
-        </div>
+        <div class="curso-card"><div class="curso-img-placeholder destacado"><span class="badge-destacado"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="13" height="13"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/></svg> Curso Destacado</span><img src="img/imagen_unas1.jpeg" alt="Curso de Manicurista" loading="lazy"/></div><div class="curso-body"><h3>Curso de Manicurista</h3><p>Aprende técnicas profesionales de manicura incluyendo soft gel, acrílicas, semipermanente, gel y efecto diping.</p><div class="curso-meta"><span>⏱ 1 mes</span><span>👥 50+</span></div><div class="curso-footer"><span class="nivel">Todos los niveles</span><button class="mas-info" data-curso="manicurista">Más Info →</button></div></div></div>
+        <div class="curso-card"><div class="curso-img-placeholder destacado"><span class="badge-destacado"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="13" height="13"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/></svg> Curso Destacado</span><img src="img/imagen_pestanas.jpeg" alt="Curso de Lashista" loading="lazy"/></div><div class="curso-body"><h3>Curso de Lashista</h3><p>Domina las técnicas de extensiones de pestañas punto a punto y pelo a pelo para resultados perfectos y duraderos.</p><div class="curso-meta"><span>⏱ 2 semanas</span><span>👥 50+</span></div><div class="curso-footer"><span class="nivel">Todos los niveles</span><button class="mas-info" data-curso="lashista">Más Info →</button></div></div></div>
+        <div class="curso-card"><div class="curso-img-placeholder destacado"><span class="badge-destacado"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="13" height="13"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/></svg> Curso Destacado</span><img src="img/imagen_maderoterapia.jpeg" alt="Curso de Maderoterapia" loading="lazy"/></div><div class="curso-body"><h3>Curso de Maderoterapia</h3><p>Especialízate en masajes reductores con técnicas de maderoterapia para moldear y tonificar el cuerpo de forma profesional.</p><div class="curso-meta"><span>⏱ 1 mes</span><span>👥 50+</span></div><div class="curso-footer"><span class="nivel">Todos los niveles</span><button class="mas-info" data-curso="maderoterapia">Más Info →</button></div></div></div>
+        <div class="curso-card"><div class="curso-img-placeholder"><img src="img/imagen_drenaje_linfatico.jpeg" alt="Curso de Drenaje Linfático" loading="lazy"/></div><div class="curso-body"><h3>Curso de Drenaje Linfático</h3><p>Aprende técnicas de drenaje linfático manual para eliminar toxinas, reducir inflamación y mejorar la circulación corporal.</p><div class="curso-meta"><span>⏱ 2 semanas</span><span>👥 50+</span></div><div class="curso-footer"><span class="nivel">Todos los niveles</span><button class="mas-info" data-curso="drenaje">Más Info →</button></div></div></div>
+        <div class="curso-card"><div class="curso-img-placeholder"><img src="img/imagen_peinados.jpeg" alt="Curso de Peinados" loading="lazy"/></div><div class="curso-body"><h3>Curso de Peinados</h3><p>Aprende a crear peinados profesionales para todo tipo de eventos, desde looks casuales hasta alta peluquería.</p><div class="curso-meta"><span>⏱ 2 semanas</span><span>👥 50+</span></div><div class="curso-footer"><span class="nivel">Todos los niveles</span><button class="mas-info" data-curso="peinados">Más Info →</button></div></div></div>
+        <div class="curso-card"><div class="curso-img-placeholder"><img src="img/imagen_colorimetria.jpeg" alt="Curso de Colorimetría" loading="lazy"/></div><div class="curso-body"><h3>Curso de Colorimetría</h3><p>Domina la teoría del color y técnicas de aplicación para lograr resultados perfectos en coloración capilar.</p><div class="curso-meta"><span>⏱ 1 mes y medio</span><span>👥 50+</span></div><div class="curso-footer"><span class="nivel">Todos los niveles</span><button class="mas-info" data-curso="colorimetria">Más Info →</button></div></div></div>
+        <div class="curso-card"><div class="curso-img-placeholder destacado"><span class="badge-destacado"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="13" height="13"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/></svg> Curso Destacado</span><img src="img/imagen_maquillaje.jpeg" alt="Curso de Maquillaje" loading="lazy"/></div><div class="curso-body"><h3>Curso de Maquillaje</h3><p>Técnicas profesionales de maquillaje para eventos, día a día y ocasiones especiales.</p><div class="curso-meta"><span>⏱ 2 semanas</span><span>👥 50+</span></div><div class="curso-footer"><span class="nivel">Todos los niveles</span><button class="mas-info" data-curso="maquillaje">Más Info →</button></div></div></div>
+        <div class="curso-card"><div class="curso-img-placeholder"><img src="img/imagen_maquillaje_artistico.jpeg" alt="Curso de Maquillaje Artístico" loading="lazy"/></div><div class="curso-body"><h3>Curso de Maquillaje Artístico</h3><p>Explora el mundo del maquillaje creativo y artístico para editoriales, pasarelas y efectos especiales.</p><div class="curso-meta"><span>⏱ 1 mes</span><span>👥 50+</span></div><div class="curso-footer"><span class="nivel">Todos los niveles</span><button class="mas-info" data-curso="maquillaje-artistico">Más Info →</button></div></div></div>
+        <div class="curso-card"><div class="curso-img-placeholder"><img src="img/imagen_keratina.jpeg" alt="Curso de Keratina" loading="lazy"/></div><div class="curso-body"><h3>Curso de Keratina</h3><p>Aprende las técnicas de alisado y tratamiento con keratina para transformar el cabello dañado en cabello liso, brillante y saludable.</p><div class="curso-meta"><span>⏱ 2 semanas</span><span>👥 50+</span></div><div class="curso-footer"><span class="nivel">Todos los niveles</span><button class="mas-info" data-curso="keratina">Más Info →</button></div></div></div>
+        <div class="curso-card"><div class="curso-img-placeholder"><img src="img/imagen_depilacion.jpeg" alt="Curso de Depilación" loading="lazy"/></div><div class="curso-body"><h3>Curso de Depilación</h3><p>Domina las técnicas de depilación láser y con cera para ofrecer servicios de eliminación del vello de forma segura y profesional.</p><div class="curso-meta"><span>⏱ 2 semanas</span><span>👥 50+</span></div><div class="curso-footer"><span class="nivel">Todos los niveles</span><button class="mas-info" data-curso="depilacion">Más Info →</button></div></div></div>
       </div>
     </div>
   </section>
@@ -513,17 +408,17 @@
       <h2 class="section-title">Mis Servicios</h2>
       <p class="section-subtitle">Ofrezco servicios profesionales de belleza con las mejores técnicas del mercado</p>
       <div class="servicios-grid">
-        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M10.05 4.575a1.575 1.575 0 1 0-3.15 0v3m3.15-3v-1.5a1.575 1.575 0 0 1 3.15 0v1.5m-3.15 0 .075 5.925m3.075.75V4.575m0 0a1.575 1.575 0 0 1 3.15 0V15M6.9 7.575a1.575 1.575 0 1 0-3.15 0v8.175a6.75 6.75 0 0 0 6.75 6.75h2.018a5.25 5.25 0 0 0 3.712-1.538l1.732-1.732a5.25 5.25 0 0 0 1.538-3.712l.003-2.024a.668.668 0 0 1 .198-.471 1.575 1.575 0 1 0-2.228-2.228 3.818 3.818 0 0 0-1.12 2.687M6.9 7.575V12m6.27 4.318A4.49 4.49 0 0 1 16.35 15m.002 0h-.002"/></svg></div><h4>Uñas Profesionales</h4><p>Servicio completo de manicura con técnicas en soft gel, acrílicas, semipermanente, gel y efecto diping para uñas perfectas.</p></div>
-        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg></div><h4>Pestañas Punto a Punto y Pelo a Pelo</h4><p>Aplicación profesional de extensiones de pestañas con técnicas punto a punto y pelo a pelo para una mirada impactante.</p></div>
-        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z"/></svg></div><h4>Cejas en Henna</h4><p>Diseño y coloración de cejas con henna natural para un resultado duradero y de aspecto profesional.</p></div>
-        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z"/></svg></div><h4>Maderoterapia</h4><p>Masajes reductores con técnicas especializadas de maderoterapia para moldear y tonificar el cuerpo.</p></div>
-        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"/></svg></div><h4>Drenaje Linfático</h4><p>Tratamientos de drenaje linfático manual para eliminar toxinas, reducir inflamación y mejorar la circulación.</p></div>
-        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="m7.848 8.25 1.536.887M7.848 8.25a3 3 0 1 1-5.196-3 3 3 0 0 1 5.196 3Zm1.536.887a2.165 2.165 0 0 1 1.083 1.839c.005.351.054.695.14 1.024M9.384 9.137l2.077 1.199M7.848 15.75l1.536-.887m-1.536.887a3 3 0 1 1-5.196 3 3 3 0 0 1 5.196-3Zm1.536-.887a2.165 2.165 0 0 0 1.083-1.838c.005-.352.054-.695.14-1.025m-1.223 2.863 2.077-1.199m0-3.328a4.323 4.323 0 0 1 2.068-1.379l5.325-1.628a4.5 4.5 0 0 1 2.48-.044l.803.215-7.794 4.5m-2.882-1.664L10.979 8.937m-2.595 12.548 7.795-4.5m0 0 .81.833a4.5 4.5 0 0 0 2.079 1.058l1.481.247-8.17-2.138Z"/></svg></div><h4>Peinados Profesionales</h4><p>Peinados para todo tipo de eventos, desde looks casuales hasta alta peluquería. Resultados perfectos y duraderos.</p></div>
-        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z"/></svg></div><h4>Colorimetría</h4><p>Coloración capilar profesional con dominio de la teoría del color para lograr resultados exactos y personalizados.</p></div>
-        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z"/></svg></div><h4>Maquillaje Profesional</h4><p>Maquillaje para eventos, día a día y ocasiones especiales con técnicas profesionales que realzan tu belleza natural.</p></div>
-        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"/></svg></div><h4>Maquillaje Artístico</h4><p>Maquillaje creativo para editoriales, pasarelas y efectos especiales. Arte aplicado directamente en tu rostro.</p></div>
-        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42"/></svg></div><h4>Keratina</h4><p>Tratamiento de alisado con keratina para transformar el cabello dañado en cabello liso, brillante y saludable.</p></div>
-        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg></div><h4>Depilación Láser y con Cera</h4><p>Eliminación del vello corporal con técnicas láser y cera de forma segura, profesional y con resultados duraderos.</p></div>
+        <div class="servicio-card"><div class="servicio-icon">💅</div><h4>Uñas Profesionales</h4><p>Servicio completo de manicura con técnicas en soft gel, acrílicas, semipermanente, gel y efecto diping para uñas perfectas.</p></div>
+        <div class="servicio-card"><div class="servicio-icon">👁</div><h4>Pestañas Punto a Punto y Pelo a Pelo</h4><p>Aplicación profesional de extensiones de pestañas con técnicas punto a punto y pelo a pelo para una mirada impactante.</p></div>
+        <div class="servicio-card"><div class="servicio-icon">✏️</div><h4>Cejas en Henna</h4><p>Diseño y coloración de cejas con henna natural para un resultado duradero y de aspecto profesional.</p></div>
+        <div class="servicio-card"><div class="servicio-icon">🌿</div><h4>Maderoterapia</h4><p>Masajes reductores con técnicas especializadas de maderoterapia para moldear y tonificar el cuerpo.</p></div>
+        <div class="servicio-card"><div class="servicio-icon">✨</div><h4>Drenaje Linfático</h4><p>Tratamientos de drenaje linfático manual para eliminar toxinas, reducir inflamación y mejorar la circulación.</p></div>
+        <div class="servicio-card"><div class="servicio-icon">💇</div><h4>Peinados Profesionales</h4><p>Peinados para todo tipo de eventos, desde looks casuales hasta alta peluquería. Resultados perfectos y duraderos.</p></div>
+        <div class="servicio-card"><div class="servicio-icon">🎨</div><h4>Colorimetría</h4><p>Coloración capilar profesional con dominio de la teoría del color para lograr resultados exactos y personalizados.</p></div>
+        <div class="servicio-card"><div class="servicio-icon">💄</div><h4>Maquillaje Profesional</h4><p>Maquillaje para eventos, día a día y ocasiones especiales con técnicas profesionales que realzan tu belleza natural.</p></div>
+        <div class="servicio-card"><div class="servicio-icon">🌟</div><h4>Maquillaje Artístico</h4><p>Maquillaje creativo para editoriales, pasarelas y efectos especiales. Arte aplicado directamente en tu rostro.</p></div>
+        <div class="servicio-card"><div class="servicio-icon">⚡</div><h4>Keratina</h4><p>Tratamiento de alisado con keratina para transformar el cabello dañado en cabello liso, brillante y saludable.</p></div>
+        <div class="servicio-card"><div class="servicio-icon">🔥</div><h4>Depilación Láser y con Cera</h4><p>Eliminación del vello corporal con técnicas láser y cera de forma segura, profesional y con resultados duraderos.</p></div>
       </div>
       <div class="tecnicas-section">
         <h3>Técnicas Especializadas</h3>
@@ -563,7 +458,6 @@
       <div class="upload-zone">
         <h3>📸 Comparte tu graduación</h3>
         <p>Sube tu foto, cuéntanos tu experiencia y deja tu comentario para inspirar a otras estudiantes.</p>
-
         <div class="dropzone" id="dropzone">
           <input type="file" id="foto-input" accept="image/*" multiple onchange="handleFiles(this.files)"/>
           <div class="dz-icon">🖼️</div>
@@ -625,20 +519,20 @@
           <div class="form-group"><label>Teléfono</label><input type="tel" placeholder="+57 600 000 000" id="f-telefono"/></div>
           <div class="form-group"><label>Mensaje</label><textarea placeholder="¿En qué puedo ayudarte?" id="f-mensaje"></textarea></div>
           <div id="form-msg" style="display:none;padding:10px 14px;border-radius:10px;font-size:13px;margin-bottom:12px;"></div>
-          <button class="btn-enviar" onclick="enviarMensaje()">Enviar Mensaje <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"/></svg></button>
+          <button class="btn-enviar" onclick="enviarMensaje()">Enviar Mensaje →</button>
         </div>
         <div>
           <div class="info-card">
             <h3>Información de Contacto</h3>
-            <div class="info-item"><div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg></div><div><h4>Teléfono</h4><p>+57 311 542 4649</p></div></div>
-            <div class="info-item"><div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg></div><div><h4>Email</h4><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dcb0bda9aebdaabdb0b9b2a8b5b2bdaeb9a5edea9cbbb1bdb5b0f2bfb3b1">[email&#160;protected]</a></p></div></div>
-            <div class="info-item"><div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg></div><div><h4>Ubicación</h4><p>Bogotá, Colombia</p></div></div>
+            <div class="info-item"><div class="info-icon">📞</div><div><h4>Teléfono</h4><p>+57 311 542 4649</p></div></div>
+            <div class="info-item"><div class="info-icon">✉️</div><div><h4>Email</h4><p>lauravalentinarey16@gmail.com</p></div></div>
+            <div class="info-item"><div class="info-icon">📍</div><div><h4>Ubicación</h4><p>Bogotá, Colombia</p></div></div>
           </div>
           <div class="info-card" style="margin-top:22px;">
             <h3>Sígueme en Redes</h3>
-            <a href="https://www.instagram.com/estetic.val?igsh=MXJmNWtjeDNzbGNp" target="_blank" class="red-item" style="text-decoration:none;color:inherit;"><div class="red-icon" style="color:#E1306C;background:#fce4ec;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div><div><h4>Instagram</h4><p>@esteticval</p></div></a>
-            <a href="https://www.facebook.com/profile.php?id=61588660902499" target="_blank" class="red-item" style="text-decoration:none;color:inherit;"><div class="red-icon" style="color:#1877F2;background:#e3f2fd;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div><div><h4>Facebook</h4><p>Estetic Val</p></div></a>
-            <a href="https://www.tiktok.com/@estetic.val?is_from_webapp=1&sender_device=pc" target="_blank" class="red-item" style="text-decoration:none;color:inherit;"><div class="red-icon" style="color:#000;background:#f5f5f5;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></div><div><h4>TikTok</h4><p>@esteticval</p></div></a>
+            <a href="https://www.instagram.com/estetic.val?igsh=MXJmNWtjeDNzbGNp" target="_blank" class="red-item" style="text-decoration:none;color:inherit;"><div class="red-icon" style="color:#E1306C;background:#fce4ec;">📷</div><div><h4>Instagram</h4><p>@esteticval</p></div></a>
+            <a href="https://www.facebook.com/profile.php?id=61588660902499" target="_blank" class="red-item" style="text-decoration:none;color:inherit;"><div class="red-icon" style="color:#1877F2;background:#e3f2fd;">📘</div><div><h4>Facebook</h4><p>Estetic Val</p></div></a>
+            <a href="https://www.tiktok.com/@estetic.val?is_from_webapp=1&sender_device=pc" target="_blank" class="red-item" style="text-decoration:none;color:inherit;"><div class="red-icon" style="color:#000;background:#f5f5f5;">🎵</div><div><h4>TikTok</h4><p>@esteticval</p></div></a>
             <div class="horario-box">
               <h4>Horario de Atención</h4>
               <p>Lunes - Viernes: 9:00 - 20:00</p>
@@ -659,25 +553,8 @@
           <img src="img/logo.png" alt="Estetic Val" onerror="this.style.display='none';this.insertAdjacentHTML('afterend','<span style=\'font-family:serif;font-size:18px;color:#c7938a;font-weight:700;display:block;margin-bottom:12px;\'>Estetic Val</span>')"/>
           <p>Transformando vidas a través de la educación en estética y belleza profesional.</p>
         </div>
-        <div class="footer-col">
-          <h4>Enlaces Rápidos</h4>
-          <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#sobre">Sobre Mí</a></li>
-            <li><a href="#cursos">Cursos</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#graduaciones">Graduaciones</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="#">Política de Privacidad</a></li>
-            <li><a href="#">Términos y Condiciones</a></li>
-            <li><a href="#">Política de Cookies</a></li>
-          </ul>
-        </div>
+        <div class="footer-col"><h4>Enlaces Rápidos</h4><ul><li><a href="#inicio">Inicio</a></li><li><a href="#sobre">Sobre Mí</a></li><li><a href="#cursos">Cursos</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#graduaciones">Graduaciones</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
+        <div class="footer-col"><h4>Legal</h4><ul><li><a href="#">Política de Privacidad</a></li><li><a href="#">Términos y Condiciones</a></li><li><a href="#">Política de Cookies</a></li></ul></div>
       </div>
       <div class="footer-bottom">© 2026 Estetic Val. Todos los derechos reservados. Hecho con 🤍</div>
     </div>
@@ -697,18 +574,18 @@
       </div>
       <div class="modal-body">
         <div class="modal-stats">
-          <div class="modal-stat"><div class="ms-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></div><div class="ms-label">Duración</div><div class="ms-val" id="modal-duracion"></div></div>
-          <div class="modal-stat"><div class="ms-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg></div><div class="ms-label">Estudiantes</div><div class="ms-val" id="modal-estudiantes"></div></div>
-          <div class="modal-stat"><div class="ms-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg></div><div class="ms-label">Nivel</div><div class="ms-val" id="modal-nivel"></div></div>
+          <div class="modal-stat"><div class="ms-icon">⏱</div><div class="ms-label">Duración</div><div class="ms-val" id="modal-duracion"></div></div>
+          <div class="modal-stat"><div class="ms-icon">👥</div><div class="ms-label">Estudiantes</div><div class="ms-val" id="modal-estudiantes"></div></div>
+          <div class="modal-stat"><div class="ms-icon">🎓</div><div class="ms-label">Nivel</div><div class="ms-val" id="modal-nivel"></div></div>
         </div>
         <div class="modal-section">
           <h4>Qué Incluye el Curso</h4>
           <div class="incluye-grid">
-            <div class="incluye-item"><span class="check"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span> Certificado profesional al finalizar</div>
-            <div class="incluye-item"><span class="check"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span> Práctica con modelos reales</div>
-            <div class="incluye-item"><span class="check"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span> Seguimiento personalizado</div>
-            <div class="incluye-item"><span class="check"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span> Grupos reducidos para mejor aprendizaje</div>
-            <div class="incluye-item"><span class="check"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span> Acceso a grupo de soporte</div>
+            <div class="incluye-item"><span class="check">✓</span> Certificado profesional al finalizar</div>
+            <div class="incluye-item"><span class="check">✓</span> Práctica con modelos reales</div>
+            <div class="incluye-item"><span class="check">✓</span> Seguimiento personalizado</div>
+            <div class="incluye-item"><span class="check">✓</span> Grupos reducidos para mejor aprendizaje</div>
+            <div class="incluye-item"><span class="check">✓</span> Acceso a grupo de soporte</div>
           </div>
         </div>
         <div class="modal-section">
@@ -753,8 +630,8 @@
   <!-- TOAST -->
   <div class="toast" id="toast"></div>
 
-  <!-- ══════ FIREBASE ══════ -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="module">
+  <!-- FIREBASE -->
+  <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
     import { getFirestore, collection, addDoc, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
@@ -768,29 +645,40 @@
     };
 
     const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+    const db  = getFirestore(app);
 
-    window._fbReady = true;
-    window._db = db;
+    window._db          = db;
     window._fbCollection = collection;
-    window._fbAddDoc = addDoc;
+    window._fbAddDoc    = addDoc;
+    window._fbReady     = true;
 
     // Escuchar graduaciones en tiempo real
-    onSnapshot(query(collection(db, "graduaciones"), orderBy("timestamp", "desc")), snap => {
-      window._entries = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-      if (window.renderGallery) window.renderGallery();
-    });
+    onSnapshot(
+      query(collection(db, "graduaciones"), orderBy("timestamp", "desc")),
+      snap => {
+        window._entries = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        if (window.renderGallery) window.renderGallery();
+      },
+      err => {
+        console.error("Error Firestore graduaciones:", err);
+        const grid = document.getElementById('gallery-grid');
+        grid.innerHTML = `<div class="gallery-empty"><div class="empty-icon">⚠️</div><h4>Error al cargar la galería</h4><p>Verifica las reglas de Firestore. ${err.code}</p></div>`;
+      }
+    );
 
     // Escuchar valoraciones en tiempo real
-    onSnapshot(collection(db, "valoraciones"), snap => {
-      window._ratings = snap.docs.map(d => d.data().stars);
-      if (window.renderScoreBoard) window.renderScoreBoard();
-    });
+    onSnapshot(
+      collection(db, "valoraciones"),
+      snap => {
+        window._ratings = snap.docs.map(d => d.data().stars);
+        if (window.renderScoreBoard) window.renderScoreBoard();
+      }
+    );
   </script>
 
   <script>
-    // ══ Cloudinary config ══
-    const CLOUD_NAME   = 'dra8g96p5';
+    /* ══ Cloudinary ══ */
+    const CLOUD_NAME    = 'dra8g96p5';
     const UPLOAD_PRESET = 'graduaciones';
 
     async function uploadToCloudinary(file, onProgress) {
@@ -802,18 +690,22 @@
         xhr.open('POST', `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`);
         xhr.upload.onprogress = e => { if (e.lengthComputable && onProgress) onProgress(e.loaded / e.total); };
         xhr.onload = () => {
-          const res = JSON.parse(xhr.responseText);
-          if (res.secure_url) resolve(res.secure_url);
-          else reject(new Error('Cloudinary error'));
+          try {
+            const res = JSON.parse(xhr.responseText);
+            if (res.secure_url) resolve(res.secure_url);
+            else reject(new Error(res.error?.message || 'Error Cloudinary'));
+          } catch { reject(new Error('Respuesta inválida')); }
         };
-        xhr.onerror = () => reject(new Error('Network error'));
+        xhr.onerror   = () => reject(new Error('Error de red'));
+        xhr.timeout   = 60000;
+        xhr.ontimeout = () => reject(new Error('Tiempo agotado'));
         xhr.send(fd);
       });
     }
 
-    // ══ NAVBAR ══
-    const toggle = document.getElementById('toggle');
-    const menu = document.getElementById('menu');
+    /* ══ NAVBAR ══ */
+    const toggle   = document.getElementById('toggle');
+    const menu     = document.getElementById('menu');
     const backdrop = document.createElement('div');
     backdrop.style.cssText = 'display:none;position:fixed;inset:0;z-index:997;background:rgba(0,0,0,0.3);';
     document.body.appendChild(backdrop);
@@ -821,7 +713,7 @@
     backdrop.addEventListener('click', () => { menu.classList.remove('active'); backdrop.style.display = 'none'; });
     document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('active'); backdrop.style.display = 'none'; }));
 
-    const sections = document.querySelectorAll('section[id]');
+    const sections   = document.querySelectorAll('section[id]');
     const navAnchors = document.querySelectorAll('#menu a:not(.btn-contacto)');
     window.addEventListener('scroll', () => {
       let current = '';
@@ -829,70 +721,76 @@
       navAnchors.forEach(a => { a.style.color = ''; if (a.getAttribute('href') === '#' + current) a.style.color = 'var(--primary)'; });
     });
 
-    // ══ CURSOS MODAL ══
+    /* ══ CURSOS MODAL ══ */
     const cursosData = {
-      manicurista:            { titulo:'Curso de Manicurista',           img:'img/imagen_unas1.jpeg',                desc:'Aprende técnicas profesionales de manicura incluyendo soft gel, acrílicas, semipermanente, gel y efecto diping.',                                   duracion:'1 mes',         estudiantes:'50+', nivel:'Todos los niveles' },
-      lashista:               { titulo:'Curso de Lashista',              img:'img/imagen_pestanas.jpeg',             desc:'Domina las técnicas de extensiones de pestañas punto a punto y pelo a pelo para resultados perfectos y duraderos.',                               duracion:'2 semanas',     estudiantes:'50+', nivel:'Todos los niveles' },
-      maderoterapia:          { titulo:'Curso de Maderoterapia',         img:'img/imagen_maderoterapia.jpeg',        desc:'Especialízate en masajes reductores con técnicas de maderoterapia para moldear y tonificar el cuerpo de forma profesional.',                    duracion:'1 mes',         estudiantes:'50+', nivel:'Todos los niveles' },
-      drenaje:                { titulo:'Curso de Drenaje Linfático',     img:'img/imagen_drenaje_linfatico.jpeg',   desc:'Aprende técnicas de drenaje linfático manual para eliminar toxinas, reducir inflamación y mejorar la circulación corporal.',                     duracion:'2 semanas',     estudiantes:'50+', nivel:'Todos los niveles' },
-      peinados:               { titulo:'Curso de Peinados',              img:'img/imagen_peinados.jpeg',             desc:'Aprende a crear peinados profesionales para todo tipo de eventos, desde looks casuales hasta alta peluquería.',                                  duracion:'2 semanas',     estudiantes:'50+', nivel:'Todos los niveles' },
-      colorimetria:           { titulo:'Curso de Colorimetría',          img:'img/imagen_colorimetria.jpeg',         desc:'Domina la teoría del color y técnicas de aplicación para lograr resultados perfectos en coloración capilar.',                                    duracion:'1 mes y medio', estudiantes:'50+', nivel:'Todos los niveles' },
-      maquillaje:             { titulo:'Curso de Maquillaje',            img:'img/imagen_maquillaje.jpeg',           desc:'Técnicas profesionales de maquillaje para eventos, día a día y ocasiones especiales.',                                                          duracion:'2 semanas',     estudiantes:'50+', nivel:'Todos los niveles' },
-      'maquillaje-artistico': { titulo:'Curso de Maquillaje Artístico',  img:'img/imagen_maquillaje_artistico.jpeg',desc:'Explora el mundo del maquillaje creativo y artístico para editoriales, pasarelas y efectos especiales.',                                       duracion:'1 mes',         estudiantes:'50+', nivel:'Todos los niveles' },
-      keratina:               { titulo:'Curso de Keratina',              img:'img/imagen_keratina.jpeg',             desc:'Aprende las técnicas de alisado y tratamiento con keratina para transformar el cabello dañado en cabello liso, brillante y saludable.',           duracion:'2 semanas',     estudiantes:'50+', nivel:'Todos los niveles' },
-      depilacion:             { titulo:'Curso de Depilación',            img:'img/imagen_depilacion.jpeg',           desc:'Domina las técnicas de depilación láser y con cera para ofrecer servicios de eliminación del vello de forma segura y profesional.',             duracion:'2 semanas',     estudiantes:'50+', nivel:'Todos los niveles' }
+      manicurista:            { titulo:'Curso de Manicurista',          img:'img/imagen_unas1.jpeg',                 desc:'Aprende técnicas profesionales de manicura incluyendo soft gel, acrílicas, semipermanente, gel y efecto diping.',                                  duracion:'1 mes',         estudiantes:'50+', nivel:'Todos los niveles' },
+      lashista:               { titulo:'Curso de Lashista',             img:'img/imagen_pestanas.jpeg',              desc:'Domina las técnicas de extensiones de pestañas punto a punto y pelo a pelo para resultados perfectos y duraderos.',                              duracion:'2 semanas',     estudiantes:'50+', nivel:'Todos los niveles' },
+      maderoterapia:          { titulo:'Curso de Maderoterapia',        img:'img/imagen_maderoterapia.jpeg',         desc:'Especialízate en masajes reductores con técnicas de maderoterapia para moldear y tonificar el cuerpo de forma profesional.',                   duracion:'1 mes',         estudiantes:'50+', nivel:'Todos los niveles' },
+      drenaje:                { titulo:'Curso de Drenaje Linfático',    img:'img/imagen_drenaje_linfatico.jpeg',     desc:'Aprende técnicas de drenaje linfático manual para eliminar toxinas, reducir inflamación y mejorar la circulación corporal.',                    duracion:'2 semanas',     estudiantes:'50+', nivel:'Todos los niveles' },
+      peinados:               { titulo:'Curso de Peinados',             img:'img/imagen_peinados.jpeg',              desc:'Aprende a crear peinados profesionales para todo tipo de eventos, desde looks casuales hasta alta peluquería.',                                 duracion:'2 semanas',     estudiantes:'50+', nivel:'Todos los niveles' },
+      colorimetria:           { titulo:'Curso de Colorimetría',         img:'img/imagen_colorimetria.jpeg',          desc:'Domina la teoría del color y técnicas de aplicación para lograr resultados perfectos en coloración capilar.',                                   duracion:'1 mes y medio', estudiantes:'50+', nivel:'Todos los niveles' },
+      maquillaje:             { titulo:'Curso de Maquillaje',           img:'img/imagen_maquillaje.jpeg',            desc:'Técnicas profesionales de maquillaje para eventos, día a día y ocasiones especiales.',                                                         duracion:'2 semanas',     estudiantes:'50+', nivel:'Todos los niveles' },
+      'maquillaje-artistico': { titulo:'Curso de Maquillaje Artístico', img:'img/imagen_maquillaje_artistico.jpeg', desc:'Explora el mundo del maquillaje creativo y artístico para editoriales, pasarelas y efectos especiales.',                                      duracion:'1 mes',         estudiantes:'50+', nivel:'Todos los niveles' },
+      keratina:               { titulo:'Curso de Keratina',             img:'img/imagen_keratina.jpeg',              desc:'Aprende las técnicas de alisado y tratamiento con keratina para transformar el cabello dañado en cabello liso, brillante y saludable.',          duracion:'2 semanas',     estudiantes:'50+', nivel:'Todos los niveles' },
+      depilacion:             { titulo:'Curso de Depilación',           img:'img/imagen_depilacion.jpeg',            desc:'Domina las técnicas de depilación láser y con cera para ofrecer servicios de eliminación del vello de forma segura y profesional.',            duracion:'2 semanas',     estudiantes:'50+', nivel:'Todos los niveles' }
     };
 
-    const overlay = document.getElementById('modal-overlay');
+    const overlay  = document.getElementById('modal-overlay');
     const modalHdr = document.getElementById('modal-header');
 
     function abrirModal(id) {
       const d = cursosData[id]; if (!d) return;
-      document.getElementById('modal-titulo').textContent = d.titulo;
-      document.getElementById('modal-desc').textContent = d.desc;
-      document.getElementById('modal-duracion').textContent = d.duracion;
+      document.getElementById('modal-titulo').textContent    = d.titulo;
+      document.getElementById('modal-desc').textContent      = d.desc;
+      document.getElementById('modal-duracion').textContent  = d.duracion;
       document.getElementById('modal-estudiantes').textContent = d.estudiantes;
-      document.getElementById('modal-nivel').textContent = d.nivel;
+      document.getElementById('modal-nivel').textContent     = d.nivel;
       const modalImg = document.getElementById('modal-img');
       if (d.img) {
         modalImg.src = d.img; modalImg.style.display = 'block';
         modalHdr.classList.add('has-img');
-        modalHdr.style.backgroundImage = `url('${d.img}')`;
-        modalHdr.style.backgroundSize = 'cover'; modalHdr.style.backgroundPosition = 'center';
+        modalHdr.style.backgroundImage  = `url('${d.img}')`;
+        modalHdr.style.backgroundSize   = 'cover';
+        modalHdr.style.backgroundPosition = 'center';
       } else {
         modalImg.style.display = 'none';
-        modalHdr.style.backgroundImage = ''; modalHdr.classList.remove('has-img');
+        modalHdr.style.backgroundImage = '';
+        modalHdr.classList.remove('has-img');
       }
       overlay.classList.add('active'); document.body.style.overflow = 'hidden';
     }
     function cerrarModal() { overlay.classList.remove('active'); document.body.style.overflow = ''; }
+
     document.addEventListener('click', e => {
       const btn = e.target.closest('[data-curso]');
       if (btn) { e.preventDefault(); abrirModal(btn.dataset.curso); return; }
       if (e.target === overlay) cerrarModal();
     });
+
     function inscribirse() { window.open('https://wa.me/573115424649?text=Hola!%20Me%20interesa%20inscribirme%20en%20el%20curso.','_blank'); }
     function solicitarInfo() { window.open('https://wa.me/573115424649?text=Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20curso.','_blank'); }
 
-    // ══ CONTACTO ══
+    /* ══ CONTACTO ══ */
     function enviarMensaje() {
-      const nombre = document.getElementById('f-nombre').value.trim();
-      const email  = document.getElementById('f-email').value.trim();
-      const tel    = document.getElementById('f-telefono').value.trim();
-      const msg    = document.getElementById('f-mensaje').value.trim();
-      const msgBox = document.getElementById('form-msg');
-      if (!nombre || !email) { showMsg(msgBox,'Por favor completa tu nombre y email.','#fde8e8','#c0392b'); return; }
+      const nombre  = document.getElementById('f-nombre').value.trim();
+      const email   = document.getElementById('f-email').value.trim();
+      const tel     = document.getElementById('f-telefono').value.trim();
+      const msg     = document.getElementById('f-mensaje').value.trim();
+      const msgBox  = document.getElementById('form-msg');
+      if (!nombre || !email) { showMsg(msgBox, 'Por favor completa tu nombre y email.', '#fde8e8', '#c0392b'); return; }
       const texto = `Hola! Soy ${nombre}. Email: ${email}. Tel: ${tel}. Mensaje: ${msg}`;
       window.open(`https://wa.me/573115424649?text=${encodeURIComponent(texto)}`, '_blank');
-      showMsg(msgBox,'¡Redirigiendo a WhatsApp! 💌','#e8f5e9','#2e7d32');
+      showMsg(msgBox, '¡Redirigiendo a WhatsApp! 💌', '#e8f5e9', '#2e7d32');
     }
 
-    // ══ GRADUACIONES ══
+    /* ══ GRADUACIONES ══ */
     window._entries = [];
     window._ratings = [];
     let upStars = 0, rmStars = 0, selectedFiles = [];
+    const starLabels = ['','Muy malo','Malo','Regular','Bueno','Excelente'];
+    const BTN_HTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5"/></svg> Publicar en la galería`;
 
-    // Dropzone
+    /* Dropzone */
     const dropzone = document.getElementById('dropzone');
     dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.style.borderColor = 'var(--primary)'; });
     dropzone.addEventListener('dragleave', () => { dropzone.style.borderColor = '#e8d5c9'; });
@@ -908,28 +806,21 @@
         reader.readAsDataURL(file);
       });
     }
-
     function addPreview(src, i) {
       const strip = document.getElementById('preview-strip');
-      const wrap = document.createElement('div'); wrap.className = 'preview-wrap'; wrap.id = `pw-${i}`;
+      const wrap  = document.createElement('div'); wrap.className = 'preview-wrap'; wrap.id = `pw-${i}`;
       wrap.innerHTML = `<img src="${src}" class="preview-thumb"/><button class="preview-remove" onclick="removeImg(${i})">✕</button>`;
       strip.appendChild(wrap);
     }
-
     function removeImg(i) {
       selectedFiles.splice(i, 1);
       document.getElementById('preview-strip').innerHTML = '';
-      selectedFiles.forEach((f, idx) => {
-        const reader = new FileReader();
-        reader.onload = e => addPreview(e.target.result, idx);
-        reader.readAsDataURL(f);
-      });
+      selectedFiles.forEach((f, idx) => { const r = new FileReader(); r.onload = e => addPreview(e.target.result, idx); r.readAsDataURL(f); });
     }
 
-    const starLabels = ['','Muy malo','Malo','Regular','Bueno','Excelente'];
     function setUpStar(n) {
       upStars = n;
-      document.querySelectorAll('#up-stars button').forEach((b,i) => b.classList.toggle('active', i < n));
+      document.querySelectorAll('#up-stars button').forEach((b, i) => b.classList.toggle('active', i < n));
       document.getElementById('up-star-hint').textContent = starLabels[n];
     }
 
@@ -937,20 +828,19 @@
       const nombre     = document.getElementById('up-nombre').value.trim();
       const comentario = document.getElementById('up-comentario').value.trim();
       const msg        = document.getElementById('up-msg');
-
-      if (!nombre)            { showMsg(msg,'Por favor escribe tu nombre.','#fde8e8','#c0392b'); return; }
-      if (!comentario)        { showMsg(msg,'Escribe un comentario.','#fde8e8','#c0392b'); return; }
-      if (!selectedFiles.length) { showMsg(msg,'Sube al menos una foto.','#fde8e8','#c0392b'); return; }
-      if (!upStars)           { showMsg(msg,'Selecciona una puntuación.','#fde8e8','#c0392b'); return; }
-      if (!window._fbReady)   { showMsg(msg,'Conectando con la base de datos, espera un momento...','#fff3e0','#e65100'); return; }
+      if (!nombre)                { showMsg(msg, '⚠️ Por favor escribe tu nombre.',               '#fff3e0', '#e65100'); return; }
+      if (!comentario)            { showMsg(msg, '⚠️ Escribe un comentario sobre tu experiencia.', '#fff3e0', '#e65100'); return; }
+      if (!selectedFiles.length)  { showMsg(msg, '⚠️ Sube al menos una foto de tu graduación.',   '#fff3e0', '#e65100'); return; }
+      if (!upStars)               { showMsg(msg, '⚠️ Selecciona una puntuación con las estrellas.','#fff3e0', '#e65100'); return; }
+      if (!window._fbReady)       { showMsg(msg, '⏳ Conectando, espera un momento e intenta de nuevo...', '#fff3e0', '#e65100'); return; }
 
       const btn = document.getElementById('btn-subir');
-      btn.disabled = true; btn.textContent = 'Subiendo imágenes…';
+      btn.disabled = true; btn.textContent = '⏳ Subiendo imágenes…';
 
       const progressEl = document.getElementById('upload-progress');
       const fillEl     = document.getElementById('progress-fill');
       const textEl     = document.getElementById('progress-text');
-      progressEl.style.display = 'block';
+      progressEl.style.display = 'block'; fillEl.style.width = '0%';
 
       try {
         const urls = [];
@@ -963,111 +853,97 @@
           fillEl.style.width = ((i + 1) / selectedFiles.length * 100) + '%';
         }
 
-        btn.textContent = 'Guardando…';
-
+        btn.textContent = '💾 Guardando…';
         await window._fbAddDoc(window._fbCollection(window._db, 'graduaciones'), {
-          nombre, comentario, stars: upStars, images: urls,
-          timestamp: new Date()
+          nombre, comentario, stars: upStars, images: urls, timestamp: new Date()
         });
-
         await window._fbAddDoc(window._fbCollection(window._db, 'valoraciones'), {
           stars: upStars, timestamp: new Date()
         });
 
-        // Reset
-        document.getElementById('up-nombre').value = '';
+        /* Reset */
+        document.getElementById('up-nombre').value    = '';
         document.getElementById('up-comentario').value = '';
         document.getElementById('preview-strip').innerHTML = '';
-        selectedFiles = [];
-        upStars = 0;
+        selectedFiles = []; upStars = 0;
         document.querySelectorAll('#up-stars button').forEach(b => b.classList.remove('active'));
         document.getElementById('up-star-hint').textContent = 'Selecciona una puntuación';
         progressEl.style.display = 'none'; fillEl.style.width = '0%';
 
-        showMsg(msg,'¡Tu graduación fue publicada! 🎉 Ya la pueden ver todos los visitantes.','#e8f5e9','#2e7d32');
+        showMsg(msg, '🎉 ¡Tu graduación fue publicada! Ya la pueden ver todos los visitantes.', '#e8f5e9', '#2e7d32');
         showToast('¡Publicado con éxito! 🌸');
-        setTimeout(() => document.getElementById('gallery-grid').scrollIntoView({behavior:'smooth'}), 400);
+        setTimeout(() => document.getElementById('gallery-grid').scrollIntoView({ behavior:'smooth' }), 600);
 
       } catch (err) {
         console.error(err);
-        showMsg(msg,'Hubo un error al publicar. Intenta de nuevo.','#fde8e8','#c0392b');
+        let errMsg = '❌ Hubo un error al publicar. Intenta de nuevo.';
+        if (err.message.includes('401') || err.message.toLowerCase().includes('preset')) errMsg = '❌ Error de Cloudinary: el preset "graduaciones" debe estar en modo Unsigned.';
+        else if (err.message.includes('permission') || err.message.includes('PERMISSION_DENIED')) errMsg = '❌ Firebase bloqueó la escritura. Verifica las reglas de Firestore.';
+        else if (err.message.includes('red') || err.message.includes('Network')) errMsg = '❌ Error de conexión. Verifica tu internet.';
+        showMsg(msg, errMsg, '#fde8e8', '#c0392b');
         progressEl.style.display = 'none';
       } finally {
-        btn.disabled = false;
-        btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5"/></svg> Publicar en la galería';
+        btn.disabled = false; btn.innerHTML = BTN_HTML;
       }
     }
 
-    // Rating modal
-    function openRatingModal() { document.getElementById('rating-modal').classList.add('active'); document.body.style.overflow = 'hidden'; }
+    /* Rating modal */
+    function openRatingModal()  { document.getElementById('rating-modal').classList.add('active'); document.body.style.overflow = 'hidden'; }
     function closeRatingModal() { document.getElementById('rating-modal').classList.remove('active'); document.body.style.overflow = ''; }
     function setRmStar(n) {
       rmStars = n;
-      document.querySelectorAll('#rm-stars button').forEach((b,i) => b.classList.toggle('active', i < n));
+      document.querySelectorAll('#rm-stars button').forEach((b, i) => b.classList.toggle('active', i < n));
       document.getElementById('rm-hint').textContent = starLabels[n];
-      document.getElementById('rm-submit').disabled = false;
+      document.getElementById('rm-submit').disabled  = false;
     }
     async function submitRating() {
       if (!rmStars || !window._fbReady) return;
+      const btn = document.getElementById('rm-submit'); btn.disabled = true; btn.textContent = 'Enviando…';
       try {
         await window._fbAddDoc(window._fbCollection(window._db, 'valoraciones'), { stars: rmStars, timestamp: new Date() });
-        closeRatingModal();
-        rmStars = 0;
+        closeRatingModal(); rmStars = 0;
         document.querySelectorAll('#rm-stars button').forEach(b => b.classList.remove('active'));
-        document.getElementById('rm-hint').textContent = 'Toca las estrellas para calificar';
-        document.getElementById('rm-submit').disabled = true;
+        document.getElementById('rm-hint').textContent  = 'Toca las estrellas para calificar';
+        document.getElementById('rm-submit').disabled   = true;
+        btn.textContent = 'Enviar puntuación';
         showToast('¡Gracias por tu valoración! ⭐');
-      } catch { showToast('Error al enviar. Intenta de nuevo.','#c0392b'); }
+      } catch { btn.disabled = false; btn.textContent = 'Enviar puntuación'; showToast('Error al enviar.', '#c0392b'); }
     }
 
-    // Scoreboard
+    /* Scoreboard */
     window.renderScoreBoard = function() {
-      const ratings = window._ratings || [];
-      const total = ratings.length;
+      const ratings = window._ratings || [], total = ratings.length;
       const numEl = document.getElementById('score-num'), lblEl = document.getElementById('score-label'), starsEl = document.getElementById('score-stars');
       if (!total) { numEl.textContent='–'; lblEl.textContent='sin valoraciones aún'; starsEl.innerHTML=''; [1,2,3,4,5].forEach(n=>{document.getElementById('bar'+n).style.width='0%';document.getElementById('cnt'+n).textContent='0';}); return; }
       const avg = ratings.reduce((a,b)=>a+b,0)/total;
       numEl.textContent = avg.toFixed(1); lblEl.textContent = `${total} valoraci${total===1?'ón':'ones'}`;
       starsEl.innerHTML = '';
-      for(let i=1;i<=5;i++){const s=document.createElement('span');s.className='star-icon';s.textContent=i<=Math.round(avg)?'⭐':'☆';starsEl.appendChild(s);}
+      for (let i=1;i<=5;i++){const s=document.createElement('span');s.className='star-icon';s.textContent=i<=Math.round(avg)?'⭐':'☆';starsEl.appendChild(s);}
       const max = Math.max(...[1,2,3,4,5].map(n=>ratings.filter(r=>r===n).length),1);
       [1,2,3,4,5].forEach(n=>{const cnt=ratings.filter(r=>r===n).length;document.getElementById('bar'+n).style.width=(cnt/max*100)+'%';document.getElementById('cnt'+n).textContent=cnt;});
     };
 
-    // Gallery
+    /* Gallery */
     window.renderGallery = function() {
-      const entries = window._entries || [];
-      const grid = document.getElementById('gallery-grid');
-      if (!entries.length) {
-        grid.innerHTML = `<div class="gallery-empty"><div class="empty-icon">🌸</div><h4>¡Sé la primera en compartir!</h4><p>Sube tu foto de graduación y forma parte de nuestra comunidad de profesionales.</p></div>`;
-        return;
-      }
+      const entries = window._entries || [], grid = document.getElementById('gallery-grid');
+      if (!entries.length) { grid.innerHTML=`<div class="gallery-empty"><div class="empty-icon">🌸</div><h4>¡Sé la primera en compartir!</h4><p>Sube tu foto de graduación y forma parte de nuestra comunidad de profesionales.</p></div>`; return; }
       grid.innerHTML = entries.map(e => {
         const fecha = e.timestamp?.toDate ? e.timestamp.toDate().toLocaleDateString('es-CO',{day:'2-digit',month:'long',year:'numeric'}) : 'Reciente';
-        return `<div class="gallery-card">
-          <div class="gallery-img-wrap" style="cursor:pointer" onclick="openLightbox('${e.images[0]}')">
-            <img src="${e.images[0]}" alt="Graduación de ${escHtml(e.nombre)}" loading="lazy"/>
-            <span class="gallery-badge">${e.images.length>1?`+${e.images.length} fotos`:'Graduada ✓'}</span>
-          </div>
-          <div class="gallery-body">
-            <div class="gallery-top">
-              <span class="gallery-name">${escHtml(e.nombre)}</span>
-              <div class="gallery-stars">${'⭐'.repeat(e.stars)}${'☆'.repeat(5-e.stars)}</div>
-            </div>
-            <p class="gallery-comment">"${escHtml(e.comentario)}"</p>
-            <span class="gallery-date">📅 ${fecha}</span>
-            ${e.images.length>1?`<div class="preview-strip" style="margin-top:10px;">${e.images.slice(1,4).map(src=>`<img src="${src}" class="preview-thumb" style="cursor:pointer" onclick="openLightbox('${src}')" loading="lazy"/>`).join('')}</div>`:''}
-          </div>
-        </div>`;
+        const extras = (e.images||[]).length>1 ? `<div class="preview-strip" style="margin-top:10px;">${e.images.slice(1,4).map(src=>`<img src="${src}" class="preview-thumb" style="cursor:pointer" onclick="openLightbox('${src}')" loading="lazy"/>`).join('')}</div>` : '';
+        return `<div class="gallery-card"><div class="gallery-img-wrap" style="cursor:pointer" onclick="openLightbox('${escHtml(e.images[0])}')"><img src="${escHtml(e.images[0])}" alt="Graduación de ${escHtml(e.nombre)}" loading="lazy"/><span class="gallery-badge">${e.images.length>1?`+${e.images.length} fotos`:'Graduada ✓'}</span></div><div class="gallery-body"><div class="gallery-top"><span class="gallery-name">${escHtml(e.nombre)}</span><div class="gallery-stars">${'⭐'.repeat(e.stars||0)}${'☆'.repeat(5-(e.stars||0))}</div></div><p class="gallery-comment">"${escHtml(e.comentario)}"</p><span class="gallery-date">📅 ${fecha}</span>${extras}</div></div>`;
       }).join('');
     };
 
-    // Lightbox
+    /* Lightbox */
     function openLightbox(src) { document.getElementById('lb-img').src=src; document.getElementById('lightbox').classList.add('active'); document.body.style.overflow='hidden'; }
-    function closeLightbox() { document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow=''; }
-    document.getElementById('lightbox').addEventListener('click', function(e) { if(e.target===this) closeLightbox(); });
+    function closeLightbox()   { document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow=''; }
+    document.getElementById('lightbox').addEventListener('click', function(e){if(e.target===this)closeLightbox();});
+    document.addEventListener('keydown', e=>{if(e.key==='Escape'){cerrarModal();closeLightbox();closeRatingModal();}});
 
-    document.addEventListener('keydown', e => { if(e.key==='Escape'){cerrarModal();closeLightbox();closeRatingModal();} });
-
+    /* Helpers */
     function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-    function showMsg(el,text,bg,color) { el.style.cssText=`display:block;padding:10px 14px;border-radius:10px;font-size:13px;background:${bg};color:${color};`; el.textContent=text; setTimeout(()=>el.style.display='none',
+    function showMsg(el,text,bg,color) { el.style.cssText=`display:block;padding:10px 14px;border-radius:10px;font-size:13px;background:${bg};color:${color};`; el.textContent=text; setTimeout(()=>{el.style.display='none';},6000); }
+    function showToast(text,bg) { const t=document.getElementById('toast'); t.textContent=text; t.style.background=bg||'#2e7d32'; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),3500); }
+  </script>
+</body>
+</html>
