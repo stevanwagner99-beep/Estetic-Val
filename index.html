@@ -286,6 +286,63 @@
     .gallery-empty h4 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
     .gallery-empty p { font-size: 14px; opacity: .65; }
 
+    /* GALLERY ACTIONS */
+    .gallery-actions { display: flex; align-items: center; gap: 8px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #f0e4dc; }
+    .gallery-action-btn { display: flex; align-items: center; gap: 5px; border: none; background: transparent; cursor: pointer; font-family: 'Poppins', sans-serif; font-size: 13px; color: var(--text); opacity: 0.65; padding: 6px 10px; border-radius: 10px; transition: .2s; flex-shrink: 0; }
+    .gallery-action-btn:hover { opacity: 1; background: var(--bg); }
+    .gallery-action-btn.liked { color: #e53935; opacity: 1; }
+    .gallery-action-btn.liked svg { fill: #e53935; }
+    @keyframes like-pop { 0%{transform:scale(1);} 40%{transform:scale(1.4);} 70%{transform:scale(0.9);} 100%{transform:scale(1);} }
+    .gallery-action-btn.like-anim svg { animation: like-pop .35s ease forwards; }
+    .gallery-action-btn span { font-weight: 600; min-width: 12px; }
+    .gallery-action-spacer { flex: 1; }
+    .gallery-action-delete { color: #c62828 !important; opacity: 0.5 !important; }
+    .gallery-action-delete:hover { opacity: 1 !important; background: #fde8e8 !important; }
+
+    /* COMMENTS MODAL */
+    .comments-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 3500; align-items: center; justify-content: center; padding: 16px; }
+    .comments-overlay.active { display: flex; }
+    .comments-modal { background: #fff; border-radius: 22px; width: 100%; max-width: 520px; max-height: 88vh; display: flex; flex-direction: column; box-shadow: 0 30px 60px rgba(0,0,0,.18); animation: fadeUp .3s ease; overflow: hidden; }
+    .cm-header { padding: 20px 22px 16px; border-bottom: 1px solid #f0e4dc; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+    .cm-header h3 { font-size: 16px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+    .cm-close { background: none; border: none; font-size: 20px; cursor: pointer; opacity: .6; line-height: 1; }
+    .cm-close:hover { opacity: 1; }
+    .cm-photo-preview { height: 160px; overflow: hidden; flex-shrink: 0; background: var(--soft); }
+    .cm-photo-preview img { width: 100%; height: 100%; object-fit: cover; }
+    .cm-list { flex: 1; overflow-y: auto; padding: 14px 20px; display: flex; flex-direction: column; gap: 12px; min-height: 80px; }
+    .cm-empty { text-align: center; padding: 30px 20px; opacity: .5; font-size: 13px; }
+    .cm-item { display: flex; gap: 10px; align-items: flex-start; }
+    .cm-avatar { width: 34px; height: 34px; min-width: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--soft), var(--primary)); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: white; }
+    .cm-bubble { background: var(--bg); border-radius: 0 14px 14px 14px; padding: 9px 12px; flex: 1; }
+    .cm-bubble .cm-author { font-size: 12px; font-weight: 600; color: var(--primary); margin-bottom: 3px; }
+    .cm-bubble .cm-text { font-size: 13px; line-height: 1.55; }
+    .cm-bubble .cm-time { font-size: 11px; opacity: .45; margin-top: 4px; }
+    .cm-compose { padding: 14px 20px; border-top: 1px solid #f0e4dc; display: flex; gap: 10px; align-items: flex-end; flex-shrink: 0; }
+    .cm-compose input { flex: 1; border: 1.5px solid #e8d5c9; border-radius: 999px; padding: 10px 16px; font-size: 13px; font-family: 'Poppins', sans-serif; outline: none; transition: border-color .2s; background: var(--bg); }
+    .cm-compose input:focus { border-color: var(--primary); background: #fff; }
+    .cm-send { background: var(--primary); border: none; border-radius: 50%; width: 38px; height: 38px; min-width: 38px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: .2s; box-shadow: 0 4px 12px rgba(199,147,138,.35); }
+    .cm-send:hover { background: var(--primary-dark); transform: scale(1.08); }
+    .cm-send svg { color: white; }
+
+    /* DELETE CONFIRM MODAL */
+    .del-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 4000; align-items: center; justify-content: center; padding: 20px; }
+    .del-overlay.active { display: flex; }
+    .del-modal { background: #fff; border-radius: 20px; width: 100%; max-width: 380px; padding: 30px 28px; text-align: center; box-shadow: 0 30px 60px rgba(0,0,0,.15); animation: fadeUp .25s ease; }
+    .del-icon { width: 56px; height: 56px; background: #fde8e8; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+    .del-icon svg { color: #c62828; }
+    .del-modal h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+    .del-modal p { font-size: 13px; opacity: .7; margin-bottom: 22px; line-height: 1.6; }
+    .del-input-wrap { margin-bottom: 20px; text-align: left; }
+    .del-input-wrap label { font-size: 12px; font-weight: 600; display: block; margin-bottom: 6px; opacity: .7; }
+    .del-input-wrap input { width: 100%; border: 1.5px solid #e8d5c9; border-radius: 10px; padding: 10px 14px; font-size: 13px; font-family: 'Poppins', sans-serif; outline: none; transition: border-color .2s; }
+    .del-input-wrap input:focus { border-color: #c62828; }
+    .del-buttons { display: flex; gap: 10px; }
+    .del-cancel { flex: 1; background: transparent; border: 1.5px solid #ddd; border-radius: 999px; padding: 11px; font-size: 13px; font-weight: 600; cursor: pointer; transition: .2s; font-family: 'Poppins', sans-serif; }
+    .del-cancel:hover { border-color: var(--primary); color: var(--primary); }
+    .del-confirm { flex: 1; background: #c62828; color: white; border: none; border-radius: 999px; padding: 11px; font-size: 13px; font-weight: 600; cursor: pointer; transition: .2s; font-family: 'Poppins', sans-serif; }
+    .del-confirm:hover { background: #b71c1c; }
+    .del-confirm:disabled { opacity: .5; cursor: not-allowed; }
+
     .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 3000; align-items: center; justify-content: center; padding: 20px; }
     .lightbox.active { display: flex; }
     .lightbox img { max-width: min(90vw,800px); max-height: 80vh; border-radius: 16px; object-fit: contain; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
@@ -1020,6 +1077,46 @@
     </div>
   </div>
 
+  <!-- COMMENTS MODAL -->
+  <div class="comments-overlay" id="comments-overlay">
+    <div class="comments-modal">
+      <div class="cm-header">
+        <h3>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18" style="color:var(--primary)"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"/></svg>
+          Comentarios
+        </h3>
+        <button class="cm-close" onclick="closeComments()">✕</button>
+      </div>
+      <div class="cm-photo-preview"><img id="cm-photo-img" src="" alt=""/></div>
+      <div class="cm-list" id="cm-list"><div class="cm-empty">Cargando comentarios…</div></div>
+      <div class="cm-compose">
+        <input type="text" id="cm-input" placeholder="Escribe un comentario…" maxlength="300" onkeydown="if(event.key==='Enter')sendComment()"/>
+        <button class="cm-send" onclick="sendComment()" title="Enviar">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DELETE CONFIRM MODAL -->
+  <div class="del-overlay" id="del-overlay">
+    <div class="del-modal">
+      <div class="del-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/></svg>
+      </div>
+      <h3>¿Eliminar publicación?</h3>
+      <p>Esta acción es permanente. Ingresa tu nombre tal como aparece en la publicación para confirmar.</p>
+      <div class="del-input-wrap">
+        <label>Tu nombre de la publicación</label>
+        <input type="text" id="del-name-input" placeholder="Ej: Valentina García" oninput="checkDelName()"/>
+      </div>
+      <div class="del-buttons">
+        <button class="del-cancel" onclick="closeDeleteModal()">Cancelar</button>
+        <button class="del-confirm" id="del-confirm-btn" disabled onclick="confirmDelete()">Sí, eliminar</button>
+      </div>
+    </div>
+  </div>
+
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" onclick="closeLightbox()">✕</button>
@@ -1032,7 +1129,10 @@
   <!-- FIREBASE -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-    import { getFirestore, collection, addDoc, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+    import {
+      getFirestore, collection, addDoc, deleteDoc, doc, updateDoc,
+      arrayUnion, arrayRemove, query, orderBy, onSnapshot, getDoc, setDoc
+    } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyCQOMbhuII2L8nj53tHOYVv9QkqEx4D350",
@@ -1046,11 +1146,22 @@
     const app = initializeApp(firebaseConfig);
     const db  = getFirestore(app);
 
-    window._db          = db;
-    window._fbCollection = collection;
-    window._fbAddDoc    = addDoc;
-    window._fbReady     = true;
+    window._db             = db;
+    window._fbCollection   = collection;
+    window._fbAddDoc       = addDoc;
+    window._fbDeleteDoc    = deleteDoc;
+    window._fbDoc          = doc;
+    window._fbUpdateDoc    = updateDoc;
+    window._fbArrayUnion   = arrayUnion;
+    window._fbArrayRemove  = arrayRemove;
+    window._fbGetDoc       = getDoc;
+    window._fbSetDoc       = setDoc;
+    window._fbOrderBy      = orderBy;
+    window._fbQuery        = query;
+    window._fbOnSnapshot   = onSnapshot;
+    window._fbReady        = true;
 
+    // Graduaciones
     onSnapshot(
       query(collection(db, "graduaciones"), orderBy("timestamp", "desc")),
       snap => {
@@ -1064,6 +1175,7 @@
       }
     );
 
+    // Valoraciones
     onSnapshot(
       collection(db, "valoraciones"),
       snap => {
@@ -1317,14 +1429,188 @@
       grid.innerHTML = entries.map(e => {
         const fecha = e.timestamp?.toDate ? e.timestamp.toDate().toLocaleDateString('es-CO',{day:'2-digit',month:'long',year:'numeric'}) : 'Reciente';
         const extras = (e.images||[]).length>1 ? `<div class="preview-strip" style="margin-top:10px;">${e.images.slice(1,4).map(src=>`<img src="${src}" class="preview-thumb" style="cursor:pointer" onclick="openLightbox('${src}')" loading="lazy"/>`).join('')}</div>` : '';
-        return `<div class="gallery-card"><div class="gallery-img-wrap" style="cursor:pointer" onclick="openLightbox('${escHtml(e.images[0])}')"><img src="${escHtml(e.images[0])}" alt="Graduación de ${escHtml(e.nombre)}" loading="lazy"/><span class="gallery-badge">${e.images.length>1?`+${e.images.length} fotos`:'Graduada ✓'}</span></div><div class="gallery-body"><div class="gallery-top"><span class="gallery-name">${escHtml(e.nombre)}</span><div class="gallery-stars">${'⭐'.repeat(e.stars||0)}${'☆'.repeat(5-(e.stars||0))}</div></div><p class="gallery-comment">"${escHtml(e.comentario)}"</p><span class="gallery-date">📅 ${fecha}</span>${extras}</div></div>`;
+        const likeCount = (e.likes||[]).length;
+        const commentCount = e.commentCount || 0;
+        const userLiked = (e.likes||[]).includes(window._userId||'');
+        return `<div class="gallery-card" id="card-${e.id}">
+          <div class="gallery-img-wrap" style="cursor:pointer" onclick="openLightbox('${escHtml(e.images[0])}')">
+            <img src="${escHtml(e.images[0])}" alt="Graduación de ${escHtml(e.nombre)}" loading="lazy"/>
+            <span class="gallery-badge">${e.images.length>1?`+${e.images.length} fotos`:'Graduada ✓'}</span>
+          </div>
+          <div class="gallery-body">
+            <div class="gallery-top"><span class="gallery-name">${escHtml(e.nombre)}</span><div class="gallery-stars">${'⭐'.repeat(e.stars||0)}${'☆'.repeat(5-(e.stars||0))}</div></div>
+            <p class="gallery-comment">"${escHtml(e.comentario)}"</p>
+            <span class="gallery-date">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
+              ${fecha}
+            </span>
+            ${extras}
+            <div class="gallery-actions">
+              <button class="gallery-action-btn ${userLiked?'liked':''}" id="like-btn-${e.id}" onclick="toggleLike('${e.id}')">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="${userLiked?'currentColor':'none'}" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg>
+                <span id="like-count-${e.id}">${likeCount||''}</span>
+              </button>
+              <button class="gallery-action-btn" onclick="openComments('${e.id}','${escHtml(e.images[0])}')">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"/></svg>
+                <span>${commentCount||''}</span>
+              </button>
+              <div class="gallery-action-spacer"></div>
+              <button class="gallery-action-btn gallery-action-delete" onclick="openDeleteModal('${e.id}','${escHtml(e.nombre)}')" title="Eliminar publicación">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="15" height="15"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>`;
       }).join('');
     };
+
+    /* ══ LIKES ══ */
+    // Generar un ID de usuario persistente por dispositivo
+    if (!localStorage.getItem('ev_uid')) localStorage.setItem('ev_uid', 'u_' + Math.random().toString(36).slice(2));
+    window._userId = localStorage.getItem('ev_uid');
+
+    async function toggleLike(entryId) {
+      if (!window._fbReady) return;
+      const btn = document.getElementById(`like-btn-${entryId}`);
+      const countEl = document.getElementById(`like-count-${entryId}`);
+      if (!btn) return;
+      const entry = (window._entries||[]).find(e => e.id === entryId);
+      if (!entry) return;
+      const likes = entry.likes || [];
+      const uid = window._userId;
+      const isLiked = likes.includes(uid);
+      // optimistic update
+      btn.classList.toggle('liked', !isLiked);
+      const newCount = isLiked ? likes.length - 1 : likes.length + 1;
+      countEl.textContent = newCount > 0 ? newCount : '';
+      if (!isLiked) { btn.classList.add('like-anim'); setTimeout(()=>btn.classList.remove('like-anim'),400); }
+      try {
+        const ref = window._fbDoc(window._db, 'graduaciones', entryId);
+        await window._fbUpdateDoc(ref, { likes: isLiked ? window._fbArrayRemove(uid) : window._fbArrayUnion(uid) });
+      } catch(err) {
+        console.error('Error like:', err);
+        btn.classList.toggle('liked', isLiked); // revert
+        countEl.textContent = likes.length > 0 ? likes.length : '';
+      }
+    }
+
+    /* ══ COMMENTS ══ */
+    let _currentCommentEntry = null;
+    let _commentsUnsub = null;
+
+    async function openComments(entryId, imgSrc) {
+      _currentCommentEntry = entryId;
+      document.getElementById('cm-photo-img').src = imgSrc;
+      document.getElementById('cm-list').innerHTML = '<div class="cm-empty">Cargando…</div>';
+      document.getElementById('cm-input').value = '';
+      document.getElementById('comments-overlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+      // unsub previous
+      if (_commentsUnsub) { _commentsUnsub(); _commentsUnsub = null; }
+      const colRef = window._fbCollection(window._db, 'graduaciones', entryId, 'comentarios');
+      _commentsUnsub = window._fbOnSnapshot(
+        window._fbQuery(colRef, window._fbOrderBy('timestamp','asc')),
+        snap => {
+          const list = document.getElementById('cm-list');
+          if (!list) return;
+          if (snap.empty) { list.innerHTML='<div class="cm-empty">¡Sé la primera en comentar! 💬</div>'; return; }
+          list.innerHTML = snap.docs.map(d => {
+            const data = d.data();
+            const ini = (data.autor||'?')[0].toUpperCase();
+            const t = data.timestamp?.toDate ? data.timestamp.toDate().toLocaleString('es-CO',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}) : '';
+            return `<div class="cm-item"><div class="cm-avatar">${ini}</div><div class="cm-bubble"><div class="cm-author">${escHtml(data.autor||'Anónima')}</div><div class="cm-text">${escHtml(data.texto)}</div><div class="cm-time">${t}</div></div></div>`;
+          }).join('');
+          list.scrollTop = list.scrollHeight;
+        }
+      );
+    }
+
+    function closeComments() {
+      document.getElementById('comments-overlay').classList.remove('active');
+      document.body.style.overflow = '';
+      if (_commentsUnsub) { _commentsUnsub(); _commentsUnsub = null; }
+      _currentCommentEntry = null;
+    }
+
+    async function sendComment() {
+      if (!_currentCommentEntry || !window._fbReady) return;
+      const input = document.getElementById('cm-input');
+      const texto = input.value.trim();
+      if (!texto) return;
+      // ask name once per session
+      if (!sessionStorage.getItem('ev_comment_name')) {
+        const name = prompt('¿Cuál es tu nombre?', '');
+        if (!name || !name.trim()) return;
+        sessionStorage.setItem('ev_comment_name', name.trim());
+      }
+      const autor = sessionStorage.getItem('ev_comment_name');
+      input.value = '';
+      try {
+        const colRef = window._fbCollection(window._db, 'graduaciones', _currentCommentEntry, 'comentarios');
+        await window._fbAddDoc(colRef, { autor, texto, timestamp: new Date() });
+        // increment counter on parent doc
+        const parentRef = window._fbDoc(window._db, 'graduaciones', _currentCommentEntry);
+        const snap = await window._fbGetDoc(parentRef);
+        if (snap.exists()) {
+          await window._fbUpdateDoc(parentRef, { commentCount: (snap.data().commentCount||0) + 1 });
+        }
+      } catch(err) { console.error('Error comentario:', err); showToast('Error al enviar comentario.','#c0392b'); }
+    }
+
+    /* ══ DELETE ══ */
+    let _deleteEntryId = null, _deleteEntryName = null;
+
+    function openDeleteModal(id, nombre) {
+      _deleteEntryId = id; _deleteEntryName = nombre;
+      document.getElementById('del-name-input').value = '';
+      document.getElementById('del-confirm-btn').disabled = true;
+      document.getElementById('del-overlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+      setTimeout(()=>document.getElementById('del-name-input').focus(),200);
+    }
+
+    function closeDeleteModal() {
+      document.getElementById('del-overlay').classList.remove('active');
+      document.body.style.overflow = '';
+      _deleteEntryId = null; _deleteEntryName = null;
+    }
+
+    function checkDelName() {
+      const val = document.getElementById('del-name-input').value.trim().toLowerCase();
+      document.getElementById('del-confirm-btn').disabled = val !== (_deleteEntryName||'').toLowerCase();
+    }
+
+    async function confirmDelete() {
+      if (!_deleteEntryId || !window._fbReady) return;
+      const btn = document.getElementById('del-confirm-btn');
+      btn.disabled = true; btn.textContent = 'Eliminando…';
+      try {
+        await window._fbDeleteDoc(window._fbDoc(window._db, 'graduaciones', _deleteEntryId));
+        closeDeleteModal();
+        showToast('Publicación eliminada.');
+      } catch(err) {
+        console.error(err);
+        btn.disabled = false; btn.textContent = 'Sí, eliminar';
+        showToast('Error al eliminar.','#c0392b');
+      }
+    }
+
+    // expose globally
+    window.toggleLike       = toggleLike;
+    window.openComments     = openComments;
+    window.closeComments    = closeComments;
+    window.sendComment      = sendComment;
+    window.openDeleteModal  = openDeleteModal;
+    window.closeDeleteModal = closeDeleteModal;
+    window.checkDelName     = checkDelName;
+    window.confirmDelete    = confirmDelete;
 
     function openLightbox(src) { document.getElementById('lb-img').src=src; document.getElementById('lightbox').classList.add('active'); document.body.style.overflow='hidden'; }
     function closeLightbox()   { document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow=''; }
     document.getElementById('lightbox').addEventListener('click', function(e){if(e.target===this)closeLightbox();});
-    document.addEventListener('keydown', e=>{if(e.key==='Escape'){cerrarModal();closeLightbox();closeRatingModal();}});
+    document.getElementById('comments-overlay').addEventListener('click', function(e){if(e.target===this)closeComments();});
+    document.getElementById('del-overlay').addEventListener('click', function(e){if(e.target===this)closeDeleteModal();});
+    document.addEventListener('keydown', e=>{if(e.key==='Escape'){cerrarModal();closeLightbox();closeRatingModal();if(typeof closeComments==='function')closeComments();if(typeof closeDeleteModal==='function')closeDeleteModal();}});
 
     function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
     function showMsg(el,text,bg,color) { el.style.cssText=`display:block;padding:10px 14px;border-radius:10px;font-size:13px;background:${bg};color:${color};`; el.textContent=text; setTimeout(()=>{el.style.display='none';},6000); }
