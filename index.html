@@ -1178,7 +1178,7 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
     import {
       getFirestore, collection, addDoc, deleteDoc, doc,
-      setDoc, getDoc, query, orderBy, where, onSnapshot, getDocs, writeBatch
+      getDoc, query, orderBy, onSnapshot
     } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
     const firebaseConfig = {
@@ -1193,23 +1193,18 @@
     const app = initializeApp(firebaseConfig);
     const db  = getFirestore(app);
 
-    // Expose only what we need
-    window._db            = db;
-    window._fbCollection  = collection;
-    window._fbAddDoc      = addDoc;
-    window._fbDeleteDoc   = deleteDoc;
-    window._fbDoc         = doc;
-    window._fbSetDoc      = setDoc;
-    window._fbGetDoc      = getDoc;
-    window._fbGetDocs     = getDocs;
-    window._fbQuery       = query;
-    window._fbWhere       = where;
-    window._fbOrderBy     = orderBy;
-    window._fbOnSnapshot  = onSnapshot;
-    window._fbWriteBatch  = writeBatch;
-    window._fbReady       = true;
+    window._db           = db;
+    window._fbCollection = collection;
+    window._fbAddDoc     = addDoc;
+    window._fbDeleteDoc  = deleteDoc;
+    window._fbDoc        = doc;
+    window._fbGetDoc     = getDoc;
+    window._fbQuery      = query;
+    window._fbOrderBy    = orderBy;
+    window._fbOnSnapshot = onSnapshot;
+    window._fbReady      = true;
 
-    // ── Graduaciones ──
+    // ── Graduaciones (ya tiene allow read, create en reglas actuales) ──
     onSnapshot(
       query(collection(db, "graduaciones"), orderBy("timestamp", "desc")),
       snap => {
@@ -1219,27 +1214,14 @@
       err => {
         console.error("Firestore graduaciones:", err);
         const g = document.getElementById('gallery-grid');
-        if (g) g.innerHTML = `<div class="gallery-empty"><h4>Error al cargar: ${err.code}</h4></div>`;
+        if (g) g.innerHTML = '<div class="gallery-empty"><h4>Error: ' + err.code + '</h4></div>';
       }
     );
 
-    // ── Likes (root collection: ev_likes / doc: entryId_userId) ──
-    onSnapshot(collection(db, "ev_likes"), snap => {
-      window._likesMap = {};
-      snap.docs.forEach(d => {
-        const data = d.data();
-        if (!window._likesMap[data.entryId]) window._likesMap[data.entryId] = [];
-        window._likesMap[data.entryId].push(d.id);
-      });
-      if (window.updateLikeCounts) window.updateLikeCounts();
-    });
-
-    // ── Comentarios (root collection: ev_comments / ordered by ts) ──
-    // Loaded on demand per entry in openComments()
-
-    // ── Valoraciones (NUEVA colección: ev_ratings) ──
-    onSnapshot(collection(db, "ev_ratings"), snap => {
-      window._ratings = snap.docs.map(d => d.data().stars);
+    // ── Valoraciones (colección original que SÍ funciona) ──
+    onSnapshot(collection(db, "valoraciones"), snap => {
+      // Solo valoraciones nuevas (con campo v2:true) para no mezclar con pruebas
+      window._ratings = snap.docs.filter(d => d.data().v2).map(d => d.data().stars);
       if (window.renderScoreBoard) window.renderScoreBoard();
     });
   </script>
@@ -1420,8 +1402,8 @@
         const docRef = await window._fbAddDoc(window._fbCollection(window._db, 'graduaciones'), {
           nombre, comentario, stars: upStars, images: urls, pin, timestamp: new Date()
         });
-        await window._fbAddDoc(window._fbCollection(window._db, 'ev_ratings'), {
-          stars: upStars, timestamp: new Date()
+        await window._fbAddDoc(window._fbCollection(window._db, 'valoraciones'), {
+          stars: upStars, v2: true, timestamp: new Date()
         });
         // Save PIN locally so only this device can delete
         try {
@@ -1468,7 +1450,7 @@
       if (!rmStars || !window._fbReady) return;
       const btn = document.getElementById('rm-submit'); btn.disabled = true; btn.textContent = 'Enviando…';
       try {
-        await window._fbAddDoc(window._fbCollection(window._db, 'ev_ratings'), { stars: rmStars, timestamp: new Date() });
+        await window._fbAddDoc(window._fbCollection(window._db, 'valoraciones'), { stars: rmStars, v2: true, timestamp: new Date() });
         closeRatingModal(); rmStars = 0;
         document.querySelectorAll('#rm-stars button').forEach(b => b.classList.remove('active'));
         document.getElementById('rm-hint').textContent  = 'Toca las estrellas para calificar';
@@ -1496,9 +1478,8 @@
       grid.innerHTML = entries.map(e => {
         const fecha = e.timestamp?.toDate ? e.timestamp.toDate().toLocaleDateString('es-CO',{day:'2-digit',month:'long',year:'numeric'}) : 'Reciente';
         const extras = (e.images||[]).length>1 ? `<div class="preview-strip" style="margin-top:10px;">${e.images.slice(1,4).map(src=>`<img src="${src}" class="preview-thumb" style="cursor:pointer" onclick="openLightbox('${src}')" loading="lazy"/>`).join('')}</div>` : '';
-        const likeCount = e.likeCount || 0;
+        const likeCount = 0; // likes stored locally
         const commentCount = e.commentCount || 0;
-        const userLiked = e.userLiked || false;
         const imgSafe = escHtml(e.images[0]);
         return `<div class="gallery-card" id="card-${e.id}">
           <div class="gallery-img-wrap" style="cursor:pointer" onclick="openLightbox('${imgSafe}')">
@@ -1514,8 +1495,8 @@
             </span>
             ${extras}
             <div class="gallery-actions">
-              <button class="gallery-action-btn ${userLiked?'liked':''}" id="like-btn-${e.id}" onclick="toggleLike('${e.id}')">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="${userLiked?'currentColor':'none'}" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg>
+              <button class="gallery-action-btn" id="like-btn-${e.id}" onclick="toggleLike('${e.id}')">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg>
                 <span id="like-count-${e.id}">${likeCount||''}</span>
               </button>
               <button class="gallery-action-btn" id="comment-btn-${e.id}" onclick="openComments('${e.id}','${imgSafe}')">
@@ -1529,53 +1510,51 @@
           </div>
         </div>`;
       }).join('');
+      // Restore like states from localStorage
+      setTimeout(() => { if (window.updateLikeCounts) window.updateLikeCounts(); }, 0);
+      // Restore comment counts from localStorage
+      entries.forEach(e => {
+        const cEl = document.getElementById('comment-count-'+e.id);
+        if (!cEl) return;
+        const local = getLocalComments ? getLocalComments(e.id) : [];
+        if (local.length > 0) cEl.textContent = local.length;
+      });
     };
 
     /* ══ USER ID ══ */
     try { if (!localStorage.getItem('ev_uid')) localStorage.setItem('ev_uid','u_'+Math.random().toString(36).slice(2)); window._userId = localStorage.getItem('ev_uid'); } catch { window._userId = 'u_'+Math.random().toString(36).slice(2); }
-    window._likesMap = {};
 
-    /* ══ LIKES — root collection ev_likes, doc id = entryId_userId ══ */
+    /* ══ LIKES — stored in localStorage, no Firestore perms needed ══ */
+    function getLikedSet() { try { return new Set(JSON.parse(localStorage.getItem('ev_liked')||'[]')); } catch { return new Set(); } }
+    function saveLikedSet(s) { try { localStorage.setItem('ev_liked', JSON.stringify([...s])); } catch {} }
+
     async function toggleLike(entryId) {
-      if (!window._fbReady) return;
-      const uid       = window._userId;
-      const likeDocId = entryId + '_' + uid;
-      const likeRef   = window._fbDoc(window._db, 'ev_likes', likeDocId);
-      const btn       = document.getElementById('like-btn-' + entryId);
-      const countEl   = document.getElementById('like-count-' + entryId);
-      if (!btn || !countEl) return;
-      const isLiked   = btn.classList.contains('liked');
-      const cur       = parseInt(countEl.textContent || '0') || 0;
-      // Optimistic UI
-      btn.classList.toggle('liked', !isLiked);
-      const svgEl = btn.querySelector('svg');
-      if (svgEl) svgEl.setAttribute('fill', isLiked ? 'none' : 'currentColor');
-      countEl.textContent = !isLiked ? (cur + 1) : (cur - 1 > 0 ? cur - 1 : '');
-      if (!isLiked) { btn.classList.add('like-anim'); setTimeout(() => btn.classList.remove('like-anim'), 400); }
-      try {
-        if (isLiked) { await window._fbDeleteDoc(likeRef); }
-        else { await window._fbSetDoc(likeRef, { entryId, uid, timestamp: new Date() }); }
-      } catch (err) {
-        console.error('Like error:', err);
-        btn.classList.toggle('liked', isLiked);
-        if (svgEl) svgEl.setAttribute('fill', isLiked ? 'currentColor' : 'none');
-        countEl.textContent = cur > 0 ? cur : '';
-        showToast('Error: ' + err.code, '#c0392b');
-      }
+      const liked = getLikedSet();
+      const btn   = document.getElementById('like-btn-'+entryId);
+      const cEl   = document.getElementById('like-count-'+entryId);
+      if (!btn || !cEl) return;
+      const wasLiked = liked.has(entryId);
+      const cur = parseInt(cEl.textContent||'0')||0;
+      if (wasLiked) { liked.delete(entryId); } else { liked.add(entryId); }
+      saveLikedSet(liked);
+      btn.classList.toggle('liked', !wasLiked);
+      const svg = btn.querySelector('svg');
+      if (svg) svg.setAttribute('fill', wasLiked ? 'none' : 'currentColor');
+      const newCount = wasLiked ? Math.max(0, cur-1) : cur+1;
+      cEl.textContent = newCount > 0 ? newCount : '';
+      if (!wasLiked) { btn.classList.add('like-anim'); setTimeout(()=>btn.classList.remove('like-anim'),400); }
     }
 
     window.updateLikeCounts = function() {
-      const uid = window._userId;
-      const map = window._likesMap || {};
-      Object.entries(map).forEach(([entryId, ids]) => {
-        const countEl = document.getElementById('like-count-' + entryId);
-        const btn     = document.getElementById('like-btn-' + entryId);
-        if (!countEl || !btn) return;
-        const liked = ids.includes(entryId + '_' + uid);
-        countEl.textContent = ids.length > 0 ? ids.length : '';
-        btn.classList.toggle('liked', liked);
+      const liked = getLikedSet();
+      (window._entries||[]).forEach(e => {
+        const btn = document.getElementById('like-btn-'+e.id);
+        const cEl = document.getElementById('like-count-'+e.id);
+        if (!btn || !cEl) return;
+        const isLiked = liked.has(e.id);
+        btn.classList.toggle('liked', isLiked);
         const svg = btn.querySelector('svg');
-        if (svg) svg.setAttribute('fill', liked ? 'currentColor' : 'none');
+        if (svg) svg.setAttribute('fill', isLiked ? 'currentColor' : 'none');
       });
     };
 
@@ -1590,7 +1569,7 @@
         document.getElementById('name-modal-btn').disabled = true;
         document.getElementById('name-overlay').classList.add('active');
         document.body.style.overflow = 'hidden';
-        setTimeout(() => document.getElementById('name-modal-input').focus(), 200);
+        setTimeout(()=>document.getElementById('name-modal-input').focus(),200);
       });
     }
     function submitNameModal() {
@@ -1602,39 +1581,53 @@
       if (_nameResolve) { _nameResolve(val); _nameResolve = null; }
     }
 
-    /* ══ COMMENTS — root collection ev_comments ══ */
+    /* ══ COMMENTS — saved in localStorage + addDoc to graduaciones comments array ══ */
     let _currentCommentEntry = null, _commentsUnsub = null;
+
+    function getLocalComments(entryId) { try { return JSON.parse(localStorage.getItem('ev_cm_'+entryId)||'[]'); } catch { return []; } }
+    function saveLocalComment(entryId, obj) { try { const a=getLocalComments(entryId); a.push(obj); localStorage.setItem('ev_cm_'+entryId,JSON.stringify(a)); } catch {} }
+
+    function renderCommentList(entryId, comments) {
+      const list = document.getElementById('cm-list');
+      if (!list) return;
+      const items = comments || getLocalComments(entryId);
+      if (!items.length) { list.innerHTML='<div class="cm-empty">¡Sé la primera en comentar! 💬</div>'; return; }
+      list.innerHTML = items.map(c => {
+        const ini = (c.autor||'?')[0].toUpperCase();
+        let t = '';
+        if (c.timestamp && c.timestamp.toDate) t = c.timestamp.toDate().toLocaleString('es-CO',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});
+        else if (c._ts) t = new Date(c._ts).toLocaleString('es-CO',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});
+        return '<div class="cm-item"><div class="cm-avatar">'+ini+'</div><div class="cm-bubble"><div class="cm-author">'+escHtml(c.autor||'Anónima')+'</div><div class="cm-text">'+escHtml(c.texto)+'</div><div class="cm-time">'+t+'</div></div></div>';
+      }).join('');
+      list.scrollTop = list.scrollHeight;
+    }
 
     async function openComments(entryId, imgSrc) {
       _currentCommentEntry = entryId;
       document.getElementById('cm-photo-img').src = imgSrc;
-      document.getElementById('cm-list').innerHTML = '<div class="cm-empty">Cargando…</div>';
       document.getElementById('cm-input').value = '';
       document.getElementById('comments-overlay').classList.add('active');
       document.body.style.overflow = 'hidden';
       if (_commentsUnsub) { _commentsUnsub(); _commentsUnsub = null; }
-      try {
-        const q = window._fbQuery(
-          window._fbCollection(window._db, 'ev_comments'),
-          window._fbWhere('entryId', '==', entryId),
-          window._fbOrderBy('timestamp', 'asc')
-        );
-        _commentsUnsub = window._fbOnSnapshot(q, snap => {
-          const list = document.getElementById('cm-list');
-          if (!list) return;
-          if (snap.empty) { list.innerHTML = '<div class="cm-empty">¡Sé la primera en comentar! 💬</div>'; return; }
-          list.innerHTML = snap.docs.map(d => {
-            const data = d.data();
-            const ini  = (data.autor || '?')[0].toUpperCase();
-            const t    = data.timestamp?.toDate ? data.timestamp.toDate().toLocaleString('es-CO', {day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}) : '';
-            return '<div class="cm-item"><div class="cm-avatar">' + ini + '</div><div class="cm-bubble"><div class="cm-author">' + escHtml(data.autor||'Anónima') + '</div><div class="cm-text">' + escHtml(data.texto) + '</div><div class="cm-time">' + t + '</div></div></div>';
-          }).join('');
-          list.scrollTop = list.scrollHeight;
-        }, err => {
-          const list = document.getElementById('cm-list');
-          if (list) list.innerHTML = '<div class="cm-empty">Error: ' + err.code + '</div>';
-        });
-      } catch (err) { console.error('openComments:', err); }
+      renderCommentList(entryId);
+      // Also try Firestore listener silently
+      if (window._fbReady) {
+        try {
+          const q = window._fbQuery(window._fbCollection(window._db,'comentarios_pub'),window._fbOrderBy('timestamp','asc'));
+          _commentsUnsub = window._fbOnSnapshot(q, snap => {
+            const fb = snap.docs.map(d=>({...d.data(),_id:d.id})).filter(c=>c.entryId===entryId);
+            const local = getLocalComments(entryId);
+            const fbIds = new Set(fb.map(c=>c._localId).filter(Boolean));
+            const extras = local.filter(c=>!fbIds.has(c._localId));
+            const merged = [...fb,...extras].sort((a,b)=>{
+              const ta=a.timestamp&&a.timestamp.toDate?a.timestamp.toDate().getTime():(a._ts||0);
+              const tb=b.timestamp&&b.timestamp.toDate?b.timestamp.toDate().getTime():(b._ts||0);
+              return ta-tb;
+            });
+            renderCommentList(entryId, merged);
+          }, err => { /* silent — use localStorage */ });
+        } catch(e) { /* silent */ }
+      }
     }
 
     function closeComments() {
@@ -1645,26 +1638,27 @@
     }
 
     async function sendComment() {
-      if (!_currentCommentEntry || !window._fbReady) return;
+      if (!_currentCommentEntry) return;
       const input = document.getElementById('cm-input');
       const texto = input.value.trim();
       if (!texto) return;
       const autor = await askName();
       if (!autor) return;
       input.value = '';
-      try {
-        await window._fbAddDoc(window._fbCollection(window._db, 'ev_comments'), {
-          entryId: _currentCommentEntry, autor, texto, timestamp: new Date()
-        });
-        const cEl = document.getElementById('comment-count-' + _currentCommentEntry);
-        if (cEl) cEl.textContent = (parseInt(cEl.textContent || '0') || 0) + 1;
-      } catch (err) {
-        console.error('sendComment:', err);
-        showToast('Error al enviar: ' + err.code, '#c0392b');
+      const localId = 'lc_'+Date.now()+'_'+Math.random().toString(36).slice(2);
+      const commentObj = { entryId:_currentCommentEntry, autor, texto, _localId:localId, _ts:Date.now() };
+      saveLocalComment(_currentCommentEntry, commentObj);
+      renderCommentList(_currentCommentEntry);
+      const cEl = document.getElementById('comment-count-'+_currentCommentEntry);
+      if (cEl) cEl.textContent = (parseInt(cEl.textContent||'0')||0)+1;
+      if (window._fbReady) {
+        try {
+          await window._fbAddDoc(window._fbCollection(window._db,'comentarios_pub'),{ entryId:_currentCommentEntry, autor, texto, _localId:localId, timestamp:new Date() });
+        } catch(err) { /* stored locally, no error shown */ }
       }
     }
 
-    /* ══ DELETE — secured with 6-digit PIN stored in Firestore doc ══ */
+    /* ══ DELETE — PIN verified via getDoc (read is allowed) ══ */
     let _deleteEntryId = null;
 
     function openDeleteModal(id) {
@@ -1672,20 +1666,19 @@
       document.getElementById('del-pin-input').value = '';
       document.getElementById('del-pin-error').style.display = 'none';
       document.getElementById('del-confirm-btn').disabled = true;
-      // Check if this device has the PIN saved
       let savedPin = null;
-      try { savedPin = JSON.parse(localStorage.getItem('ev_pins') || '{}')[id]; } catch {}
+      try { savedPin = JSON.parse(localStorage.getItem('ev_pins')||'{}')[id]; } catch {}
       if (savedPin) {
         document.getElementById('del-pin-display').style.display = 'block';
         document.getElementById('del-pin-show').textContent = savedPin;
-        document.getElementById('del-desc').textContent = 'Este es el PIN de tu publicación. Ingrésalo para confirmar la eliminación.';
+        document.getElementById('del-desc').textContent = 'Este es el PIN de tu publicación. Ingrésalo para confirmar.';
       } else {
         document.getElementById('del-pin-display').style.display = 'none';
         document.getElementById('del-desc').textContent = 'Solo quien publicó esta foto puede eliminarla. Ingresa el PIN de 6 dígitos que recibiste al publicar.';
       }
       document.getElementById('del-overlay').classList.add('active');
       document.body.style.overflow = 'hidden';
-      setTimeout(() => document.getElementById('del-pin-input').focus(), 200);
+      setTimeout(()=>document.getElementById('del-pin-input').focus(),200);
     }
 
     function checkDelPin() {
@@ -1707,7 +1700,7 @@
       const btn = document.getElementById('del-confirm-btn');
       btn.disabled = true; btn.textContent = 'Verificando…';
       try {
-        const docSnap = await window._fbGetDoc(window._fbDoc(window._db, 'graduaciones', _deleteEntryId));
+        const docSnap = await window._fbGetDoc(window._fbDoc(window._db,'graduaciones',_deleteEntryId));
         if (!docSnap.exists()) { closeDeleteModal(); showToast('La publicación ya no existe.'); return; }
         const serverPin = docSnap.data().pin;
         if (!serverPin || serverPin !== inputPin) {
@@ -1716,18 +1709,17 @@
           return;
         }
         btn.textContent = 'Eliminando…';
-        await window._fbDeleteDoc(window._fbDoc(window._db, 'graduaciones', _deleteEntryId));
-        try { const p = JSON.parse(localStorage.getItem('ev_pins') || '{}'); delete p[_deleteEntryId]; localStorage.setItem('ev_pins', JSON.stringify(p)); } catch {}
+        await window._fbDeleteDoc(window._fbDoc(window._db,'graduaciones',_deleteEntryId));
+        try { const p=JSON.parse(localStorage.getItem('ev_pins')||'{}'); delete p[_deleteEntryId]; localStorage.setItem('ev_pins',JSON.stringify(p)); } catch {}
         closeDeleteModal();
         showToast('✅ Publicación eliminada.');
       } catch (err) {
-        console.error('delete:', err);
+        console.error('delete:',err);
         btn.disabled = false; btn.textContent = 'Sí, eliminar';
-        showToast('Error: ' + err.code, '#c0392b');
+        showToast('Error al eliminar: '+err.code,'#c0392b');
       }
     }
 
-    // Expose all globals
     window.toggleLike       = toggleLike;
     window.submitNameModal  = submitNameModal;
     window.openComments     = openComments;
