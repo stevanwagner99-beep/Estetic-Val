@@ -1602,32 +1602,13 @@
       list.scrollTop = list.scrollHeight;
     }
 
-    async function openComments(entryId, imgSrc) {
+    function openComments(entryId, imgSrc) {
       _currentCommentEntry = entryId;
       document.getElementById('cm-photo-img').src = imgSrc;
       document.getElementById('cm-input').value = '';
       document.getElementById('comments-overlay').classList.add('active');
       document.body.style.overflow = 'hidden';
-      if (_commentsUnsub) { _commentsUnsub(); _commentsUnsub = null; }
       renderCommentList(entryId);
-      // Also try Firestore listener silently
-      if (window._fbReady) {
-        try {
-          const q = window._fbQuery(window._fbCollection(window._db,'comentarios_pub'),window._fbOrderBy('timestamp','asc'));
-          _commentsUnsub = window._fbOnSnapshot(q, snap => {
-            const fb = snap.docs.map(d=>({...d.data(),_id:d.id})).filter(c=>c.entryId===entryId);
-            const local = getLocalComments(entryId);
-            const fbIds = new Set(fb.map(c=>c._localId).filter(Boolean));
-            const extras = local.filter(c=>!fbIds.has(c._localId));
-            const merged = [...fb,...extras].sort((a,b)=>{
-              const ta=a.timestamp&&a.timestamp.toDate?a.timestamp.toDate().getTime():(a._ts||0);
-              const tb=b.timestamp&&b.timestamp.toDate?b.timestamp.toDate().getTime():(b._ts||0);
-              return ta-tb;
-            });
-            renderCommentList(entryId, merged);
-          }, err => { /* silent — use localStorage */ });
-        } catch(e) { /* silent */ }
-      }
     }
 
     function closeComments() {
@@ -1645,17 +1626,11 @@
       const autor = await askName();
       if (!autor) return;
       input.value = '';
-      const localId = 'lc_'+Date.now()+'_'+Math.random().toString(36).slice(2);
-      const commentObj = { entryId:_currentCommentEntry, autor, texto, _localId:localId, _ts:Date.now() };
+      const commentObj = { autor, texto, _ts: Date.now() };
       saveLocalComment(_currentCommentEntry, commentObj);
       renderCommentList(_currentCommentEntry);
       const cEl = document.getElementById('comment-count-'+_currentCommentEntry);
       if (cEl) cEl.textContent = (parseInt(cEl.textContent||'0')||0)+1;
-      if (window._fbReady) {
-        try {
-          await window._fbAddDoc(window._fbCollection(window._db,'comentarios_pub'),{ entryId:_currentCommentEntry, autor, texto, _localId:localId, timestamp:new Date() });
-        } catch(err) { /* stored locally, no error shown */ }
-      }
     }
 
     /* ══ DELETE — PIN verified via getDoc (read is allowed) ══ */
