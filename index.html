@@ -4,15 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Estetic Val | Centro de Estética y Belleza en Bogotá</title>
-
-  <!-- SEO básico -->
   <meta name="description" content="Estetic Val - Centro de estética y belleza en Bogotá. Servicios de uñas, pestañas, depilación, tratamientos faciales y cursos de belleza. ¡Agenda tu cita hoy!">
   <meta name="keywords" content="estética Bogotá, salón de belleza Bogotá, uñas acrílicas, extensiones de pestañas, depilación, tratamientos faciales, cursos de belleza, Estetic Val">
   <meta name="author" content="Estetic Val">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://stevanwagner99-beep.github.io/Estetic-Val/">
-
-  <!-- Open Graph (para compartir en WhatsApp, Facebook, Instagram) -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Estetic Val | Centro de Estética y Belleza en Bogotá">
   <meta property="og:description" content="Centro de estética y belleza en Bogotá. Uñas, pestañas, depilación, tratamientos faciales y cursos profesionales de belleza.">
@@ -20,14 +16,10 @@
   <meta property="og:image" content="https://stevanwagner99-beep.github.io/Estetic-Val/img/logo.png">
   <meta property="og:locale" content="es_CO">
   <meta property="og:site_name" content="Estetic Val">
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Estetic Val | Centro de Estética y Belleza en Bogotá">
   <meta name="twitter:description" content="Centro de estética y belleza en Bogotá. Uñas, pestañas, depilación, tratamientos faciales y cursos profesionales.">
   <meta name="twitter:image" content="https://stevanwagner99-beep.github.io/Estetic-Val/img/logo.png">
-
-  <!-- Datos estructurados para Google (negocio local) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -46,7 +38,6 @@
     "priceRange": "$$"
   }
   </script>
-
   <link rel="icon" type="image/png" href="img/logo.png"/>
   <link rel="shortcut icon" href="img/logo.png"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,7 +57,6 @@
     body { background: var(--bg); color: var(--text); }
     .container { width: 92%; max-width: 1200px; margin: auto; }
 
-    /* NAVBAR */
     .navbar { position: sticky; top: 0; z-index: 999; background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); border-bottom: 1px solid #eee; }
     .nav-content { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; }
     .logo { width: 110px; height: auto; }
@@ -76,7 +66,6 @@
     .btn-contacto { background: var(--primary); color: white !important; padding: 10px 22px; border-radius: 999px; font-weight: 600; box-shadow: 0 8px 20px rgba(199,147,138,0.35); }
     .menu-toggle { display: none; font-size: 26px; cursor: pointer; }
 
-    /* HERO */
     .hero { padding: 90px 0 70px; }
     .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 40px; }
     .badge { display: inline-flex; align-items: center; gap: 6px; background: var(--soft); padding: 8px 18px; border-radius: 999px; font-size: 14px; margin-bottom: 14px; animation: fadeUp 0.6s ease; }
@@ -90,7 +79,6 @@
     .hero-logo { text-align: center; animation: float 5s ease-in-out infinite; }
     .hero-logo img { width: min(420px, 90%); filter: drop-shadow(0 20px 40px rgba(0,0,0,0.08)); }
 
-    /* SOBRE */
     .sobre { padding: 80px 0; }
     .section-title { text-align: center; font-size: clamp(30px,4vw,42px); margin-bottom: 50px; position: relative; }
     .section-title::after { content: ''; width: 80px; height: 4px; background: var(--primary); position: absolute; left: 50%; transform: translateX(-50%); bottom: -12px; border-radius: 10px; }
@@ -109,7 +97,6 @@
     .card-stat h4 { font-size: 34px; color: var(--primary); }
     .card-stat span { font-size: 13px; opacity: 0.75; }
 
-    /* Icon animations */
     @keyframes icon-pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.12);} }
     @keyframes icon-spin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
     @keyframes icon-bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-4px);} }
@@ -123,17 +110,14 @@
     .icon-shake svg { animation: icon-shake 2s ease-in-out infinite; }
     .icon-wiggle svg { animation: icon-wiggle 2.5s ease-in-out infinite; }
 
-    /* Service icons */
     .servicio-icon { width: 54px; height: 54px; background: var(--bg); border: 1.5px solid #e8d5c9; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; transition: 0.25s; }
     .servicio-card:hover .servicio-icon { background: var(--primary); border-color: var(--primary); }
     .servicio-card:hover .servicio-icon svg { color: white; }
     .servicio-icon svg { color: var(--primary); transition: color 0.25s; }
 
-    /* Info icons */
     .info-icon { width: 46px; height: 46px; min-width: 46px; background: linear-gradient(135deg, var(--soft), #fff); border: 1.5px solid #e8d5c9; border-radius: 14px; display: flex; align-items: center; justify-content: center; }
     .info-icon svg { color: var(--primary); }
 
-    /* Social icons */
     .red-item { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; padding: 10px 12px; border-radius: 14px; transition: 0.2s; text-decoration: none; color: inherit; }
     .red-item:hover { background: var(--bg); transform: translateX(4px); }
     .red-icon { width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: 0.2s; }
@@ -141,15 +125,12 @@
     .red-item h4 { font-size: 13px; font-weight: 600; margin-bottom: 1px; }
     .red-item p { font-size: 12px; opacity: 0.7; }
 
-    /* Instagram gradient icon */
     .red-icon-instagram { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
     .red-icon-facebook { background: #1877F2; }
     .red-icon-tiktok { background: #010101; }
 
-    /* Contact icon circle */
     .info-icon-circle { width: 46px; height: 46px; min-width: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 
-    /* CURSOS */
     .cursos { padding: 80px 0; }
     .cursos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
     .curso-card { background: var(--card); border-radius: 22px; box-shadow: 0 12px 30px rgba(0,0,0,0.06); transition: 0.3s; position: relative; overflow: hidden; }
@@ -173,7 +154,6 @@
     .mas-info { font-size: 13px; color: var(--text); opacity: 0.7; cursor: pointer; text-decoration: none; background: none; border: none; padding: 0; font-family: inherit; font-weight: inherit; transition: color 0.15s, opacity 0.15s; display: flex; align-items: center; gap: 4px; }
     .mas-info:hover { color: var(--primary); opacity: 1; }
 
-    /* MODAL */
     .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 2000; align-items: center; justify-content: center; padding: 20px; }
     .modal-overlay.active { display: flex; }
     .modal { background: #fff; border-radius: 20px; width: 100%; max-width: 500px; max-height: 88vh; overflow-y: auto; position: relative; box-shadow: 0 30px 60px rgba(0,0,0,0.15); }
@@ -201,13 +181,20 @@
     .desc-box h4 { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
     .desc-box p { font-size: 13px; opacity: 0.85; line-height: 1.7; margin-bottom: 10px; }
     .desc-box p:last-child { margin-bottom: 0; }
+
+    /* MARCO LEGAL BOX */
+    .ley-box { background: linear-gradient(135deg, #f0f4ff, #e8f0fe); border: 1.5px solid #c5d5f5; border-radius: 12px; padding: 14px 16px; margin-top: 16px; }
+    .ley-box-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .ley-box-header svg { color: #3b5bdb; flex-shrink: 0; }
+    .ley-box-header span { font-size: 12px; font-weight: 700; color: #3b5bdb; letter-spacing: 0.3px; text-transform: uppercase; }
+    .ley-box p { font-size: 12px; color: #4a5568; line-height: 1.65; opacity: 1; margin: 0; }
+
     .modal-footer { display: flex; gap: 12px; padding: 0 26px 24px; }
     .btn-inscribir { flex: 1; background: var(--primary); color: #fff; border: none; padding: 13px; border-radius: 999px; font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.25s; box-shadow: 0 8px 20px rgba(199,147,138,0.35); }
     .btn-inscribir:hover { background: var(--primary-dark); transform: translateY(-2px); }
     .btn-solicitar { flex: 1; background: transparent; color: var(--text); border: 2px solid #ccc; padding: 13px; border-radius: 999px; font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.25s; }
     .btn-solicitar:hover { border-color: var(--primary); color: var(--primary); }
 
-    /* SERVICIOS */
     .servicios { padding: 80px 0; }
     .servicios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-bottom: 40px; }
     .servicio-card { background: var(--card); padding: 28px; border-radius: 22px; box-shadow: 0 12px 30px rgba(0,0,0,0.06); transition: 0.25s; }
@@ -219,7 +206,6 @@
     .tecnicas-tags { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 24px; }
     .tecnica-tag { background: var(--bg); border: 1px solid #e8d5c9; color: var(--text); font-size: 13px; padding: 8px 18px; border-radius: 999px; font-weight: 500; }
 
-    /* CONTACTO */
     .contacto { padding: 80px 0; }
     .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
     .form-card, .info-card { background: var(--card); border-radius: 22px; padding: 30px; box-shadow: 0 12px 30px rgba(0,0,0,0.06); }
@@ -240,7 +226,6 @@
     .horario-box p { font-size: 13px; color: var(--primary); margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
     .horario-box p svg { opacity: 0.7; flex-shrink: 0; }
 
-    /* FOOTER */
     .footer { background: var(--soft); border-top: 1px solid #e0c9be; padding: 50px 0 22px; }
     .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; margin-bottom: 34px; }
     .footer-brand img { width: 80px; margin-bottom: 14px; }
@@ -252,11 +237,9 @@
     .footer-col ul li a:hover { color: var(--primary-dark); }
     .footer-bottom { border-top: 1px solid #e0c9be; padding-top: 20px; text-align: center; font-size: 12.5px; opacity: 0.7; }
 
-    /* WHATSAPP */
     .whatsapp { position: fixed; right: 22px; bottom: 22px; background: #25d366; color: white; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 15px 30px rgba(0,0,0,0.25); animation: pulse 2s infinite; z-index: 999; transition: transform 0.2s; }
     .whatsapp:hover { transform: scale(1.1); }
 
-    /* GRADUACIONES */
     .graduaciones { padding: 80px 0; }
     .rating-hero { background: var(--card); border-radius: 24px; padding: 36px 40px; box-shadow: 0 12px 30px rgba(0,0,0,.06); display: flex; align-items: center; gap: 40px; margin-bottom: 50px; flex-wrap: wrap; }
     .rating-big { text-align: center; flex-shrink: 0; }
@@ -331,7 +314,6 @@
     .gallery-empty h4 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
     .gallery-empty p { font-size: 14px; opacity: .65; }
 
-    /* GALLERY ACTIONS */
     .gallery-actions { display: flex; align-items: center; gap: 8px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #f0e4dc; }
     .gallery-action-btn { display: flex; align-items: center; gap: 5px; border: none; background: transparent; cursor: pointer; font-family: 'Poppins', sans-serif; font-size: 13px; color: var(--text); opacity: 0.65; padding: 6px 10px; border-radius: 10px; transition: .2s; flex-shrink: 0; }
     .gallery-action-btn:hover { opacity: 1; background: var(--bg); }
@@ -344,7 +326,6 @@
     .gallery-action-delete { color: #c62828 !important; opacity: 0.5 !important; }
     .gallery-action-delete:hover { opacity: 1 !important; background: #fde8e8 !important; }
 
-    /* COMMENTS MODAL */
     .comments-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 3500; align-items: center; justify-content: center; padding: 16px; }
     .comments-overlay.active { display: flex; }
     .comments-modal { background: #fff; border-radius: 22px; width: 100%; max-width: 520px; max-height: 88vh; display: flex; flex-direction: column; box-shadow: 0 30px 60px rgba(0,0,0,.18); animation: fadeUp .3s ease; overflow: hidden; }
@@ -369,7 +350,6 @@
     .cm-send:hover { background: var(--primary-dark); transform: scale(1.08); }
     .cm-send svg { color: white; }
 
-    /* DELETE CONFIRM MODAL */
     .del-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 4000; align-items: center; justify-content: center; padding: 20px; }
     .del-overlay.active { display: flex; }
     .del-modal { background: #fff; border-radius: 20px; width: 100%; max-width: 380px; padding: 30px 28px; text-align: center; box-shadow: 0 30px 60px rgba(0,0,0,.15); animation: fadeUp .25s ease; }
@@ -392,7 +372,6 @@
     .del-confirm:hover { background: #b71c1c; }
     .del-confirm:disabled { opacity: .5; cursor: not-allowed; }
 
-    /* NAME MODAL */
     .name-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 4500; align-items: center; justify-content: center; padding: 20px; }
     .name-overlay.active { display: flex; }
     .name-modal { background: #fff; border-radius: 24px; width: 100%; max-width: 360px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,.18); animation: fadeUp .25s ease; }
@@ -509,7 +488,6 @@
     <div class="container hero-grid">
       <div>
         <span class="badge">
-          <!-- Sparkle icon -->
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16" style="animation:icon-spin 6s linear infinite;color:var(--primary)"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/></svg>
           Experta en Estética y Belleza
         </span>
@@ -534,33 +512,30 @@
         <div class="sobre-text">
           <h3>Bienvenida a Estetic Val</h3>
           <p class="nit-num">NIT (1025528231-4)</p>
-          <p>Soy una profesional <em>apasionada</em> por el mundo de la estética y la belleza, con más de 15 años de experiencia transformando vidas a través de la educación y el empoderamiento profesional.</p>
+          <!-- ✅ CAMBIO 1: 15 años → 7 años -->
+          <p>Soy una profesional <em>apasionada</em> por el mundo de la estética y la belleza, con más de 7 años de experiencia transformando vidas a través de la educación y el empoderamiento profesional.</p>
           <p>Mi misión es compartir mis conocimientos y técnicas especializadas para ayudarte a destacar en esta industria en constante evolución. Cada curso está diseñado con dedicación, combinando teoría de vanguardia con práctica intensiva.</p>
           <p>Juntas, crearemos tu <em>camino hacia el éxito profesional</em> en el fascinante mundo de la belleza y el cuidado estético.</p>
         </div>
         <div class="stats">
-          <!-- Estudiantes -->
           <div class="card-stat">
             <div class="stat-icon">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32" height="32" style="color:var(--primary)"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg>
             </div>
             <h4>500+</h4><span>Estudiantes</span>
           </div>
-          <!-- Experiencia -->
           <div class="card-stat">
             <div class="stat-icon">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32" height="32" style="color:var(--primary)"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg>
             </div>
             <h4>7+</h4><span>Años de Experiencia</span>
           </div>
-          <!-- Cursos -->
           <div class="card-stat">
             <div class="stat-icon">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32" height="32" style="color:var(--primary)"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"/></svg>
             </div>
             <h4>10+</h4><span>Cursos Impartidos</span>
           </div>
-          <!-- Satisfacción -->
           <div class="card-stat">
             <div class="stat-icon">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32" height="32" style="color:var(--primary)"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg>
@@ -578,30 +553,29 @@
       <h2 class="section-title">Cursos Especializados</h2>
       <p class="section-subtitle">Descubre nuestra selección de cursos diseñados para llevarte al siguiente nivel profesional</p>
       <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:36px;">
-  <div style="display:flex;align-items:center;gap:12px;background:#ffffff;border:2px solid #c7938a;border-radius:16px;padding:16px 28px;box-shadow:0 8px 24px rgba(199,147,138,0.18);">
-    <div style="width:46px;height:46px;min-width:46px;background:linear-gradient(135deg,#c7938a,#b47f76);border-radius:12px;display:flex;align-items:center;justify-content:center;">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
-    </div>
-    <div>
-      <p style="font-size:11px;color:#b47f76;font-weight:600;margin:0 0 2px;letter-spacing:0.5px;text-transform:uppercase;">Modalidad</p>
-      <p style="font-size:16px;font-weight:700;color:#5b463e;margin:0;">Presencial</p>
-      <p style="font-size:12px;color:#888;margin:0;">Bogotá, Colombia</p>
-    </div>
-  </div>
-  <div style="display:flex;align-items:center;gap:12px;background:#ffffff;border:2px solid #c7938a;border-radius:16px;padding:16px 28px;box-shadow:0 8px 24px rgba(199,147,138,0.18);">
-    <div style="width:46px;height:46px;min-width:46px;background:linear-gradient(135deg,#c7938a,#b47f76);border-radius:12px;display:flex;align-items:center;justify-content:center;">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h13.5A2.25 2.25 0 0 1 21 5.25Z"/></svg>
-    </div>
-    <div>
-      <p style="font-size:11px;color:#b47f76;font-weight:600;margin:0 0 2px;letter-spacing:0.5px;text-transform:uppercase;">Modalidad</p>
-      <p style="font-size:16px;font-weight:700;color:#5b463e;margin:0;">Virtual</p>
-      <p style="font-size:12px;color:#888;margin:0;">Desde cualquier lugar</p>
-    </div>
-  </div>
-</div>
+        <div style="display:flex;align-items:center;gap:12px;background:#ffffff;border:2px solid #c7938a;border-radius:16px;padding:16px 28px;box-shadow:0 8px 24px rgba(199,147,138,0.18);">
+          <div style="width:46px;height:46px;min-width:46px;background:linear-gradient(135deg,#c7938a,#b47f76);border-radius:12px;display:flex;align-items:center;justify-content:center;">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+          </div>
+          <div>
+            <p style="font-size:11px;color:#b47f76;font-weight:600;margin:0 0 2px;letter-spacing:0.5px;text-transform:uppercase;">Modalidad</p>
+            <p style="font-size:16px;font-weight:700;color:#5b463e;margin:0;">Presencial</p>
+            <p style="font-size:12px;color:#888;margin:0;">Bogotá, Colombia</p>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;background:#ffffff;border:2px solid #c7938a;border-radius:16px;padding:16px 28px;box-shadow:0 8px 24px rgba(199,147,138,0.18);">
+          <div style="width:46px;height:46px;min-width:46px;background:linear-gradient(135deg,#c7938a,#b47f76);border-radius:12px;display:flex;align-items:center;justify-content:center;">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h13.5A2.25 2.25 0 0 1 21 5.25Z"/></svg>
+          </div>
+          <div>
+            <p style="font-size:11px;color:#b47f76;font-weight:600;margin:0 0 2px;letter-spacing:0.5px;text-transform:uppercase;">Modalidad</p>
+            <p style="font-size:16px;font-weight:700;color:#5b463e;margin:0;">Virtual</p>
+            <p style="font-size:12px;color:#888;margin:0;">Desde cualquier lugar</p>
+          </div>
+        </div>
+      </div>
       <div class="cursos-grid">
 
-        <!-- Manicurista -->
         <div class="curso-card">
           <div class="curso-img-placeholder destacado">
             <span class="badge-destacado"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="13" height="13"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/></svg> Curso Destacado</span>
@@ -621,7 +595,6 @@
           </div>
         </div>
 
-        <!-- Lashista -->
         <div class="curso-card">
           <div class="curso-img-placeholder destacado">
             <span class="badge-destacado"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="13" height="13"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/></svg> Curso Destacado</span>
@@ -641,7 +614,6 @@
           </div>
         </div>
 
-        <!-- Maderoterapia -->
         <div class="curso-card">
           <div class="curso-img-placeholder destacado">
             <span class="badge-destacado"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="13" height="13"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/></svg> Curso Destacado</span>
@@ -661,7 +633,6 @@
           </div>
         </div>
 
-        <!-- Drenaje -->
         <div class="curso-card">
           <div class="curso-img-placeholder"><img src="img/imagen_drenaje_linfatico.jpeg" alt="Curso de Drenaje Linfático" loading="lazy"/></div>
           <div class="curso-body">
@@ -678,7 +649,6 @@
           </div>
         </div>
 
-        <!-- Peinados -->
         <div class="curso-card">
           <div class="curso-img-placeholder"><img src="img/imagen_peinados.jpeg" alt="Curso de Peinados" loading="lazy"/></div>
           <div class="curso-body">
@@ -695,7 +665,6 @@
           </div>
         </div>
 
-        <!-- Colorimetria -->
         <div class="curso-card">
           <div class="curso-img-placeholder"><img src="img/imagen_colorimetria.jpeg" alt="Curso de Colorimetría" loading="lazy"/></div>
           <div class="curso-body">
@@ -712,7 +681,6 @@
           </div>
         </div>
 
-        <!-- Maquillaje -->
         <div class="curso-card">
           <div class="curso-img-placeholder destacado">
             <span class="badge-destacado"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="13" height="13"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/></svg> Curso Destacado</span>
@@ -732,7 +700,6 @@
           </div>
         </div>
 
-        <!-- Maquillaje Artístico -->
         <div class="curso-card">
           <div class="curso-img-placeholder"><img src="img/imagen_maquillaje_artistico.jpeg" alt="Curso de Maquillaje Artístico" loading="lazy"/></div>
           <div class="curso-body">
@@ -749,7 +716,6 @@
           </div>
         </div>
 
-        <!-- Keratina -->
         <div class="curso-card">
           <div class="curso-img-placeholder"><img src="img/imagen_keratina.jpeg" alt="Curso de Keratina" loading="lazy"/></div>
           <div class="curso-body">
@@ -766,7 +732,6 @@
           </div>
         </div>
 
-        <!-- Depilación -->
         <div class="curso-card">
           <div class="curso-img-placeholder"><img src="img/imagen_depilacion.jpeg" alt="Curso de Depilación" loading="lazy"/></div>
           <div class="curso-body">
@@ -793,106 +758,17 @@
       <h2 class="section-title">Mis Servicios</h2>
       <p class="section-subtitle">Ofrezco servicios profesionales de belleza con las mejores técnicas del mercado</p>
       <div class="servicios-grid">
-
-        <div class="servicio-card">
-          <div class="servicio-icon">
-            <!-- Nail / sparkle icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/></svg>
-          </div>
-          <h4>Uñas Profesionales</h4>
-          <p>Servicio completo de manicura con técnicas en soft gel, acrílicas, semipermanente, gel y efecto diping para uñas perfectas.</p>
-        </div>
-
-        <div class="servicio-card">
-          <div class="servicio-icon">
-            <!-- Eye icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>
-          </div>
-          <h4>Pestañas Punto a Punto y Pelo a Pelo</h4>
-          <p>Aplicación profesional de extensiones de pestañas con técnicas punto a punto y pelo a pelo para una mirada impactante.</p>
-        </div>
-
-        <div class="servicio-card">
-          <div class="servicio-icon">
-            <!-- Pencil icon for cejas -->
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125"/></svg>
-          </div>
-          <h4>Cejas en Henna</h4>
-          <p>Diseño y coloración de cejas con henna natural para un resultado duradero y de aspecto profesional.</p>
-        </div>
-
-        <div class="servicio-card">
-          <div class="servicio-icon">
-            <!-- Leaf / nature icon for maderoterapia -->
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
-          </div>
-          <h4>Maderoterapia</h4>
-          <p>Masajes reductores con técnicas especializadas de maderoterapia para moldear y tonificar el cuerpo.</p>
-        </div>
-
-        <div class="servicio-card">
-          <div class="servicio-icon">
-            <!-- Heart / wellness icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
-          </div>
-          <h4>Drenaje Linfático</h4>
-          <p>Tratamientos de drenaje linfático manual para eliminar toxinas, reducir inflamación y mejorar la circulación.</p>
-        </div>
-
-        <div class="servicio-card">
-          <div class="servicio-icon">
-            <!-- Scissors / hair icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="m7.848 8.25 1.536.887M7.848 8.25a3 3 0 1 1-5.196-3 3 3 0 0 1 5.196 3Zm1.536.887a2.165 2.165 0 0 1 1.083 1.839c.005.351.054.695.14 1.024M9.384 9.137l2.077 1.199M7.848 15.75l1.536-.887m-1.536.887a3 3 0 1 1-5.196 3 3 3 0 0 1 5.196-3Zm1.536-.887a2.165 2.165 0 0 0 1.083-1.838c.005-.352.054-.695.14-1.025m-1.223 2.863 2.077-1.199m0-3.328a4.323 4.323 0 0 1 2.068-1.379l5.325-1.628a4.5 4.5 0 0 1 2.241-.032c.531.13.757.52.588 1.083l-.463 1.601a4.5 4.5 0 0 1-1.605 2.352l-4.713 3.466c-.709.521-1.058 1.422-.9 2.303.152.858-.242 1.774-1.114 2.105a6.15 6.15 0 0 1-2.095.37c-.72 0-1.403-.257-1.902-.72-.503-.466-.68-1.113-.466-1.745.13-.384.39-.72.737-.956l1.073-.71"/></svg>
-          </div>
-          <h4>Peinados Profesionales</h4>
-          <p>Peinados para todo tipo de eventos, desde looks casuales hasta alta peluquería. Resultados perfectos y duraderos.</p>
-        </div>
-
-        <div class="servicio-card">
-          <div class="servicio-icon">
-            <!-- Swatch / color palette icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z"/></svg>
-          </div>
-          <h4>Colorimetría</h4>
-          <p>Coloración capilar profesional con dominio de la teoría del color para lograr resultados exactos y personalizados.</p>
-        </div>
-
-        <div class="servicio-card">
-          <div class="servicio-icon">
-            <!-- Face / makeup icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z"/></svg>
-          </div>
-          <h4>Maquillaje Profesional</h4>
-          <p>Maquillaje para eventos, día a día y ocasiones especiales con técnicas profesionales que realzan tu belleza natural.</p>
-        </div>
-
-        <div class="servicio-card">
-          <div class="servicio-icon">
-            <!-- Sparkles icon for maquillaje artístico -->
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"/></svg>
-          </div>
-          <h4>Maquillaje Artístico</h4>
-          <p>Maquillaje creativo para editoriales, pasarelas y efectos especiales. Arte aplicado directamente en tu rostro.</p>
-        </div>
-
-        <div class="servicio-card">
-          <div class="servicio-icon">
-            <!-- Bolt / keratin icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>
-          </div>
-          <h4>Keratina</h4>
-          <p>Tratamiento de alisado con keratina para transformar el cabello dañado en cabello liso, brillante y saludable.</p>
-        </div>
-
-        <div class="servicio-card">
-          <div class="servicio-icon">
-            <!-- Fire / laser icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z"/></svg>
-          </div>
-          <h4>Depilación Láser y con Cera</h4>
-          <p>Eliminación del vello corporal con técnicas láser y cera de forma segura, profesional y con resultados duraderos.</p>
-        </div>
-
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/></svg></div><h4>Uñas Profesionales</h4><p>Servicio completo de manicura con técnicas en soft gel, acrílicas, semipermanente, gel y efecto diping para uñas perfectas.</p></div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg></div><h4>Pestañas Punto a Punto y Pelo a Pelo</h4><p>Aplicación profesional de extensiones de pestañas con técnicas punto a punto y pelo a pelo para una mirada impactante.</p></div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125"/></svg></div><h4>Cejas en Henna</h4><p>Diseño y coloración de cejas con henna natural para un resultado duradero y de aspecto profesional.</p></div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg></div><h4>Maderoterapia</h4><p>Masajes reductores con técnicas especializadas de maderoterapia para moldear y tonificar el cuerpo.</p></div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg></div><h4>Drenaje Linfático</h4><p>Tratamientos de drenaje linfático manual para eliminar toxinas, reducir inflamación y mejorar la circulación.</p></div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="m7.848 8.25 1.536.887M7.848 8.25a3 3 0 1 1-5.196-3 3 3 0 0 1 5.196 3Zm1.536.887a2.165 2.165 0 0 1 1.083 1.839c.005.351.054.695.14 1.024M9.384 9.137l2.077 1.199M7.848 15.75l1.536-.887m-1.536.887a3 3 0 1 1-5.196 3 3 3 0 0 1 5.196-3Zm1.536-.887a2.165 2.165 0 0 0 1.083-1.838c.005-.352.054-.695.14-1.025m-1.223 2.863 2.077-1.199m0-3.328a4.323 4.323 0 0 1 2.068-1.379l5.325-1.628a4.5 4.5 0 0 1 2.241-.032c.531.13.757.52.588 1.083l-.463 1.601a4.5 4.5 0 0 1-1.605 2.352l-4.713 3.466c-.709.521-1.058 1.422-.9 2.303.152.858-.242 1.774-1.114 2.105a6.15 6.15 0 0 1-2.095.37c-.72 0-1.403-.257-1.902-.72-.503-.466-.68-1.113-.466-1.745.13-.384.39-.72.737-.956l1.073-.71"/></svg></div><h4>Peinados Profesionales</h4><p>Peinados para todo tipo de eventos, desde looks casuales hasta alta peluquería. Resultados perfectos y duraderos.</p></div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z"/></svg></div><h4>Colorimetría</h4><p>Coloración capilar profesional con dominio de la teoría del color para lograr resultados exactos y personalizados.</p></div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z"/></svg></div><h4>Maquillaje Profesional</h4><p>Maquillaje para eventos, día a día y ocasiones especiales con técnicas profesionales que realzan tu belleza natural.</p></div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"/></svg></div><h4>Maquillaje Artístico</h4><p>Maquillaje creativo para editoriales, pasarelas y efectos especiales. Arte aplicado directamente en tu rostro.</p></div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg></div><h4>Keratina</h4><p>Tratamiento de alisado con keratina para transformar el cabello dañado en cabello liso, brillante y saludable.</p></div>
+        <div class="servicio-card"><div class="servicio-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z"/></svg></div><h4>Depilación Láser y con Cera</h4><p>Eliminación del vello corporal con técnicas láser y cera de forma segura, profesional y con resultados duraderos.</p></div>
       </div>
       <div class="tecnicas-section">
         <h3>Técnicas Especializadas</h3>
@@ -937,28 +813,17 @@
         <p>Sube tu foto, cuéntanos tu experiencia y deja tu comentario para inspirar a otras estudiantes.</p>
         <div class="dropzone" id="dropzone">
           <input type="file" id="foto-input" accept="image/*" multiple onchange="handleFiles(this.files)"/>
-          <div class="dz-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="38" height="38"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5"/></svg>
-          </div>
+          <div class="dz-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="38" height="38"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5"/></svg></div>
           <p>Arrastra tu foto aquí o <strong>haz clic para seleccionar</strong></p>
           <p style="font-size:11px;margin-top:4px;">JPG, PNG, WEBP · Máx 5 MB por imagen</p>
         </div>
         <div class="preview-strip" id="preview-strip"></div>
-
         <div class="upload-progress" id="upload-progress">
           <div class="upload-progress-bar"><div class="upload-progress-fill" id="progress-fill"></div></div>
           <div class="upload-progress-text" id="progress-text">Subiendo imágenes...</div>
         </div>
-
-        <div class="up-form-group">
-          <label>Tu nombre</label>
-          <input type="text" id="up-nombre" placeholder="Ej: Valentina García"/>
-        </div>
-        <div class="up-form-group" style="margin-top:16px;">
-          <label>Tu comentario</label>
-          <textarea id="up-comentario" placeholder="Cuéntanos cómo fue tu experiencia, qué aprendiste y cómo ha cambiado tu carrera…"></textarea>
-        </div>
-
+        <div class="up-form-group"><label>Tu nombre</label><input type="text" id="up-nombre" placeholder="Ej: Valentina García"/></div>
+        <div class="up-form-group" style="margin-top:16px;"><label>Tu comentario</label><textarea id="up-comentario" placeholder="Cuéntanos cómo fue tu experiencia, qué aprendiste y cómo ha cambiado tu carrera…"></textarea></div>
         <label style="font-size:13px;font-weight:600;display:block;margin-top:16px;margin-bottom:8px;">Tu valoración del curso</label>
         <div class="star-picker" id="up-stars">
           <button type="button" onclick="setUpStar(1)">★</button>
@@ -968,7 +833,6 @@
           <button type="button" onclick="setUpStar(5)">★</button>
         </div>
         <div class="star-hint" id="up-star-hint">Selecciona una puntuación</div>
-
         <button class="btn-upload" id="btn-subir" onclick="publicarEntrada()">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5"/></svg>
           Publicar en la galería
@@ -1010,68 +874,37 @@
           <div class="info-card">
             <h3>Información de Contacto</h3>
             <div class="info-item">
-              <div class="info-icon" style="background:linear-gradient(135deg,#fce4ec,#fff);border-color:#f8bbd0;">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20" style="color:#e91e63;animation:icon-shake 3s ease-in-out infinite"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
-              </div>
+              <div class="info-icon" style="background:linear-gradient(135deg,#fce4ec,#fff);border-color:#f8bbd0;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20" style="color:#e91e63;animation:icon-shake 3s ease-in-out infinite"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg></div>
               <div><h4>Teléfono</h4><p>+57 311 542 4649</p></div>
             </div>
             <div class="info-item">
-              <div class="info-icon" style="background:linear-gradient(135deg,#e3f2fd,#fff);border-color:#bbdefb;">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20" style="color:#1565c0;animation:icon-bounce 2.5s ease-in-out infinite"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
-              </div>
+              <div class="info-icon" style="background:linear-gradient(135deg,#e3f2fd,#fff);border-color:#bbdefb;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20" style="color:#1565c0;animation:icon-bounce 2.5s ease-in-out infinite"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg></div>
               <div><h4>Email</h4><p>lauravalentinarey16@gmail.com</p></div>
             </div>
             <div class="info-item">
-              <div class="info-icon" style="background:linear-gradient(135deg,#fce4ec,#fff);border-color:#f8bbd0;">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20" style="color:#c62828;animation:icon-pulse 2.5s ease-in-out infinite"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
-              </div>
+              <div class="info-icon" style="background:linear-gradient(135deg,#fce4ec,#fff);border-color:#f8bbd0;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20" style="color:#c62828;animation:icon-pulse 2.5s ease-in-out infinite"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg></div>
               <div><h4>Ubicación</h4><p>Bogotá, Colombia</p></div>
             </div>
           </div>
           <div class="info-card" style="margin-top:22px;">
             <h3>Sígueme en Redes</h3>
-
-            <!-- Instagram con logo oficial SVG -->
             <a href="https://www.instagram.com/estetic.val?igsh=MXJmNWtjeDNzbGNp" target="_blank" class="red-item">
-              <div class="red-icon red-icon-instagram">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-              </div>
+              <div class="red-icon red-icon-instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
               <div><h4>Instagram</h4><p>@esteticval</p></div>
             </a>
-
-            <!-- Facebook con logo oficial SVG -->
             <a href="https://www.facebook.com/profile.php?id=61588660902499" target="_blank" class="red-item">
-              <div class="red-icon red-icon-facebook">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              </div>
+              <div class="red-icon red-icon-facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
               <div><h4>Facebook</h4><p>Estetic Val</p></div>
             </a>
-
-            <!-- TikTok con logo oficial SVG -->
             <a href="https://www.tiktok.com/@estetic.val?is_from_webapp=1&sender_device=pc" target="_blank" class="red-item">
-              <div class="red-icon red-icon-tiktok">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.53V6.77a4.85 4.85 0 0 1-1.01-.08z"/></svg>
-              </div>
+              <div class="red-icon red-icon-tiktok"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.53V6.77a4.85 4.85 0 0 1-1.01-.08z"/></svg></div>
               <div><h4>TikTok</h4><p>@esteticval</p></div>
             </a>
-
             <div class="horario-box">
-              <h4>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18" style="color:var(--primary)"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
-                Horario de Atención
-              </h4>
-              <p>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
-                Lunes - Viernes: 9:00 - 20:00
-              </p>
-              <p>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
-                Sábados: 10:00 - 14:00
-              </p>
-              <p style="color:#999;">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
-                Domingos: Cerrado
-              </p>
+              <h4><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18" style="color:var(--primary)"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> Horario de Atención</h4>
+              <p><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg> Lunes - Viernes: 9:00 - 20:00</p>
+              <p><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg> Sábados: 10:00 - 14:00</p>
+              <p style="color:#999;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg> Domingos: Cerrado</p>
             </div>
           </div>
         </div>
@@ -1139,6 +972,16 @@
             <p>Este curso está diseñado para brindarte todas las herramientas y conocimientos necesarios para convertirte en un profesional destacado en el área. Aprenderás desde los fundamentos teóricos hasta la práctica avanzada con técnicas de última generación.</p>
             <p>Contarás con mi acompañamiento personalizado durante todo el proceso de aprendizaje, asegurando que domines cada técnica antes de avanzar. Al finalizar, estarás completamente preparada para ofrecer servicios profesionales de alta calidad.</p>
           </div>
+          <!-- ✅ CAMBIO 3: Marco legal agregado al final del modal -->
+          <div class="ley-box">
+            <div class="ley-box-header">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971Z"/>
+              </svg>
+              <span>Marco Legal</span>
+            </div>
+            <p>Este curso se enmarca en la <strong>Ley 115 de 1994 (Ley General de Educación), artículo 43</strong>, que la define como todo conocimiento libre y espontáneamente adquirido. Actualmente se reglamenta mediante el <strong>Decreto Único Reglamentario 1075 de 2015</strong>, el cual compila las normas del sector educativo en Colombia.</p>
+          </div>
         </div>
       </div>
       <div class="modal-footer">
@@ -1170,9 +1013,7 @@
   <div class="name-overlay" id="name-overlay">
     <div class="name-modal">
       <div class="name-modal-header">
-        <div class="name-modal-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
-        </div>
+        <div class="name-modal-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg></div>
         <h3>¿Cómo te llamas?</h3>
         <p>Tu nombre aparecerá junto a tu comentario en la galería.</p>
       </div>
@@ -1188,44 +1029,27 @@
   <div class="comments-overlay" id="comments-overlay">
     <div class="comments-modal">
       <div class="cm-header">
-        <h3>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18" style="color:var(--primary)"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"/></svg>
-          Comentarios
-        </h3>
+        <h3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18" style="color:var(--primary)"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"/></svg> Comentarios</h3>
         <button class="cm-close" onclick="closeComments()">✕</button>
       </div>
       <div class="cm-photo-preview"><img id="cm-photo-img" src="" alt=""/></div>
       <div class="cm-list" id="cm-list"><div class="cm-empty">Cargando comentarios…</div></div>
       <div class="cm-compose">
         <input type="text" id="cm-input" placeholder="Escribe un comentario…" maxlength="300" onkeydown="if(event.key==='Enter')sendComment()"/>
-        <button class="cm-send" onclick="sendComment()" title="Enviar">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"/></svg>
-        </button>
+        <button class="cm-send" onclick="sendComment()" title="Enviar"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"/></svg></button>
       </div>
     </div>
   </div>
 
-  <!-- DELETE CONFIRM MODAL -->
+  <!-- DELETE MODAL -->
   <div class="del-overlay" id="del-overlay">
     <div class="del-modal">
-      <div class="del-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/></svg>
-      </div>
+      <div class="del-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/></svg></div>
       <h3>¿Eliminar publicación?</h3>
       <p id="del-desc">Solo quien publicó esta foto puede eliminarla. Ingresa el PIN de 6 dígitos que recibiste al publicar.</p>
-      <div class="del-pin-display" id="del-pin-display">
-        <p>Tu PIN de eliminación (guárdalo)</p>
-        <div class="pin-code" id="del-pin-show"></div>
-      </div>
-      <div class="del-input-wrap">
-        <label>Código PIN de 6 dígitos</label>
-        <input type="text" class="del-pin-input" id="del-pin-input" placeholder="000000" maxlength="6" inputmode="numeric" pattern="[0-9]*" oninput="this.value=this.value.replace(/\D/g,'');checkDelPin()"/>
-        <div class="del-pin-error" id="del-pin-error">PIN incorrecto. Solo quien publicó puede eliminar.</div>
-      </div>
-      <div class="del-buttons">
-        <button class="del-cancel" onclick="closeDeleteModal()">Cancelar</button>
-        <button class="del-confirm" id="del-confirm-btn" disabled onclick="confirmDelete()">Sí, eliminar</button>
-      </div>
+      <div class="del-pin-display" id="del-pin-display"><p>Tu PIN de eliminación (guárdalo)</p><div class="pin-code" id="del-pin-show"></div></div>
+      <div class="del-input-wrap"><label>Código PIN de 6 dígitos</label><input type="text" class="del-pin-input" id="del-pin-input" placeholder="000000" maxlength="6" inputmode="numeric" pattern="[0-9]*" oninput="this.value=this.value.replace(/\D/g,'');checkDelPin()"/><div class="del-pin-error" id="del-pin-error">PIN incorrecto. Solo quien publicó puede eliminar.</div></div>
+      <div class="del-buttons"><button class="del-cancel" onclick="closeDeleteModal()">Cancelar</button><button class="del-confirm" id="del-confirm-btn" disabled onclick="confirmDelete()">Sí, eliminar</button></div>
     </div>
   </div>
 
@@ -1270,7 +1094,6 @@
     window._fbOnSnapshot = onSnapshot;
     window._fbReady      = true;
 
-    // ── Graduaciones ──
     onSnapshot(
       query(collection(db, "graduaciones"), orderBy("timestamp", "desc")),
       snap => {
@@ -1283,20 +1106,26 @@
       }
     );
 
-    // ── Likes (colección ev_likes, solo addDoc = create) ──
     onSnapshot(collection(db, "ev_likes"), snap => {
       const map = {};
       snap.docs.forEach(d => {
-        const { entryId, uid } = d.data();
-        if (!map[entryId]) map[entryId] = { count: 0, uids: [] };
-        map[entryId].count++;
-        map[entryId].uids.push(uid);
+        const { entryId, uid, action } = d.data();
+        if (!map[entryId]) map[entryId] = { count: 0, uids: new Set() };
+        if (action === 'unlike') {
+          map[entryId].uids.delete(uid);
+        } else {
+          map[entryId].uids.add(uid);
+        }
       });
-      window._likesMap = map;
+      // Convert Sets to arrays and count
+      const finalMap = {};
+      Object.entries(map).forEach(([k, v]) => {
+        finalMap[k] = { count: v.uids.size, uids: [...v.uids] };
+      });
+      window._likesMap = finalMap;
       if (window.applyLikesFromFirestore) window.applyLikesFromFirestore();
     }, (e) => { if(e.code!=='permission-denied')console.warn('ev_likes:',e.code); });
 
-    // ── Comentarios (colección ev_comments, solo addDoc = create) ──
     onSnapshot(
       query(collection(db, "ev_comments"), orderBy("timestamp", "asc")),
       snap => {
@@ -1310,7 +1139,6 @@
         if (window._currentCommentEntry && window.renderCommentList) {
           window.renderCommentList(window._currentCommentEntry);
         }
-        // Update comment counts in gallery
         Object.entries(map).forEach(([entryId, arr]) => {
           const el = document.getElementById('comment-count-' + entryId);
           if (el) el.textContent = arr.length || '';
@@ -1318,7 +1146,6 @@
       }, (e) => { if(e.code!=='permission-denied')console.warn('ev_comments:',e.code); }
     );
 
-    // ── Valoraciones ──
     onSnapshot(collection(db, "valoraciones"), snap => {
       window._ratings = snap.docs.filter(d => d.data().v2).map(d => d.data().stars);
       if (window.renderScoreBoard) window.renderScoreBoard();
@@ -1504,7 +1331,6 @@
         await window._fbAddDoc(window._fbCollection(window._db, 'valoraciones'), {
           stars: upStars, v2: true, timestamp: new Date()
         });
-        // Save PIN locally so only this device can delete
         try {
           const savedPins = JSON.parse(localStorage.getItem('ev_pins')||'{}');
           savedPins[docRef.id] = pin;
@@ -1519,7 +1345,6 @@
         document.getElementById('up-star-hint').textContent = 'Selecciona una puntuación';
         progressEl.style.display = 'none'; fillEl.style.width = '0%';
 
-        // Show success with PIN
         showMsg(msg, `🎉 ¡Publicada! Tu PIN para eliminar es: ${pin} — guárdalo en un lugar seguro.`, '#e8f5e9', '#2e7d32');
         showToast('¡Publicado con éxito! 🌸');
         setTimeout(() => document.getElementById('gallery-grid').scrollIntoView({ behavior:'smooth' }), 600);
@@ -1577,8 +1402,6 @@
       grid.innerHTML = entries.map(e => {
         const fecha = e.timestamp?.toDate ? e.timestamp.toDate().toLocaleDateString('es-CO',{day:'2-digit',month:'long',year:'numeric'}) : 'Reciente';
         const extras = (e.images||[]).length>1 ? `<div class="preview-strip" style="margin-top:10px;">${e.images.slice(1,4).map(src=>`<img src="${src}" class="preview-thumb" style="cursor:pointer" onclick="openLightbox('${src}')" loading="lazy"/>`).join('')}</div>` : '';
-        const likeCount = 0; // likes stored locally
-        const commentCount = e.commentCount || 0;
         const imgSafe = escHtml(e.images[0]);
         return `<div class="gallery-card" id="card-${e.id}">
           <div class="gallery-img-wrap" style="cursor:pointer" onclick="openLightbox('${imgSafe}')">
@@ -1596,44 +1419,36 @@
             <div class="gallery-actions">
               <button class="gallery-action-btn" id="like-btn-${e.id}" onclick="toggleLike('${e.id}')">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg>
-                <span id="like-count-${e.id}">${likeCount||''}</span>
+                <span id="like-count-${e.id}"></span>
               </button>
               <button class="gallery-action-btn" id="comment-btn-${e.id}" onclick="openComments('${e.id}','${imgSafe}')">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"/></svg>
-                <span id="comment-count-${e.id}">${commentCount||''}</span>
+                <span id="comment-count-${e.id}"></span>
               </button>
               <div class="gallery-action-spacer"></div>
-              <button class="gallery-action-btn gallery-action-delete" onclick="openDeleteModal('${e.id}')" title="Eliminar publicación">                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="15" height="15"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/></svg>
+              <button class="gallery-action-btn gallery-action-delete" onclick="openDeleteModal('${e.id}')" title="Eliminar publicación">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="15" height="15"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/></svg>
               </button>
             </div>
           </div>
         </div>`;
       }).join('');
-      // Restore like states from localStorage
       setTimeout(() => { if (window.updateLikeCounts) window.updateLikeCounts(); }, 0);
-      // Restore comment counts from localStorage
       entries.forEach(e => {
         const cEl = document.getElementById('comment-count-'+e.id);
         if (!cEl) return;
-        const local = getLocalComments ? getLocalComments(e.id) : [];
+        const local = getLocalComments(e.id);
         if (local.length > 0) cEl.textContent = local.length;
       });
     };
 
-    /* ══ USER ID (per-device, persistent) ══ */
+    /* ══ USER ID ══ */
     try { if (!localStorage.getItem('ev_uid')) localStorage.setItem('ev_uid','u_'+Math.random().toString(36).slice(2)); window._userId = localStorage.getItem('ev_uid'); } catch { window._userId = 'u_'+Math.random().toString(36).slice(2); }
 
-    /* ══════════════════════════════════════════
-       LIKES
-       • Persisted in Firestore collection "ev_likes"
-         Each like = one addDoc (create-only, no update needed)
-         Doc fields: { entryId, uid, timestamp }
-       • Falls back to localStorage if Firestore has no permission yet
-    ══════════════════════════════════════════ */
-    window._likesMap   = {};      // filled by Firebase listener above
-    window._commentsMap = {};     // filled by Firebase listener above
+    window._likesMap   = {};
+    window._commentsMap = {};
 
-    // Called by the Firebase listener in module script
+    /* ✅ CAMBIO 2: Sistema de likes corregido — toggle real (un like por usuario, quita si ya dio like) */
     window.applyLikesFromFirestore = function() {
       const map = window._likesMap || {};
       const uid = window._userId;
@@ -1649,9 +1464,17 @@
       });
     };
 
-    // localStorage fallback
-    function getLikedSet() { try { return new Set(JSON.parse(localStorage.getItem('ev_liked')||'[]')); } catch { return new Set(); } }
-    function saveLikedSet(s) { try { localStorage.setItem('ev_liked', JSON.stringify([...s])); } catch {} }
+    // localStorage para likes (estado local por dispositivo)
+    function getLikeState(entryId) {
+      try { return JSON.parse(localStorage.getItem('ev_liked')||'{}')[entryId] || false; } catch { return false; }
+    }
+    function setLikeState(entryId, val) {
+      try {
+        const obj = JSON.parse(localStorage.getItem('ev_liked')||'{}');
+        if (val) obj[entryId] = true; else delete obj[entryId];
+        localStorage.setItem('ev_liked', JSON.stringify(obj));
+      } catch {}
+    }
 
     async function toggleLike(entryId) {
       const uid  = window._userId;
@@ -1659,55 +1482,51 @@
       const cEl  = document.getElementById('like-count-'+entryId);
       if (!btn || !cEl) return;
 
-      const mapEntry  = (window._likesMap||{})[entryId] || { count:0, uids:[] };
-      const fbReady   = window._fbReady && Object.keys(window._likesMap||{}).length >= 0;
-      const fbLiked   = mapEntry.uids.includes(uid);
-      // Also check localStorage as fallback
-      const lsLiked   = getLikedSet().has(entryId);
-      const wasLiked  = fbReady ? fbLiked : lsLiked;
-      const cur       = parseInt(cEl.textContent||'0')||0;
+      // Determinar estado actual
+      const fbEntry  = (window._likesMap||{})[entryId];
+      const fbLiked  = fbEntry ? fbEntry.uids.includes(uid) : false;
+      const lsLiked  = getLikeState(entryId);
+      const wasLiked = fbEntry ? fbLiked : lsLiked;
+      const newLiked = !wasLiked;
+
+      const cur = parseInt(cEl.textContent||'0') || 0;
 
       // Optimistic UI
-      btn.classList.toggle('liked', !wasLiked);
+      btn.classList.toggle('liked', newLiked);
       const svg = btn.querySelector('svg');
-      if (svg) svg.setAttribute('fill', wasLiked ? 'none' : 'currentColor');
-      cEl.textContent = (!wasLiked ? cur+1 : Math.max(0,cur-1)) || '';
-      if (!wasLiked) { btn.classList.add('like-anim'); setTimeout(()=>btn.classList.remove('like-anim'),400); }
+      if (svg) svg.setAttribute('fill', newLiked ? 'currentColor' : 'none');
+      cEl.textContent = (newLiked ? cur + 1 : Math.max(0, cur - 1)) || '';
+      if (newLiked) { btn.classList.add('like-anim'); setTimeout(() => btn.classList.remove('like-anim'), 400); }
 
-      // Save to localStorage always (instant & offline)
-      const ls = getLikedSet();
-      if (wasLiked) ls.delete(entryId); else ls.add(entryId);
-      saveLikedSet(ls);
+      // Guardar estado local
+      setLikeState(entryId, newLiked);
 
-      // Try Firestore (create-only: each like is a new doc; unlike = new doc with action:'unlike')
+      // Guardar en Firestore: action 'like' o 'unlike'
       if (window._fbReady) {
         try {
           await window._fbAddDoc(window._fbCollection(window._db, 'ev_likes'), {
-            entryId, uid, action: wasLiked ? 'unlike' : 'like', timestamp: new Date()
+            entryId, uid, action: newLiked ? 'like' : 'unlike', timestamp: new Date()
           });
-        } catch(e) { /* no perms yet — localStorage is enough */ }
+        } catch(e) { /* sin permisos aún — localStorage es suficiente */ }
       }
     }
 
     window.updateLikeCounts = function() {
-      // If Firestore data available, use it; otherwise use localStorage
       const hasFirestore = window._likesMap && Object.keys(window._likesMap).length > 0;
       if (hasFirestore) { window.applyLikesFromFirestore(); return; }
-      const liked = getLikedSet();
       (window._entries||[]).forEach(e => {
         const btn = document.getElementById('like-btn-'+e.id);
         const cEl = document.getElementById('like-count-'+e.id);
         if (!btn || !cEl) return;
-        const isLiked = liked.has(e.id);
+        const isLiked = getLikeState(e.id);
         btn.classList.toggle('liked', isLiked);
         const svg = btn.querySelector('svg');
         if (svg) svg.setAttribute('fill', isLiked ? 'currentColor' : 'none');
+        if (!cEl.textContent) cEl.textContent = '';
       });
     };
 
-    /* ══════════════════════════════════════════
-       NAME MODAL
-    ══════════════════════════════════════════ */
+    /* ══ NAME MODAL ══ */
     let _nameResolve = null;
     function askName() {
       return new Promise(resolve => {
@@ -1730,28 +1549,17 @@
       if (_nameResolve) { _nameResolve(val); _nameResolve = null; }
     }
 
-    /* ══════════════════════════════════════════
-       COMMENTS
-       • Persisted in Firestore collection "ev_comments"
-         Each comment = one addDoc (create-only)
-         Doc fields: { entryId, autor, texto, timestamp }
-       • Falls back to localStorage if no permission yet
-       • Global listener in Firebase module syncs window._commentsMap
-    ══════════════════════════════════════════ */
+    /* ══ COMMENTS ══ */
     window._currentCommentEntry = null;
-    let _commentsUnsub = null;
 
-    // localStorage fallback helpers
     function getLocalComments(entryId) { try { return JSON.parse(localStorage.getItem('ev_cm_'+entryId)||'[]'); } catch { return []; } }
     function saveLocalComment(entryId, obj) { try { const a=getLocalComments(entryId); a.push(obj); localStorage.setItem('ev_cm_'+entryId,JSON.stringify(a)); } catch {} }
 
     window.renderCommentList = function(entryId, overrideList) {
       const list = document.getElementById('cm-list');
       if (!list) return;
-      // Prefer Firestore data, fall back to localStorage
       const fbComments   = (window._commentsMap||{})[entryId] || [];
       const localComments = getLocalComments(entryId);
-      // Merge: use FB comments if available, otherwise local
       let items = overrideList || (fbComments.length > 0 ? fbComments : localComments);
       if (!items.length) { list.innerHTML='<div class="cm-empty">¡Sé la primera en comentar! 💬</div>'; return; }
       list.innerHTML = items.map(c => {
@@ -1772,13 +1580,11 @@
       document.body.style.overflow = 'hidden';
       window.renderCommentList(entryId);
     }
-
     function closeComments() {
       document.getElementById('comments-overlay').classList.remove('active');
       document.body.style.overflow = '';
       window._currentCommentEntry = null;
     }
-
     async function sendComment() {
       const entryId = window._currentCommentEntry;
       if (!entryId) return;
@@ -1788,35 +1594,19 @@
       const autor = await askName();
       if (!autor) return;
       input.value = '';
-
       const now = Date.now();
       const commentObj = { entryId, autor, texto, _ts: now };
-
-      // Save to localStorage immediately (always works)
       saveLocalComment(entryId, commentObj);
       window.renderCommentList(entryId);
-
-      // Update counter
       const cEl = document.getElementById('comment-count-'+entryId);
-      if (cEl) {
-        const cur = parseInt(cEl.textContent||'0')||0;
-        cEl.textContent = cur + 1;
-      }
-
-      // Try to persist in Firestore (create-only, no update needed)
+      if (cEl) { const cur = parseInt(cEl.textContent||'0')||0; cEl.textContent = cur + 1; }
       if (window._fbReady) {
-        try {
-          await window._fbAddDoc(window._fbCollection(window._db, 'ev_comments'), {
-            entryId, autor, texto, timestamp: new Date()
-          });
-        } catch(e) { /* no perms yet — stored locally */ }
+        try { await window._fbAddDoc(window._fbCollection(window._db, 'ev_comments'), { entryId, autor, texto, timestamp: new Date() }); } catch(e) {}
       }
     }
 
-    /* ══════════════════════════════════════════
-       DELETE — PIN verification + admin password
-    ══════════════════════════════════════════ */
-    const ADMIN_PASS = '101311'; // contraseña admin para borrar cualquier foto
+    /* ══ DELETE ══ */
+    const ADMIN_PASS = '101311';
     let _deleteEntryId = null;
 
     function openDeleteModal(id) {
@@ -1838,60 +1628,44 @@
       document.body.style.overflow = 'hidden';
       setTimeout(()=>document.getElementById('del-pin-input').focus(),200);
     }
-
     function checkDelPin() {
       const val = document.getElementById('del-pin-input').value;
       document.getElementById('del-confirm-btn').disabled = val.length < 6;
       document.getElementById('del-pin-error').style.display = 'none';
     }
-
     function closeDeleteModal() {
       document.getElementById('del-overlay').classList.remove('active');
       document.body.style.overflow = '';
       _deleteEntryId = null;
     }
-
     async function confirmDelete() {
       if (!_deleteEntryId || !window._fbReady) return;
       const inputVal = document.getElementById('del-pin-input').value.trim();
       if (inputVal.length < 6) return;
       const btn = document.getElementById('del-confirm-btn');
       btn.disabled = true; btn.textContent = 'Verificando…';
-
-      // Admin password check (bypasses PIN)
       if (inputVal === ADMIN_PASS) {
         try {
           btn.textContent = 'Eliminando…';
           await window._fbDeleteDoc(window._fbDoc(window._db,'graduaciones',_deleteEntryId));
           try { const p=JSON.parse(localStorage.getItem('ev_pins')||'{}'); delete p[_deleteEntryId]; localStorage.setItem('ev_pins',JSON.stringify(p)); } catch {}
-          closeDeleteModal();
-          showToast('✅ Publicación eliminada.');
-        } catch(err) {
-          btn.disabled = false; btn.textContent = 'Sí, eliminar';
-          showToast('Error: '+err.code,'#c0392b');
-        }
+          closeDeleteModal(); showToast('✅ Publicación eliminada.');
+        } catch(err) { btn.disabled = false; btn.textContent = 'Sí, eliminar'; showToast('Error: '+err.code,'#c0392b'); }
         return;
       }
-
-      // Normal PIN check via Firestore getDoc (read is always allowed)
       try {
         const docSnap = await window._fbGetDoc(window._fbDoc(window._db,'graduaciones',_deleteEntryId));
         if (!docSnap.exists()) { closeDeleteModal(); showToast('La publicación ya no existe.'); return; }
         const serverPin = docSnap.data().pin;
         if (!serverPin || serverPin !== inputVal) {
           document.getElementById('del-pin-error').style.display = 'block';
-          btn.disabled = false; btn.textContent = 'Sí, eliminar';
-          return;
+          btn.disabled = false; btn.textContent = 'Sí, eliminar'; return;
         }
         btn.textContent = 'Eliminando…';
         await window._fbDeleteDoc(window._fbDoc(window._db,'graduaciones',_deleteEntryId));
         try { const p=JSON.parse(localStorage.getItem('ev_pins')||'{}'); delete p[_deleteEntryId]; localStorage.setItem('ev_pins',JSON.stringify(p)); } catch {}
-        closeDeleteModal();
-        showToast('✅ Publicación eliminada.');
-      } catch(err) {
-        btn.disabled = false; btn.textContent = 'Sí, eliminar';
-        showToast('Error: '+err.code,'#c0392b');
-      }
+        closeDeleteModal(); showToast('✅ Publicación eliminada.');
+      } catch(err) { btn.disabled = false; btn.textContent = 'Sí, eliminar'; showToast('Error: '+err.code,'#c0392b'); }
     }
 
     window.toggleLike       = toggleLike;
